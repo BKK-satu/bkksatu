@@ -18,9 +18,9 @@
             <i class='bx bx-briefcase-alt-2 align-middle text-center d-block'></i>
             <span>Loker</span>
         </a>
-        <a class="{{ ($title == 'rekomendasi') ? 'nav-active ': '' }}text-decoration-none text-black navbar-item text-center d-block py-md-3 py-2 my-2 my-md-0" href="#">
+        <a class="{{ ($title == 'rekomend') ? 'nav-active ': '' }}text-decoration-none text-black navbar-item text-center d-block py-md-3 py-2 my-2 my-md-0" href="#">
             <i class='bx bx-star align-middle text-center d-block'></i>
-            <span>Rekomendasi</span>
+            <span>Rekomend</span>
         </a>
     </div>
 </div>

@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/tambahalumni', function () {
-    return view('admin.alumni.main', ['title' => 'alumni']);
+    return view('mitra.loker.main', ['title' => 'alumni']);
 });
 
 Route::get('/tes', function () {

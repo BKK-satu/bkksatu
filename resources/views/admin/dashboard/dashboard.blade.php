@@ -15,33 +15,7 @@
     }
 
     .welcome-admin {
-        margin-bottom: 120px;
-    }
-    /* CUSTOMIZING GRAPH */
-
-    .graph {
-        height: 300px;
-        width: 60%;
-        background: #fff;
-    }
-
-    .small-graph {
-        width: 35%;
-    }
-
-    .small-graph-item {
-        width: 45%;
-        height: 150px;
-    }
-
-    .graph-item-wrapper {
-        background: #fff;
-        height: 100%;
-        width: 100%;
-    }
-
-    .graph-item-wrapper div:nth-child(2) {
-        font-size: 50px;
+        margin-bottom: 60px;
     }
     /* COSTUMIZING NOTIFICATION */
 
@@ -53,6 +27,20 @@
 
     .notification-wrapper .notif-item .notif-content p {
         margin: 0;
+    }
+    /* CUSTOMIZE GALLERY */
+
+    .overview-data .data.row {
+        height: auto;
+        width: 100%;
+    }
+
+    .overview-data .small-data div:nth-child(2) {
+        font-size: 45px;
+    }
+
+    .row {
+        --bs-gutter-x: 0px;
     }
 </style>
 @endsection
@@ -76,35 +64,48 @@
                 <h4>Hello, Welcome <span class="fw-bolder">Tyson Ngo</span></h4>
             </div>
 
-            <div class="overview-data d-flex justify-content-center mb-5">
-                <div class="graph rounded-20 p-2 me-3 shadow">
-                    <!-- <h2 class="fw-700">Grafik karir alumni</h2> -->
-                    <canvas id="myChart" height="110px"></canvas>
-                </div>
-                <!-- OVERVIEW DATA DATA -->
-                <div class="row small-graph">
-                    <div class="col-6 small-graph-item p-1">
-                        <div class="graph-item-wrapper p-3 shadow rounded-20">
-                            <div class="">Alumni</div>
-                            <div class="text-center fw-900">12.093</div>
+            <div class="overview-data px-2 px-lg-5">
+                <!-- IMAGE INFORMASI -->
+                <div class="data mb-3">
+                    <div class="row">
+                        <div class="col small-data">
+                            <div class="p-2">
+                                <div class="rounded-20 p-3 shadow h-auto bg-white">
+                                    <div class="">Alumni</div>
+                                    <div class="text-center fw-900">12.093</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col small-data">
+                            <div class="p-2">
+                                <div class="rounded-20 p-3 shadow h-auto bg-white">
+                                    <div class="">Alumni</div>
+                                    <div class="text-center fw-900">12.093</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col small-data">
+                            <div class="p-2">
+                                <div class="rounded-20 p-3 shadow h-auto bg-white">
+                                    <div class="">Alumni</div>
+                                    <div class="text-center fw-900">12.093</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col small-data">
+                            <div class="p-2">
+                                <div class="rounded-20 p-3 shadow h-auto bg-white">
+                                    <div class="">Alumni</div>
+                                    <div class="text-center fw-900">12.093</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-6 small-graph-item p-1">
-                        <div class="graph-item-wrapper p-3 shadow rounded-20">
-                            <div class="">Alumni</div>
-                            <div class="text-center fw-900">3.293</div>
-                        </div>
-                    </div>
-                    <div class="col-6 small-graph-item p-1">
-                        <div class="graph-item-wrapper p-3 shadow rounded-20">
-                            <div class="">Alumni</div>
-                            <div class="text-center fw-900">5.432</div>
-                        </div>
-                    </div>
-                    <div class="col-6 small-graph-item p-1">
-                        <div class="graph-item-wrapper p-3 shadow rounded-20">
-                            <div class="">Alumni</div>
-                            <div class="text-center fw-900">3.216</div>
+                    <div class="w-auto big-data">
+                        <div class="p-2">
+                            <div class="rounded-20 p-2 shadow bg-white">
+                                <canvas id="myChart" style="height: auto;"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>

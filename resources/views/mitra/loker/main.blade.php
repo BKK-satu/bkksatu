@@ -18,26 +18,38 @@
         z-index: 10;
         font-size: 30px;
         top: 15px;
-        left: 6%;
+        left: 2%;
         color: rgba(0, 0, 0, 0.5);
+    }
+    /* CUSTOMIZING LOKER ITEM */
+
+    .loker-item .bottom p {
+        font-size: 14px;
+    }
+
+    .loker-wrapper.row {
+        --bs-gutter-y: 1.5rem;
     }
 </style>
 @endsection
 
 @section('section')
-    @include('layouts.sidebar-mitra')
 
-    <div class="main-page d-flex">
-        @include('layouts.navbar')
+@include('layouts.navbar')
+<div class="main-page">
+        @include('layouts.sidebar-mitra')
 
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
         <div class="container py-3 content-wrapper">
             <!-- TITLE -->
-            <div class="title-page text-white mb-5">
-                <h1 class="fw-light">Main</h1>
-                <h1 class="fw-bold">Lowongan Kerja</h1>
-            </div><a href="#" class="btn btn-primary fw-bold rounded-15">Tambah</a>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="title-page text-white mb-5">
+                    <h1 class="fw-light">Main</h1>
+                    <h1 class="fw-bold">Lowongan Kerja</h1>
+                </div>
+                <a href="#" class="btn btn-primary fw-bold rounded-15">Tambah</a>
+            </div>
 
             <div class="search py-3">
                 <!-- SEARCH BAR -->
@@ -47,6 +59,78 @@
                         <input type="text" class="form-control rounded-20 shadow" placeholder="Search Mitra...">
                     </div>
                 </form>
+            </div>
+
+            <div class="loker-wrapper row">
+                <div class="col-6 col-md-4">
+                    <div class="loker-item p-4 bg-white rounded-15 shadow">
+                        <div class="img mb-3">
+                            <img src="../../../assets/img/Pergiin.png" width="120px">
+                        </div>
+                        <div class="title">
+                            <h4 class="fw-900 mb-0 text-primary">IT Support</h4>
+                            <h6 class="mb-3">PT. Yutaka Finance</h6>
+                            <h6 class="fw-900 mb-3">Jakarta</h6>
+                        </div>
+                        <div class="req">
+                            <ul>
+                                <li>Good atitude</li>
+                                <li>Smart move</li>
+                                <li>I'm feeling generous</li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div class="bottom">
+                            <p class="text-secondary mb-0">1 Day ago.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="loker-item p-4 bg-white rounded-15 shadow">
+                        <div class="img mb-3">
+                            <img src="../../../assets/img/Pergiin.png" width="120px">
+                        </div>
+                        <div class="title">
+                            <h4 class="fw-900 mb-0 text-primary">IT Support</h4>
+                            <h6 class="mb-3">PT. Yutaka Finance</h6>
+                            <h6 class="fw-900 mb-3">Jakarta</h6>
+                        </div>
+                        <div class="req">
+                            <ul>
+                                <li>Good atitude</li>
+                                <li>Smart move</li>
+                                <li>I'm feeling generous</li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div class="bottom">
+                            <p class="text-secondary mb-0">1 Day ago.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="loker-item p-4 bg-white rounded-15 shadow">
+                        <div class="img mb-3">
+                            <img src="../../../assets/img/Pergiin.png" width="120px">
+                        </div>
+                        <div class="title">
+                            <h4 class="fw-900 mb-0 text-primary">IT Support</h4>
+                            <h6 class="mb-3">PT. Yutaka Finance</h6>
+                            <h6 class="fw-900 mb-3">Jakarta</h6>
+                        </div>
+                        <div class="req">
+                            <ul>
+                                <li>Good atitude</li>
+                                <li>Smart move</li>
+                                <li>I'm feeling generous</li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div class="bottom">
+                            <p class="text-secondary mb-0">1 Day ago.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
