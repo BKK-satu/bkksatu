@@ -1,81 +1,86 @@
 @extends('layouts.master')
 
+@section('titlepage', $titlepage)
+
 @section('css')
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/styleMitra.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/styleMitra.css">
 
-<style>
-    .title-page h1.fw-bold {
-        margin-bottom: 60px;
-    }
+    <style>
+        .title-page h1.fw-bold {
+            margin-bottom: 60px;
+        }
 
-    .dropdown-menu {
-        min-width: 0px;
-    }
+        .dropdown-menu {
+            min-width: 0px;
+        }
 
-    .page-item:first-child .page-link {
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
-    }
+        .page-item:first-child .page-link {
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
 
-    .page-item:last-child .page-link {
-        border-top-right-radius: 15px;
-        border-bottom-right-radius: 15px;
-    }
-    /* STYLING SEARCH */
+        .page-item:last-child .page-link {
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
 
-    .search input {
-        height: 60px;
-        padding-left: 55px;
-        font-size: 18px;
-        border: 2px solid rgba(0, 0, 0, 0.2);
-    }
+        /* STYLING SEARCH */
 
-    .search i.bx {
-        z-index: 10;
-        font-size: 30px;
-        top: 15px;
-        left: 2%;
-        color: rgba(0, 0, 0, 0.5);
-    }
-    /* STYLING TABLE */
+        .search input {
+            height: 60px;
+            padding-left: 55px;
+            font-size: 18px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+        }
 
-    .data-table {
-        margin-left: 20px;
-        margin-right: 30px;
-    }
+        .search i.bx {
+            z-index: 10;
+            font-size: 30px;
+            top: 15px;
+            left: 2%;
+            color: rgba(0, 0, 0, 0.5);
+        }
 
-    .data-table .header button:nth-child(2) i.bxs-plus-circle {
-        font-size: 18px;
-    }
+        /* STYLING TABLE */
 
-    .data-table .tools {
-        background-color: #2041BB;
-        color: #fff;
-        font-size: 18px;
-    }
+        .data-table {
+            margin-left: 20px;
+            margin-right: 30px;
+        }
 
-    .data-table .content .table {
-        overflow-x: scroll;
-    }
+        .data-table .header button:nth-child(2) i.bxs-plus-circle {
+            font-size: 18px;
+        }
 
-    .data-table .content ul i.bx {
-        font-size: 18px;
-    }
+        .data-table .tools {
+            background-color: #2041BB;
+            color: #fff;
+            font-size: 18px;
+        }
 
-    .data-table .content .table tbody tr td.icon {
-        display: none;
-    }
+        .data-table .content .table {
+            overflow-x: scroll;
+        }
 
-    .data-table .content .table tbody tr:hover td.icon {
-        display: block;
-    }
-</style>
+        .data-table .content ul i.bx {
+            font-size: 18px;
+        }
+
+        .data-table .content .table tbody tr td.icon {
+            display: none;
+        }
+
+        .data-table .content .table tbody tr:hover td.icon {
+            display: block;
+        }
+
+    </style>
 @endsection
 
 @section('section')
 
-@include('layouts.navbar')
+    @include('layouts.navbar')
     <div class="main-page">
         @include('layouts.sidebar-mitra')
 
@@ -84,7 +89,8 @@
         <div class="container py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
-                <a href="#" class="d-flex align-items-center text-decoration-none text-white"><i class='bx bx-left-arrow-alt'></i>Back</a>
+                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
+                        class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">
                 <h1 class="fw-light">Rekomendasi</h1>
@@ -97,22 +103,28 @@
                     <form action="" class="position-relative">
                         <i class='bx bx-search position-absolute'></i>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control rounded-20 shadow" placeholder="Search Rekomendasi Alumni...">
+                            <input type="text" class="form-control rounded-20 shadow"
+                                placeholder="Search Rekomendasi Alumni...">
                         </div>
                     </form>
                 </div>
                 <div class="data-table rounded-20 py-2">
                     <!-- HEADING DATATABLE -->
                     <div class="header d-flex justify-content-between mb-3">
-                        <button class="btn btn-primary rounded-15 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">10</button>
+                        <button class="btn btn-primary rounded-15 dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">10</button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="#">10</a></li>
                             <li><a class="dropdown-item" href="#">20</a></li>
                             <li><a class="dropdown-item" href="#">30</a></li>
                         </ul>
                         <div>
-                            <button class="btn btn-primary rounded-15 px-4"><p class="d-inline align-middle fw-bold">Add</p></button>
-                            <button class="btn btn-primary rounded-15 px-4"><p class="d-inline align-middle fw-bold">Print</p></button>
+                            <button class="btn btn-primary rounded-15 px-4">
+                                <p class="d-inline align-middle fw-bold">Add</p>
+                            </button>
+                            <button class="btn btn-primary rounded-15 px-4">
+                                <p class="d-inline align-middle fw-bold">Print</p>
+                            </button>
                         </div>
                     </div>
                     <!-- ISI DATATABLE -->
@@ -130,7 +142,8 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>Akwan Cakra</td>
+                                    <td><a href="/mt/al/detail" class="text-link-black text-decoration-none">Akwan Cakra</a>
+                                    </td>
                                     <td>RPL</td>
                                     <td>2018/2019</td>
                                     <td>Laki-laki</td>
@@ -203,13 +216,15 @@
                         <!-- PAGINASI -->
                         <nav class="d-flex justify-content-end">
                             <ul class="pagination rounded-20">
-                                <li class="page-item"><a class="page-link" href="#"><i class='bx bx-chevron-left align-middle'></i></a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i
+                                            class='bx bx-chevron-left align-middle'></i></a></li>
                                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item"><a class="page-link" href="#">4</a></li>
                                 <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i class='bx bx-chevron-right align-middle'></i></a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i
+                                            class='bx bx-chevron-right align-middle'></i></a></li>
                             </ul>
                         </nav>
                     </div>
@@ -220,17 +235,17 @@
 @endsection
 
 @section('script')
-<!-- SWEETALERT -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-    function swalDelete() {
-        swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-    }
-</script>
+    <!-- SWEETALERT -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function swalDelete() {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+        }
+    </script>
 @endsection

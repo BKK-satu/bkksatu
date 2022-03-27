@@ -219,3 +219,14 @@
 
 
 /* MARGIN PADDING */
+
+
+/* CK EDITOR */
+
+.ck-file-dialog-button {
+    display: none;
+}
+
+:root {
+    --ck-border-radius: 5px;
+}

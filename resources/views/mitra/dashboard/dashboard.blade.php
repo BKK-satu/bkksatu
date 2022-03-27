@@ -1,31 +1,35 @@
 @extends('layouts.master')
 
+@section('titlepage', $titlepage)
+
 @section('css')
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/styleMitra.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/styleMitra.css">
 
-<style>
-    /* CUSTOMIZING GRAFIX */
+    <style>
+        /* CUSTOMIZING GRAFIX */
 
-    .graph-item-wrapper div:nth-child(2) {
-        font-size: 50px;
-    }
+        .graph-item-wrapper div:nth-child(2) {
+            font-size: 50px;
+        }
 
-    .row.small-graph {
-        --bs-gutter-x: 0;
-    }
-    /* COSTUMIZING NOTIFICATION */
+        .row.small-graph {
+            --bs-gutter-x: 0;
+        }
 
-    .notification-wrapper .notif-item .notif-img {
-        width: 50px;
-        height: 50px;
-        background: #3ad6e7;
-    }
+        /* COSTUMIZING NOTIFICATION */
 
-    .notification-wrapper .notif-item .notif-content p {
-        margin: 0;
-    }
-</style>
+        .notification-wrapper .notif-item .notif-img {
+            width: 50px;
+            height: 50px;
+            background: #3ad6e7;
+        }
+
+        .notification-wrapper .notif-item .notif-content p {
+            margin: 0;
+        }
+
+    </style>
 @endsection
 
 @section('section')
@@ -88,7 +92,8 @@
                             <div class="notif-img rounded-circle"></div>
                             <div class="notif-content mx-2">
                                 <p class="title fw-bold">Lowongan Kerja</p>
-                                <p class="content fw-bold">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan diberitahukan informasi terbaru.</p>
+                                <p class="content fw-bold">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
+                                    diberitahukan informasi terbaru.</p>
                             </div>
                         </div>
                         <div class="notif-date align-self-center mx-2 fw-bold">27 Feb 2019</div>
@@ -98,7 +103,8 @@
                             <div class="notif-img rounded-circle"></div>
                             <div class="notif-content mx-2">
                                 <p class="title">Lowongan Kerja</p>
-                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan diberitahukan informasi terbaru.</p>
+                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
+                                    diberitahukan informasi terbaru.</p>
                             </div>
                         </div>
                         <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
@@ -108,7 +114,8 @@
                             <div class="notif-img rounded-circle"></div>
                             <div class="notif-content mx-2">
                                 <p class="title">Lowongan Kerja</p>
-                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan diberitahukan informasi terbaru.</p>
+                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
+                                    diberitahukan informasi terbaru.</p>
                             </div>
                         </div>
                         <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
@@ -118,7 +125,8 @@
                             <div class="notif-img rounded-circle"></div>
                             <div class="notif-content mx-2">
                                 <p class="title">Lowongan Kerja</p>
-                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan diberitahukan informasi terbaru.</p>
+                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
+                                    diberitahukan informasi terbaru.</p>
                             </div>
                         </div>
                         <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
@@ -128,7 +136,8 @@
                             <div class="notif-img rounded-circle"></div>
                             <div class="notif-content mx-2">
                                 <p class="title">Lowongan Kerja</p>
-                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan diberitahukan informasi terbaru.</p>
+                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
+                                    diberitahukan informasi terbaru.</p>
                             </div>
                         </div>
                         <div class="notif-date align-self-center mx-2">27 Feb 2019</div>

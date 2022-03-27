@@ -1,89 +1,92 @@
 @extends('layouts.master')
 
+@section('titlepage', $titlepage)
+
 @section('css')
-<link rel="stylesheet" href="/assets/css/style.css">
-<!-- TEXTAREA EDITOR -->
-<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- TEXTAREA EDITOR -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
 
-<style>
-    /* STYLING TITLE PAGE */
+    <style>
+        /* STYLING TITLE PAGE */
 
-    .title-page h1.fw-bold {
-        margin-bottom: 120px;
-    }
-    /* WRAPPER FORM */
+        .title-page h1.fw-bold {
+            margin-bottom: 120px;
+        }
 
-    .edit-wrapper .data form {
-        width: 50vw;
-    }
+        /* WRAPPER FORM */
 
-    .edit-wrapper .data form .btn-action button {
-        width: 100px;
-    }
+        .edit-wrapper .data form {
+            width: 50vw;
+        }
 
-    .edit-wrapper .preview {
-        width: 45vw;
-    }
+        .edit-wrapper .data form .btn-action button {
+            width: 100px;
+        }
 
-    .edit-wrapper .preview .content table {
-        width: 100%;
-    }
+        .edit-wrapper .preview {
+            width: 45vw;
+        }
 
-    .edit-wrapper .preview .header {
-        border-radius: 15px 15px 0px 0px;
-        width: 100%;
-        background-image: linear-gradient(to right, #96aeff, #3759d6);
-        height: 200px;
-    }
-    /* STYLING CUSTOM FILE INPUT */
+        .edit-wrapper .preview .content table {
+            width: 100%;
+        }
 
-    .edit-wrapper .preview .header {
-        border-radius: 15px 15px 0px 0px;
-        width: 100%;
-        background-image: linear-gradient(to right, #96aeff, #3759d6);
-        height: 100px;
-    }
+        .edit-wrapper .preview .header {
+            border-radius: 15px 15px 0px 0px;
+            width: 100%;
+            background-image: linear-gradient(to right, #96aeff, #3759d6);
+            height: 200px;
+        }
 
-    .edit-wrapper .preview .header .img {
-        border: 4px solid #fff;
-        width: 120px;
-        height: 120px;
-        background: rgb(128, 128, 128);
-        top: 30px;
-        left: 20px;
-    }
-    /* STYLING CUSTOM FILE INPUT */
+        /* STYLING CUSTOM FILE INPUT */
 
-    .edit-wrapper .preview .header .img #uploadPhoto {
-        opacity: 0;
-        position: absolute;
-        z-index: -1;
-    }
+        .edit-wrapper .preview .header {
+            border-radius: 15px 15px 0px 0px;
+            width: 100%;
+            background-image: linear-gradient(to right, #96aeff, #3759d6);
+            height: 100px;
+        }
 
-    .edit-wrapper .preview .header .img label {
-        cursor: pointer;
-        color: #fff;
-        font-size: 60px;
-        /* Style as you please, it will become the visible UI component. */
-    }
+        .edit-wrapper .preview .header .img {
+            border: 4px solid #fff;
+            width: 120px;
+            height: 120px;
+            background: rgb(128, 128, 128);
+            top: 30px;
+            left: 20px;
+        }
 
-    .edit-wrapper .preview .header .upload-image {
-        visibility: hidden;
-    }
+        /* STYLING CUSTOM FILE INPUT */
 
-    .edit-wrapper .preview .header .img:hover .upload-image {
-        visibility: visible;
-    }
-    /* STYLING TEXTAREA EDITOR */
+        .edit-wrapper .preview .header .img #uploadPhoto {
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .edit-wrapper .preview .header .img label {
+            cursor: pointer;
+            color: #fff;
+            font-size: 60px;
+            /* Style as you please, it will become the visible UI component. */
+        }
+
+        .edit-wrapper .preview .header .upload-image {
+            visibility: hidden;
+        }
+
+        .edit-wrapper .preview .header .img:hover .upload-image {
+            visibility: visible;
+        }
+
+        /* STYLING TEXTAREA EDITOR */
 
         :root {
-        --ck-border-radius: 5px;
-    }
+            --ck-border-radius: 5px;
+        }
 
-    .ck-file-dialog-button {
-        display: none;
-    }
-</style>
+    </style>
 @endsection
 
 @section('section')
@@ -96,7 +99,8 @@
         <div class="container py-3 content-wrapper">
             <!-- TITLE HALAMAN -->
             <div class="title-back">
-                <a href="#" class="d-flex align-items-center text-decoration-none text-white"><i class='bx bx-left-arrow-alt'></i>Back</a>
+                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
+                        class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">
                 <h1 class="fw-light">Ubah</h1>
@@ -108,14 +112,16 @@
                 <div class="data me-4">
                     <!-- DATA INPUTAN -->
                     <h2 class="fw-700 mb-2">Data Mitra</h2>
-                    <form action="" class="">
+                    <form action="" method="POST" class="">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama</label>
-                            <input type="text" class="form-control rounded-15" id="nama" placeholder="Nama..." onkeyup="updateNama(this.value)" name="nama">
+                            <input type="text" class="form-control rounded-15" id="nama" placeholder="Nama..."
+                                onkeyup="updateNama(this.value)" name="nama">
                         </div>
                         <div class="mb-3">
                             <label for="jenis perusahaan" class="form-label">Jenis Perusahaan</label>
-                            <select class="form-select rounded-15" onchange="updateJenis(this.value)" name="jenisperusahaan">
+                            <select class="form-select rounded-15" onchange="updateJenis(this.value)"
+                                name="jenisperusahaan">
                                 <option selected disabled hidden>Pilih Jenis Perusahaan</option>
                                 <option value="Perseroan Terbatas">Perseroan Terbatas (PT)</option>
                                 <option value="Persekutuan Komanditer">Persekutuan Komanditer (CV)</option>
@@ -133,23 +139,28 @@
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control rounded-15" id="email" placeholder="Email..." onkeyup="updateEmail(this.value)" name="email">
+                            <input type="email" class="form-control rounded-15" id="email" placeholder="Email..."
+                                onkeyup="updateEmail(this.value)" name="email">
                         </div>
                         <div class="mb-3">
                             <label for="telepon" class="form-label">Telepon</label>
-                            <input type="number" class="form-control rounded-15" id="telepon" placeholder="Telepon..." onkeyup="updateTlp(this.value)" name="telepon">
+                            <input type="number" class="form-control rounded-15" id="telepon" placeholder="Telepon..."
+                                onkeyup="updateTlp(this.value)" name="telepon">
                         </div>
                         <div class="mb-3">
                             <label for="tahungabung" class="form-label">Tahun Bergabung</label>
-                            <input type="date" class="form-control rounded-15" id="tahungabung" placeholder="Tahun Bergabung..." onkeyup="updatetahungabung(this.value)" name="tahungabung">
+                            <input type="date" class="form-control rounded-15" id="tahungabung"
+                                placeholder="Tahun Bergabung..." onkeyup="updatetahungabung(this.value)" name="tahungabung">
                         </div>
                         <div class="mb-3">
                             <label for="uploadPhoto" class="form-label">Foto Profile</label>
-                            <input type="file" class="form-control rounded-15" id="uploadPhoto" placeholder="Foto Profile..." name="photo" accept="image/*">
+                            <input type="file" class="form-control rounded-15" id="uploadPhoto"
+                                placeholder="Foto Profile..." name="photo" accept="image/*">
                         </div>
                         <div class="mb-3">
                             <label for="alamat" class="form-label">Alamat</label>
-                            <textarea name="alamat" id="alamat" rows="3" class="form-control rounded-15" onkeyup="updateAlamat(this.value)"></textarea>
+                            <textarea name="alamat" id="alamat" rows="3" class="form-control rounded-15"
+                                onkeyup="updateAlamat(this.value)"></textarea>
                         </div>
                         <div class="mb-3">
                             <!-- EDITOR CK EDITOR 5 -->
@@ -160,11 +171,13 @@
                         <h3 class="fw-700 mb-2">Data Akun</h3>
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control rounded-15" id="username" placeholder="Username..." name="username" onkeyup="updateUsername(this.value)">
+                            <input type="text" class="form-control rounded-15" id="username" placeholder="Username..."
+                                name="username" onkeyup="updateUsername(this.value)">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control rounded-15" id="password" placeholder="password" name="password">
+                            <input type="password" class="form-control rounded-15" id="password" placeholder="password"
+                                name="password">
                         </div>
                         <!-- <div class="blue-line rounded-20 mb-3"></div> -->
                         <div class="d-flex justify-content-end btn-action">
@@ -177,7 +190,8 @@
                     <h2 class="fw-700 mb-2">Preview</h2>
                     <div class="shadow bg-white rounded-20">
                         <div class="header position-relative mb-5">
-                            <div class="img rounded-circle position-absolute d-flex justify-content-center align-items-center overflow-hidden">
+                            <div
+                                class="img rounded-circle position-absolute d-flex justify-content-center align-items-center overflow-hidden">
                                 <img src="" id="imagePreview" width="120" draggable="false">
                             </div>
                         </div>
@@ -261,55 +275,55 @@
 @endsection
 
 @section('script')
-<script>
-    // MANGGIL CK EDITOR
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .catch(error => {
-            console.error(error);
-        });
+    <script>
+        // MANGGIL CK EDITOR
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
 
-    // IMAGE PROFILE
-    uploadPhoto.onchange = evt => {
-        const [file] = uploadPhoto.files;
-        let label = document.getElementById("labelPhoto");
-        let input = document.getElementById("uploadPhoto");
+        // IMAGE PROFILE
+        uploadPhoto.onchange = evt => {
+            const [file] = uploadPhoto.files;
+            let label = document.getElementById("labelPhoto");
+            let input = document.getElementById("uploadPhoto");
 
-        if (file) {
-            imagePreview.src = URL.createObjectURL(file);
+            if (file) {
+                imagePreview.src = URL.createObjectURL(file);
+            }
         }
-    }
 
-    function updateNama(data) {
-        document.getElementById("nama_value").innerHTML = data;
-    }
+        function updateNama(data) {
+            document.getElementById("nama_value").innerHTML = data;
+        }
 
-    function updateTlp(data) {
-        document.getElementById("notelp_value").innerHTML = data;
-    }
+        function updateTlp(data) {
+            document.getElementById("notelp_value").innerHTML = data;
+        }
 
-    function updateEmail(data) {
-        document.getElementById("email_value").innerHTML = data;
-    }
+        function updateEmail(data) {
+            document.getElementById("email_value").innerHTML = data;
+        }
 
-    function updateAlamat(data) {
-        document.getElementById("alamat_value").innerHTML = data;
-    }
+        function updateAlamat(data) {
+            document.getElementById("alamat_value").innerHTML = data;
+        }
 
-    function updateUsername(data) {
-        document.getElementById("username_value").innerHTML = data;
-    }
+        function updateUsername(data) {
+            document.getElementById("username_value").innerHTML = data;
+        }
 
-    function updateKat(data) {
-        document.getElementById("kategori_value").innerHTML = data;
-    }
+        function updateKat(data) {
+            document.getElementById("kategori_value").innerHTML = data;
+        }
 
-    function updateJenis(data) {
-        document.getElementById("jenisperusahaan_value").innerHTML = data;
-    }
+        function updateJenis(data) {
+            document.getElementById("jenisperusahaan_value").innerHTML = data;
+        }
 
-    function updatetahungabung(data) {
-        document.getElementById("tahunbergabung_value").innerHTML = data;
-    }
-</script>
+        function updatetahungabung(data) {
+            document.getElementById("tahunbergabung_value").innerHTML = data;
+        }
+    </script>
 @endsection

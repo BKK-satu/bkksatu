@@ -1,59 +1,62 @@
 @extends('layouts.master')
 
+@section('titlepage', $titlepage)
+
 @section('css')
-<link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-<style>
-    .title-page h1.fw-bold {
-        margin-bottom: 60px;
-    }
+    <style>
+        .title-page h1.fw-bold {
+            margin-bottom: 60px;
+        }
 
-    /* STYLING DETAIL WRAPPER */
+        /* STYLING DETAIL WRAPPER */
 
-    .rounded-custom {
-        border-radius: 30px;
-    }
+        .rounded-custom {
+            border-radius: 30px;
+        }
 
-    .detail-outer-wrapper .header {
-        border-radius: 30px 30px 0px 0px;
-        height: 250px;
-        margin-bottom: 70px;
-        background-image: linear-gradient(to right, #2e51d1, #9cb0f0);
-    }
+        .detail-outer-wrapper .header {
+            border-radius: 30px 30px 0px 0px;
+            height: 250px;
+            margin-bottom: 70px;
+            background-image: linear-gradient(to right, #2e51d1, #9cb0f0);
+        }
 
-    .detail-outer-wrapper .content .prestasi div.img div {
-        width: 100px;
-        height: 100px;
-        background-color: rgb(165, 163, 163);
-    }
+        .detail-outer-wrapper .content .prestasi div.img div {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(165, 163, 163);
+        }
 
-    .detail-outer-wrapper .content div.tools div {
-        width: 30px;
-        height: 30px;
-        color: #fff;
-    }
+        .detail-outer-wrapper .content div.tools div {
+            width: 30px;
+            height: 30px;
+            color: #fff;
+        }
 
-    .detail-outer-wrapper .content div.tools div:nth-child(1) {
-        background: rgb(242, 180, 46);
-    }
+        .detail-outer-wrapper .content div.tools div:nth-child(1) {
+            background: rgb(242, 180, 46);
+        }
 
-    .detail-outer-wrapper .content div.tools div:nth-child(2) {
-        background: rgb(242, 42, 42);
-    }
+        .detail-outer-wrapper .content div.tools div:nth-child(2) {
+            background: rgb(242, 42, 42);
+        }
 
-    .detail-outer-wrapper .content .pelamar a.btn {
-        font-size: 20px;
-    }
+        .detail-outer-wrapper .content .pelamar a.btn {
+            font-size: 20px;
+        }
 
-    .detail-outer-wrapper .header .img {
-        background: rgb(192, 192, 192);
-        height: 200px;
-        width: 200px;
-        border: 7px solid #fff;
-        top: 50%;
-        left: 3%;
-    }
-</style>
+        .detail-outer-wrapper .header .img {
+            background: rgb(192, 192, 192);
+            height: 200px;
+            width: 200px;
+            border: 7px solid #fff;
+            top: 50%;
+            left: 3%;
+        }
+
+    </style>
 @endsection
 
 
@@ -68,7 +71,8 @@
         <div class="py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
-                <a href="#" class="d-flex align-items-center text-decoration-none text-white"><i class='bx bx-left-arrow-alt'></i>Back</a>
+                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
+                        class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">
                 <h1 class="fw-light">Detail</h1>
@@ -79,7 +83,8 @@
             <div class="detail-outer-wrapper shadow-custom-2 me-3 mb-5 rounded-custom">
                 <!-- HEADER -->
                 <div class="header d-flex align-items-center position-relative">
-                    <div class="img overflow-hidden position-absolute rounded-circle"><img src="" class=""></div>
+                    <div class="img overflow-hidden position-absolute rounded-circle"><img src="" class="">
+                    </div>
                 </div>
                 <div class="content py-3 px-5">
                     <div class="mb-4 d-flex justify-content-between">
@@ -87,7 +92,8 @@
                         <div>
                             <h1 class="fw-900 mb-0">IT Support</h1>
                             <h3>LOK00023</h3>
-                            <h4 class="mt-3">PT. Optic Gaming<i class='bx bxs-badge-check align-middle text-primary ms-1'></i></h4>
+                            <h4 class="mt-3">PT. Optic Gaming<i
+                                    class='bx bxs-badge-check align-middle text-primary ms-1'></i></h4>
                             <h5 class="mt-3"><i class='bx bx-current-location align-middle me-1'></i>Jakarta</h5>
                         </div>
                         <!-- TOOLS UNTUK EDIT DAN DELETE -->
@@ -102,7 +108,9 @@
                     </div>
                     <!-- CONTENT INFORMASI -->
                     <div class="mb-3">
-                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati aut, numquam, ab earum rerum? Nesciunt optio accusamus
+                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum
+                            tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati
+                            aut, numquam, ab earum rerum? Nesciunt optio accusamus
                             nisi, iusto animi illum molestias quia labore delectus neque soluta aspernatur!</p>
                     </div>
                     <!-- TOMBOL LIHAT PELAMAR DAN REKOMEND -->
@@ -126,9 +134,11 @@
                     <h4 class="fw-bold">Persyaratan :</h4>
                     <ul class="mb-0">
                         <li>Bachelor degree from Computer Science, Business Management, or any related field</li>
-                        <li>Minimum 8 years experience as IT Business Partner / IT Business Analyst / IT Project Manager</li>
+                        <li>Minimum 8 years experience as IT Business Partner / IT Business Analyst / IT Project Manager
+                        </li>
                         <li>Sehat Jasmani Rohani</li>
-                        <li>Experienced in project management, business process mapping, creating pin points, project prioritization, cost and benefit analysis</li>
+                        <li>Experienced in project management, business process mapping, creating pin points, project
+                            prioritization, cost and benefit analysis</li>
                     </ul>
                 </div>
                 <div class="shadow-custom-2 px-5 py-4 rounded-20 me-3 mb-5 responsibility">

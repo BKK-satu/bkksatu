@@ -1,42 +1,46 @@
 @extends('layouts.master')
 
+@section('titlepage', $titlepage)
+
 @section('css')
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/styleMitra.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/styleMitra.css">
 
-<style>
-    /* STYLING SEARCH */
+    <style>
+        /* STYLING SEARCH */
 
-    .search input {
-        height: 60px;
-        padding-left: 60px;
-        font-size: 18px;
-        border: 2px solid rgba(0, 0, 0, 0.2);
-    }
+        .search input {
+            height: 60px;
+            padding-left: 60px;
+            font-size: 18px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+        }
 
-    .search i.bx {
-        z-index: 10;
-        font-size: 30px;
-        top: 15px;
-        left: 2%;
-        color: rgba(0, 0, 0, 0.5);
-    }
-    /* CUSTOMIZING LOKER ITEM */
+        .search i.bx {
+            z-index: 10;
+            font-size: 30px;
+            top: 15px;
+            left: 2%;
+            color: rgba(0, 0, 0, 0.5);
+        }
 
-    .loker-item .bottom p {
-        font-size: 14px;
-    }
+        /* CUSTOMIZING LOKER ITEM */
 
-    .loker-wrapper.row {
-        --bs-gutter-y: 1.5rem;
-    }
-</style>
+        .loker-item .bottom p {
+            font-size: 14px;
+        }
+
+        .loker-wrapper.row {
+            --bs-gutter-y: 1.5rem;
+        }
+
+    </style>
 @endsection
 
 @section('section')
 
-@include('layouts.navbar')
-<div class="main-page">
+    @include('layouts.navbar')
+    <div class="main-page">
         @include('layouts.sidebar-mitra')
 
         <img src="/assets/img/wave2.svg" class="position-absolute waves">

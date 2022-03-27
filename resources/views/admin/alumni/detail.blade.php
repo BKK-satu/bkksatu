@@ -1,51 +1,54 @@
 @extends('layouts.master')
 
+@section('titlepage', $titlepage)
+
 @section('css')
-<link rel="stylesheet" href="/assets/css/style.css">
-<style>
-.title-page h1.fw-bold {
-    margin-bottom: 60px;
-}
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .title-page h1.fw-bold {
+            margin-bottom: 60px;
+        }
 
-/* STYLING DETAIL WRAPPER */
+        /* STYLING DETAIL WRAPPER */
 
-.detail-outer-wrapper .header {
-    border-radius: 15px 15px 0px 0px;
-    height: 250px;
-    background-image: linear-gradient(to right, #2e51d1, #9cb0f0);
-}
+        .detail-outer-wrapper .header {
+            border-radius: 15px 15px 0px 0px;
+            height: 250px;
+            background-image: linear-gradient(to right, #2e51d1, #9cb0f0);
+        }
 
-.detail-outer-wrapper .header .img {
-    width: 190px;
-    height: 190px;
-    background-color: rgb(184, 179, 179);
-    border: 4px solid #fff;
-}
+        .detail-outer-wrapper .header .img {
+            width: 190px;
+            height: 190px;
+            background-color: rgb(184, 179, 179);
+            border: 4px solid #fff;
+        }
 
-.detail-outer-wrapper .content .prestasi div.img div {
-    width: 100px;
-    height: 100px;
-    background-color: rgb(165, 163, 163);
-}
+        .detail-outer-wrapper .content .prestasi div.img div {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(165, 163, 163);
+        }
 
-.detail-outer-wrapper .content div.tools div {
-    width: 30px;
-    height: 30px;
-    color: #fff;
-}
+        .detail-outer-wrapper .content div.tools div {
+            width: 30px;
+            height: 30px;
+            color: #fff;
+        }
 
-.detail-outer-wrapper .content div.tools div:nth-child(1) {
-    background: rgb(242, 228, 31);
-}
+        .detail-outer-wrapper .content div.tools div:nth-child(1) {
+            background: rgb(242, 228, 31);
+        }
 
-.detail-outer-wrapper .content div.tools div:nth-child(2) {
-    background: rgb(242, 180, 46);
-}
+        .detail-outer-wrapper .content div.tools div:nth-child(2) {
+            background: rgb(242, 180, 46);
+        }
 
-.detail-outer-wrapper .content div.tools div:nth-child(3) {
-    background: rgb(242, 42, 42);
-}
-</style>
+        .detail-outer-wrapper .content div.tools div:nth-child(3) {
+            background: rgb(242, 42, 42);
+        }
+
+    </style>
 @endsection
 
 @section('section')
@@ -58,7 +61,8 @@
         <div class="container py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
-                <a href="#" class="d-flex align-items-center text-decoration-none text-white"><i class='bx bx-left-arrow-alt'></i>Back</a>
+                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
+                        class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">
                 <h1 class="fw-light">Detail</h1>
@@ -92,7 +96,9 @@
                     </div>
                     <div class="mb-3">
                         <h5 class="fw-bold mb-1">Tentang</h5>
-                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati aut, numquam, ab earum rerum? Nesciunt optio accusamus
+                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum
+                            tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati
+                            aut, numquam, ab earum rerum? Nesciunt optio accusamus
                             nisi, iusto animi illum molestias quia labore delectus neque soluta aspernatur!</p>
                     </div>
                     <div class="mb-3 row">
@@ -151,7 +157,8 @@
                             <div class="col-6">
                                 <p class="mb-1 fw-bold">Juara 1 Melanggar Perintah</p>
                                 <p class="mb-1">Tingkat Akhirat</p>
-                                <p class="mb-1" align="justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam ut magnam minus impedit reiciendis? Sed!</p>
+                                <p class="mb-1" align="justify">Lorem, ipsum dolor sit amet consectetur
+                                    adipisicing elit. Veniam ut magnam minus impedit reiciendis? Sed!</p>
                                 <div class="img d-flex">
                                     <div class="rounded-15 me-2"></div>
                                     <div class="rounded-15 me-2"></div>
@@ -161,7 +168,8 @@
                             <div class="col-6">
                                 <p class="mb-1 fw-bold">Juara 1 Melanggar Pemerintah</p>
                                 <p class="mb-1">Tingkat Kota</p>
-                                <p class="mb-1" align="justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam ut magnam minus impedit reiciendis? Sed!</p>
+                                <p class="mb-1" align="justify">Lorem, ipsum dolor sit amet consectetur
+                                    adipisicing elit. Veniam ut magnam minus impedit reiciendis? Sed!</p>
                                 <div class="img d-flex">
                                     <div class="rounded-15 me-2"></div>
                                     <div class="rounded-15 me-2"></div>
@@ -174,7 +182,8 @@
                         <h5 class="fw-bold">Nilai</h5>
                         <div class="d-flex align-items-center">
                             <p class="mb-0 me-2">Lihat Nilai Rapot, US, dan UN</p>
-                            <a href="#" class="btn btn-primary rounded-20" data-bs-toggle="modal" data-bs-target="#nilaiModal">Lihat <i class='bx bx-link-external align-middle'></i></a>
+                            <a href="#" class="btn btn-primary rounded-20" data-bs-toggle="modal"
+                                data-bs-target="#nilaiModal">Lihat <i class='bx bx-link-external align-middle'></i></a>
                         </div>
                     </div>
                     <div class="mb-3 status-karir">
@@ -203,7 +212,8 @@
                         <div class="modal-body">
                             <div class="d-flex justify-content-between">
                                 <h4 class="modal-title fw-bold" id="nilaiModalLabel">Data Nilai</h4>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="nilai-data">
                                 <table class="table table-borderless table-rapot">

@@ -1,41 +1,44 @@
 @extends('layouts.master')
 
+@section('titlepage', $titlepage)
+
 @section('css')
-<link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-<style>
-    .title-page h1.fw-bold {
-        margin-bottom: 60px;
-    }
+    <style>
+        .title-page h1.fw-bold {
+            margin-bottom: 60px;
+        }
 
-    /* STYLING DETAIL WRAPPER */
+        /* STYLING DETAIL WRAPPER */
 
-    .detail-outer-wrapper .header {
-        border-radius: 15px 15px 0px 0px;
-        height: 150px;
-        background-image: linear-gradient(to right, #2e51d1, #9cb0f0);
-    }
+        .detail-outer-wrapper .header {
+            border-radius: 15px 15px 0px 0px;
+            height: 150px;
+            background-image: linear-gradient(to right, #2e51d1, #9cb0f0);
+        }
 
-    .detail-outer-wrapper .content .prestasi div.img div {
-        width: 100px;
-        height: 100px;
-        background-color: rgb(165, 163, 163);
-    }
+        .detail-outer-wrapper .content .prestasi div.img div {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(165, 163, 163);
+        }
 
-    .detail-outer-wrapper .content div.tools div {
-        width: 30px;
-        height: 30px;
-        color: #fff;
-    }
+        .detail-outer-wrapper .content div.tools div {
+            width: 30px;
+            height: 30px;
+            color: #fff;
+        }
 
-    .detail-outer-wrapper .content div.tools div:nth-child(1) {
-        background: rgb(242, 180, 46);
-    }
+        .detail-outer-wrapper .content div.tools div:nth-child(1) {
+            background: rgb(242, 180, 46);
+        }
 
-    .detail-outer-wrapper .content div.tools div:nth-child(2) {
-        background: rgb(242, 42, 42);
-    }
-</style>
+        .detail-outer-wrapper .content div.tools div:nth-child(2) {
+            background: rgb(242, 42, 42);
+        }
+
+    </style>
 @endsection
 
 @section('section')
@@ -46,7 +49,8 @@
 
         <div class="container py-3 content-wrapper">
             <div class="title-back">
-                <a href="#" class="d-flex align-items-center text-decoration-none text-white"><i class='bx bx-left-arrow-alt'></i>Back</a>
+                <a href="/ad/ak/detail" class="d-flex align-items-center text-decoration-none text-white"><i
+                        class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">
                 <h1 class="fw-light">Detail</h1>

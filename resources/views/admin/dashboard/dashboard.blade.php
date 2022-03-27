@@ -1,48 +1,54 @@
 @extends('layouts.master')
 
+@section('titlepage', $titlepage)
+
 @section('css')
-<link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-<style>
-    .waves {
-        z-index: -1;
-    }
-    /* CUSTOMIZING TITLE PAGE */
+    <style>
+        .waves {
+            z-index: -1;
+        }
 
-    .title-page h1.fw-bold {
-        margin-top: -18px;
-        margin-bottom: 0px;
-    }
+        /* CUSTOMIZING TITLE PAGE */
 
-    .welcome-admin {
-        margin-bottom: 60px;
-    }
-    /* COSTUMIZING NOTIFICATION */
+        .title-page h1.fw-bold {
+            margin-top: -18px;
+            margin-bottom: 0px;
+        }
 
-    .notification-wrapper .notif-item .notif-img {
-        width: 50px;
-        height: 50px;
-        background: #3ad6e7;
-    }
+        .welcome-admin {
+            margin-bottom: 60px;
+        }
 
-    .notification-wrapper .notif-item .notif-content p {
-        margin: 0;
-    }
-    /* CUSTOMIZE GALLERY */
+        /* COSTUMIZING NOTIFICATION */
 
-    .overview-data .data.row {
-        height: auto;
-        width: 100%;
-    }
+        .notification-wrapper .notif-item .notif-img {
+            width: 50px;
+            height: 50px;
+            background: #3ad6e7;
+        }
 
-    .overview-data .small-data div:nth-child(2) {
-        font-size: 45px;
-    }
+        .notification-wrapper .notif-item .notif-content p {
+            margin: 0;
+        }
 
-    .row {
-        --bs-gutter-x: 0px;
-    }
-</style>
+        /* CUSTOMIZE GALLERY */
+
+        .overview-data .data.row {
+            height: auto;
+            width: 100%;
+        }
+
+        .overview-data .small-data div:nth-child(2) {
+            font-size: 45px;
+        }
+
+        .row {
+            --bs-gutter-x: 0px;
+        }
+
+    </style>
 @endsection
 
 @section('section')
@@ -123,7 +129,8 @@
                             <div class="notif-img rounded-circle"></div>
                             <div class="notif-content mx-2">
                                 <p class="title fw-bold">Lowongan Kerja</p>
-                                <p class="content fw-bold">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan diberitahukan informasi terbaru.</p>
+                                <p class="content fw-bold">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
+                                    diberitahukan informasi terbaru.</p>
                             </div>
                         </div>
                         <div class="notif-date align-self-center mx-2 fw-bold">27 Feb 2019</div>
@@ -133,7 +140,8 @@
                             <div class="notif-img rounded-circle"></div>
                             <div class="notif-content mx-2">
                                 <p class="title">Lowongan Kerja</p>
-                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan diberitahukan informasi terbaru.</p>
+                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
+                                    diberitahukan informasi terbaru.</p>
                             </div>
                         </div>
                         <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
@@ -143,7 +151,8 @@
                             <div class="notif-img rounded-circle"></div>
                             <div class="notif-content mx-2">
                                 <p class="title">Lowongan Kerja</p>
-                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan diberitahukan informasi terbaru.</p>
+                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
+                                    diberitahukan informasi terbaru.</p>
                             </div>
                         </div>
                         <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
@@ -153,7 +162,8 @@
                             <div class="notif-img rounded-circle"></div>
                             <div class="notif-content mx-2">
                                 <p class="title">Lowongan Kerja</p>
-                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan diberitahukan informasi terbaru.</p>
+                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
+                                    diberitahukan informasi terbaru.</p>
                             </div>
                         </div>
                         <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
@@ -163,7 +173,8 @@
                             <div class="notif-img rounded-circle"></div>
                             <div class="notif-content mx-2">
                                 <p class="title">Lowongan Kerja</p>
-                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan diberitahukan informasi terbaru.</p>
+                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
+                                    diberitahukan informasi terbaru.</p>
                             </div>
                         </div>
                         <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
@@ -171,7 +182,7 @@
                 </div>
                 <!-- PINDAH KE NOTIFKASI LEBIH LENGKAP -->
                 <div class="text-center">
-                    <a href="notification.html" class="btn btn-primary rounded-20">More</a>
+                    <a href="/ad/notif" class="btn btn-primary rounded-20">More</a>
                 </div>
             </div>
         </div>
@@ -179,83 +190,83 @@
 @endsection
 
 @section('script')
-<!-- CHART JS 3.5.1 -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['2016/2017', '2017/2018', '2018/2019', '2019/2020', '2020/2021', '2021/2022'],
-            datasets: [{
-                label: 'Bekerja',
-                data: [32, 43, 3, 7, 10, 32],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)',
-                ],
-                borderWidth: 1
-            }, {
-                label: 'Kuliah',
-                data: [12, 32, 5, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                ],
-                borderWidth: 1
-            }, {
-                label: 'Wirausaha',
-                data: [12, 32, 5, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(153, 102, 255, 1)',
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+    <!-- CHART JS 3.5.1 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['2016/2017', '2017/2018', '2018/2019', '2019/2020', '2020/2021', '2021/2022'],
+                datasets: [{
+                    label: 'Bekerja',
+                    data: [32, 43, 3, 7, 10, 32],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)',
+                    ],
+                    borderWidth: 1
+                }, {
+                    label: 'Kuliah',
+                    data: [12, 32, 5, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 235, 1)',
+                    ],
+                    borderWidth: 1
+                }, {
+                    label: 'Wirausaha',
+                    data: [12, 32, 5, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(153, 102, 255, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
-</script>
+        });
+    </script>
 @endsection

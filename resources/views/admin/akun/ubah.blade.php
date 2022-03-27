@@ -1,36 +1,39 @@
 @extends('layouts.master')
 
+@section('titlepage', $titlepage)
+
 @section('css')
-<link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-<style>
-    .title-page h1.fw-bold {
-        margin-bottom: 120px;
-    }
+    <style>
+        .title-page h1.fw-bold {
+            margin-bottom: 120px;
+        }
 
-    .edit-wrapper .data form {
-        width: 50vw;
-    }
+        .edit-wrapper .data form {
+            width: 50vw;
+        }
 
-    .edit-wrapper .data form button {
-        width: 100px;
-    }
+        .edit-wrapper .data form button {
+            width: 100px;
+        }
 
-    .edit-wrapper .preview {
-        width: 45vw;
-    }
+        .edit-wrapper .preview {
+            width: 45vw;
+        }
 
-    .edit-wrapper .preview .content table {
-        width: 100%;
-    }
+        .edit-wrapper .preview .content table {
+            width: 100%;
+        }
 
-    .edit-wrapper .preview .header {
-        border-radius: 15px 15px 0px 0px;
-        width: 100%;
-        background-image: linear-gradient(to right, #96aeff, #3759d6);
-        height: 100px;
-    }
-</style>
+        .edit-wrapper .preview .header {
+            border-radius: 15px 15px 0px 0px;
+            width: 100%;
+            background-image: linear-gradient(to right, #96aeff, #3759d6);
+            height: 100px;
+        }
+
+    </style>
 @endsection
 
 @section('section')
@@ -41,7 +44,8 @@
 
         <div class="container py-3 content-wrapper">
             <div class="title-back">
-                <a href="#" class="d-flex align-items-center text-decoration-none text-white"><i class='bx bx-left-arrow-alt'></i>Back</a>
+                <a href="/ad/ak/ubah" class="d-flex align-items-center text-decoration-none text-white"><i
+                        class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">
                 <h1 class="fw-light">Ubah</h1>
@@ -51,14 +55,16 @@
             <div class="edit-wrapper d-flex">
                 <div class="data me-4">
                     <h2 class="fw-700 mb-2">Data</h2>
-                    <form action="" class="">
+                    <form action="" method="POST" class="">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control rounded-15" id="username" placeholder="Username..." onkeyup="updateUsername(this.value)">
+                            <input type="text" class="form-control rounded-15" id="username" placeholder="Username..."
+                                onkeyup="updateUsername(this.value)">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control rounded-15" id="email" placeholder="Email..." onkeyup="updateEmail(this.value)">
+                            <input type="email" class="form-control rounded-15" id="email" placeholder="Email..."
+                                onkeyup="updateEmail(this.value)">
                         </div>
                         <div class="mb-3">
                             <label for="level" class="form-label">Level</label>
@@ -70,7 +76,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control rounded-15" id="password" placeholder="Password..." onkeyup="updatePassword(this.value)">
+                            <input type="password" class="form-control rounded-15" id="password" placeholder="Password..."
+                                onkeyup="updatePassword(this.value)">
                         </div>
                         <div class="d-flex justify-content-end">
                             <button class="btn btn-secondary fw-700 rounded-15 me-2">Cancel</button>
@@ -119,17 +126,17 @@
 @endsection
 
 @section('script')
-<script>
-    function updateUsername(data) {
-        document.getElementById("username_value").innerHTML = data;
-    }
+    <script>
+        function updateUsername(data) {
+            document.getElementById("username_value").innerHTML = data;
+        }
 
-    function updateEmail(data) {
-        document.getElementById("email_value").innerHTML = data;
-    }
+        function updateEmail(data) {
+            document.getElementById("email_value").innerHTML = data;
+        }
 
-    function updateLevel(data) {
-        document.getElementById("level_value").innerHTML = data;
-    }
-</script>
+        function updateLevel(data) {
+            document.getElementById("level_value").innerHTML = data;
+        }
+    </script>
 @endsection

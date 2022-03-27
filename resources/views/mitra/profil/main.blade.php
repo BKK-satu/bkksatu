@@ -1,68 +1,72 @@
 @extends('layouts.master')
 
+@section('titlepage', $titlepage)
+
 @section('css')
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/styleMitra.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/styleMitra.css">
 
-<style>
-    /* STYLING DETAIL WRAPPER */
+    <style>
+        /* STYLING DETAIL WRAPPER */
 
-    .rounded-custom {
-        border-radius: 30px;
-    }
+        .rounded-custom {
+            border-radius: 30px;
+        }
 
-    .detail-wrapper .header {
-        border-radius: 30px 30px 0px 0px;
-        height: 250px;
-        margin-bottom: 70px;
-        background-image: linear-gradient(to right, #2e51d1, #9cb0f0);
-    }
+        .detail-wrapper .header {
+            border-radius: 30px 30px 0px 0px;
+            height: 250px;
+            margin-bottom: 70px;
+            background-image: linear-gradient(to right, #2e51d1, #9cb0f0);
+        }
 
-    .detail-wrapper .content .prestasi div.img div {
-        width: 100px;
-        height: 100px;
-        background-color: rgb(165, 163, 163);
-    }
+        .detail-wrapper .content .prestasi div.img div {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(165, 163, 163);
+        }
 
-    .detail-wrapper .content .pelamar a.btn {
-        font-size: 20px;
-    }
+        .detail-wrapper .content .pelamar a.btn {
+            font-size: 20px;
+        }
 
-    .detail-wrapper .header .img {
-        background: rgb(192, 192, 192);
-        height: 200px;
-        width: 200px;
-        border: 7px solid #fff;
-        top: 50%;
-        left: 3%;
-    }
-    /* CUSTOMIZE GALLERY */
+        .detail-wrapper .header .img {
+            background: rgb(192, 192, 192);
+            height: 200px;
+            width: 200px;
+            border: 7px solid #fff;
+            top: 50%;
+            left: 3%;
+        }
 
-    .gallery .img {
-        height: 400px;
-        width: 100%;
-    }
+        /* CUSTOMIZE GALLERY */
 
-    .gallery .img .big-img div,
-    .gallery .img .small-img div {
-        height: 100%;
-    }
+        .gallery .img {
+            height: 400px;
+            width: 100%;
+        }
 
-    .gallery .img .big-img div div {
-        height: 100%;
-        width: 100%;
-        background-color: rgb(202, 202, 202);
-    }
+        .gallery .img .big-img div,
+        .gallery .img .small-img div {
+            height: 100%;
+        }
 
-    .gallery .img .small-img div div {
-        height: 100%;
-        background-color: rgb(202, 202, 202);
-    }
+        .gallery .img .big-img div div {
+            height: 100%;
+            width: 100%;
+            background-color: rgb(202, 202, 202);
+        }
 
-    .row {
-        --bs-gutter-x: 0px;
-    }
-</style>
+        .gallery .img .small-img div div {
+            height: 100%;
+            background-color: rgb(202, 202, 202);
+        }
+
+        .row {
+            --bs-gutter-x: 0px;
+        }
+
+    </style>
 @endsection
 
 @section('section')
@@ -83,13 +87,15 @@
             <div class="detail-wrapper shadow bg-white shadow-custom-2 rounded-custom mb-5">
                 <!-- HEADER -->
                 <div class="header d-flex align-items-center position-relative">
-                    <div class="img overflow-hidden position-absolute rounded-circle"><img src="" class=""></div>
+                    <div class="img overflow-hidden position-absolute rounded-circle"><img src="" class="">
+                    </div>
                 </div>
                 <div class="content py-3 px-5">
                     <div class="mb-4 d-flex justify-content-between">
                         <!-- TITLE NEWS -->
                         <div>
-                            <h1 class="fw-900 mb-0">PT. Optic Gaming<i class='bx bxs-badge-check align-middle text-primary ms-1'></i></h1>
+                            <h1 class="fw-900 mb-0">PT. Optic Gaming<i
+                                    class='bx bxs-badge-check align-middle text-primary ms-1'></i></h1>
                             <h4 class="text-secondary">IT/Automotive</h4>
                             <h4 class="mt-3"></h4>
                             <h5 class="mt-3"><i class='bx bx-current-location align-middle me-1'></i>Jakarta</h5>
@@ -104,11 +110,17 @@
                     <!-- CONTENT INFORMASI -->
                     <div class="mb-3">
                         <h4 class="fw-bold">Overview</h4>
-                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati aut, numquam, ab earum rerum? Nesciunt optio accusamus
+                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum
+                            tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati
+                            aut, numquam, ab earum rerum? Nesciunt optio accusamus
                             nisi, iusto animi illum molestias quia labore delectus neque soluta aspernatur!</p>
-                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati aut, numquam, ab earum rerum? Nesciunt optio accusamus
+                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum
+                            tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati
+                            aut, numquam, ab earum rerum? Nesciunt optio accusamus
                             nisi, iusto animi illum molestias quia labore delectus neque soluta aspernatur!</p>
-                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati aut, numquam, ab earum rerum? Nesciunt optio accusamus
+                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum
+                            tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati
+                            aut, numquam, ab earum rerum? Nesciunt optio accusamus
                             nisi, iusto animi illum molestias quia labore delectus neque soluta aspernatur!</p>
                     </div>
                 </div>

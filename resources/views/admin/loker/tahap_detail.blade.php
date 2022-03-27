@@ -1,59 +1,63 @@
 @extends('layouts.master')
 
+@section('titlepage', $titlepage)
+
 @section('css')
-<link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-<style>
-    .title-page h1.fw-bold {
-        margin-bottom: 120px;
-    }
+    <style>
+        .title-page h1.fw-bold {
+            margin-bottom: 120px;
+        }
 
-    .dropdown-menu {
-        min-width: 0px;
-    }
+        .dropdown-menu {
+            min-width: 0px;
+        }
 
-    .page-item:first-child .page-link {
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
-    }
+        .page-item:first-child .page-link {
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
 
-    .page-item:last-child .page-link {
-        border-top-right-radius: 15px;
-        border-bottom-right-radius: 15px;
-    }
-    /* STYLING TABLE */
+        .page-item:last-child .page-link {
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
 
-    .data-table {
-        margin-left: 20px;
-        margin-right: 30px;
-    }
+        /* STYLING TABLE */
 
-    .data-table .header button:nth-child(2) i.bxs-plus-circle {
-        font-size: 18px;
-    }
+        .data-table {
+            margin-left: 20px;
+            margin-right: 30px;
+        }
 
-    .data-table .tools {
-        background-color: #2041BB;
-        color: #fff;
-        font-size: 18px;
-    }
+        .data-table .header button:nth-child(2) i.bxs-plus-circle {
+            font-size: 18px;
+        }
 
-    .data-table .content .table {
-        overflow-x: scroll;
-    }
+        .data-table .tools {
+            background-color: #2041BB;
+            color: #fff;
+            font-size: 18px;
+        }
 
-    .data-table .content ul i.bx {
-        font-size: 18px;
-    }
+        .data-table .content .table {
+            overflow-x: scroll;
+        }
 
-    .data-table .content .table tbody tr td.icon {
-        display: none;
-    }
+        .data-table .content ul i.bx {
+            font-size: 18px;
+        }
 
-    .data-table .content .table tbody tr:hover td.icon {
-        display: block;
-    }
-</style>
+        .data-table .content .table tbody tr td.icon {
+            display: none;
+        }
+
+        .data-table .content .table tbody tr:hover td.icon {
+            display: block;
+        }
+
+    </style>
 @endsection
 
 @section('section')
@@ -66,7 +70,8 @@
         <div class="py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
-                <a href="#" class="d-flex align-items-center text-decoration-none text-white"><i class='bx bx-left-arrow-alt'></i>Back</a>
+                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
+                        class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">
                 <h1 class="fw-light">Seleksi Tahap</h1>
@@ -80,7 +85,9 @@
                         <p>Berikut ini adalah data alumni yang lolos seleksi Tes Fisik.</p>
                     </div>
                     <div>
-                        <button class="btn btn-primary rounded-15 px-4"><p class="d-inline align-middle fw-bold">Print</p></button>
+                        <button class="btn btn-primary rounded-15 px-4">
+                            <p class="d-inline align-middle fw-bold">Print</p>
+                        </button>
                     </div>
                 </div>
                 <div class="data-table rounded-20 py-2 px-4">
@@ -219,17 +226,17 @@
 @endsection
 
 @section('script')
-<!-- SWEETALERT -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-    function swalDelete() {
-        swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-    }
-</script>
+    <!-- SWEETALERT -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function swalDelete() {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+        }
+    </script>
 @endsection
