@@ -90,273 +90,276 @@
         <!-- BG WAVES -->
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
-        <div class="py-3 content-wrapper">
-            <!-- TITLE -->
-            <div class="title-page text-white my-5">
-                <h1 class="fw-light">Daftar</h1>
-                <h1 class="fw-bold">Informasi</h1>
-            </div>
-
-            <div class="alumni-table">
-                <!-- SEARCH INPUT -->
-                <div class="search py-3">
-                    <form action="" method="GET" class="position-relative">
-                        <i class='bx bx-search position-absolute'></i>
-                        <div class="input-group mb-3 px-5">
-                            <input type="text" class="form-control rounded-20 shadow" placeholder="Search News..." value="">
-                        </div>
-                    </form>
+        <div class="content-outer-wrapper mx-auto">
+            <div class="py-3 content-wrapper">
+                <!-- TITLE -->
+                <div class="title-page text-white my-5">
+                    <h1 class="fw-light">Daftar</h1>
+                    <h1 class="fw-bold">Informasi</h1>
                 </div>
-                <div class="data-table rounded-20 p-2">
-                    <!-- TOMBOL DIATAS DATA NEWS -->
-                    <div class="header d-flex justify-content-end mb-3">
-                        <a href="/ad/in/tambah" class="btn btn-primary rounded-15"><i
-                                class='bx bxs-plus-circle align-middle'></i>
-                            <p class="d-inline align-middle">Add</p>
-                        </a>
+
+                <div class="alumni-table">
+                    <!-- SEARCH INPUT -->
+                    <div class="search py-3">
+                        <form action="" method="GET" class="position-relative">
+                            <i class='bx bx-search position-absolute'></i>
+                            <div class="input-group mb-3 px-5">
+                                <input type="text" class="form-control rounded-20 shadow" placeholder="Search News..."
+                                    value="">
+                            </div>
+                        </form>
                     </div>
-                    <!-- DAFTAR NEWS ITEM -->
-                    <div class="content mb-3 row">
-                        <div class="col-12 col-lg-4 col-sm-6">
-                            <div class="news p-2">
-                                <div class="shadow rounded-20 bg-white">
-                                    <div class="header d-flex justify-content-center align-items-center">
-                                        <div class="tools p-1 rounded-15">
-                                            <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
-                                                    class='bx bxs-edit align-middle'></i></a>
-                                            <span href="#" onclick="swalDelete()"
-                                                class="text-decoration-none text-white p-2"><i
-                                                    class='bx bxs-trash-alt align-middle'></i></>
+                    <div class="data-table rounded-20 p-2">
+                        <!-- TOMBOL DIATAS DATA NEWS -->
+                        <div class="header d-flex justify-content-end mb-3">
+                            <a href="/ad/in/tambah" class="btn btn-primary rounded-15"><i
+                                    class='bx bxs-plus-circle align-middle'></i>
+                                <p class="d-inline align-middle">Add</p>
+                            </a>
+                        </div>
+                        <!-- DAFTAR NEWS ITEM -->
+                        <div class="content mb-3 row">
+                            <div class="col-12 col-lg-4 col-sm-6">
+                                <div class="news p-2">
+                                    <div class="shadow rounded-20 bg-white">
+                                        <div class="header d-flex justify-content-center align-items-center">
+                                            <div class="tools p-1 rounded-15">
+                                                <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
+                                                        class='bx bxs-edit align-middle'></i></a>
+                                                <span href="#" onclick="swalDelete()"
+                                                    class="text-decoration-none text-white p-2"><i
+                                                        class='bx bxs-trash-alt align-middle'></i></>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="content p-3">
-                                        <a href="/ad/in/detail" class="text-decoration-none text-link-black">
-                                            <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
-                                        </a>
-                                        <div class="d-flex justify-content-between">
-                                            <p class="mb-1">Administrator BKK</p>
-                                            <p class="d-flex justify-content-center align-items-center mb-1"><i
-                                                    class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                        <div class="content p-3">
+                                            <a href="/ad/in/detail" class="text-decoration-none text-link-black">
+                                                <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
+                                            </a>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="mb-1">Administrator BKK</p>
+                                                <p class="d-flex justify-content-center align-items-center mb-1"><i
+                                                        class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-sm-6">
-                            <div class="news p-2">
-                                <div class="shadow rounded-20 bg-white">
-                                    <div class="header d-flex justify-content-center align-items-center">
-                                        <div class="tools p-1 rounded-15">
-                                            <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
-                                                    class='bx bxs-edit align-middle'></i></a>
-                                            <span href="#" onclick="swalDelete()"
-                                                class="text-decoration-none text-white p-2"><i
-                                                    class='bx bxs-trash-alt align-middle'></i></>
+                            <div class="col-12 col-lg-4 col-sm-6">
+                                <div class="news p-2">
+                                    <div class="shadow rounded-20 bg-white">
+                                        <div class="header d-flex justify-content-center align-items-center">
+                                            <div class="tools p-1 rounded-15">
+                                                <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
+                                                        class='bx bxs-edit align-middle'></i></a>
+                                                <span href="#" onclick="swalDelete()"
+                                                    class="text-decoration-none text-white p-2"><i
+                                                        class='bx bxs-trash-alt align-middle'></i></>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="content p-3">
-                                        <a href="#" class="text-decoration-none text-link-black">
-                                            <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
-                                        </a>
-                                        <div class="d-flex justify-content-between">
-                                            <p class="mb-1">Administrator BKK</p>
-                                            <p class="d-flex justify-content-center align-items-center mb-1"><i
-                                                    class='bx bx-calendar me-1'></i>27 Aug 2019</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-sm-6">
-                            <div class="news p-2">
-                                <div class="shadow rounded-20 bg-white">
-                                    <div class="header d-flex justify-content-center align-items-center">
-                                        <div class="tools p-1 rounded-15">
-                                            <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
-                                                    class='bx bxs-edit align-middle'></i></a>
-                                            <span href="#" onclick="swalDelete()"
-                                                class="text-decoration-none text-white p-2"><i
-                                                    class='bx bxs-trash-alt align-middle'></i></>
-                                        </div>
-                                    </div>
-                                    <div class="content p-3">
-                                        <a href="#" class="text-decoration-none text-link-black">
-                                            <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
-                                        </a>
-                                        <div class="d-flex justify-content-between">
-                                            <p class="mb-1">Administrator BKK</p>
-                                            <p class="d-flex justify-content-center align-items-center mb-1"><i
-                                                    class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                        <div class="content p-3">
+                                            <a href="#" class="text-decoration-none text-link-black">
+                                                <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
+                                            </a>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="mb-1">Administrator BKK</p>
+                                                <p class="d-flex justify-content-center align-items-center mb-1"><i
+                                                        class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-sm-6">
-                            <div class="news p-2">
-                                <div class="shadow rounded-20 bg-white">
-                                    <div class="header d-flex justify-content-center align-items-center">
-                                        <div class="tools p-1 rounded-15">
-                                            <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
-                                                    class='bx bxs-edit align-middle'></i></a>
-                                            <span href="#" onclick="swalDelete()"
-                                                class="text-decoration-none text-white p-2"><i
-                                                    class='bx bxs-trash-alt align-middle'></i></>
+                            <div class="col-12 col-lg-4 col-sm-6">
+                                <div class="news p-2">
+                                    <div class="shadow rounded-20 bg-white">
+                                        <div class="header d-flex justify-content-center align-items-center">
+                                            <div class="tools p-1 rounded-15">
+                                                <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
+                                                        class='bx bxs-edit align-middle'></i></a>
+                                                <span href="#" onclick="swalDelete()"
+                                                    class="text-decoration-none text-white p-2"><i
+                                                        class='bx bxs-trash-alt align-middle'></i></>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="content p-3">
-                                        <a href="#" class="text-decoration-none text-link-black">
-                                            <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
-                                        </a>
-                                        <div class="d-flex justify-content-between">
-                                            <p class="mb-1">Administrator BKK</p>
-                                            <p class="d-flex justify-content-center align-items-center mb-1"><i
-                                                    class='bx bx-calendar me-1'></i>27 Aug 2019</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-sm-6">
-                            <div class="news p-2">
-                                <div class="shadow rounded-20 bg-white">
-                                    <div class="header d-flex justify-content-center align-items-center">
-                                        <div class="tools p-1 rounded-15">
-                                            <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
-                                                    class='bx bxs-edit align-middle'></i></a>
-                                            <span href="#" onclick="swalDelete()"
-                                                class="text-decoration-none text-white p-2"><i
-                                                    class='bx bxs-trash-alt align-middle'></i></>
-                                        </div>
-                                    </div>
-                                    <div class="content p-3">
-                                        <a href="#" class="text-decoration-none text-link-black">
-                                            <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
-                                        </a>
-                                        <div class="d-flex justify-content-between">
-                                            <p class="mb-1">Administrator BKK</p>
-                                            <p class="d-flex justify-content-center align-items-center mb-1"><i
-                                                    class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                        <div class="content p-3">
+                                            <a href="#" class="text-decoration-none text-link-black">
+                                                <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
+                                            </a>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="mb-1">Administrator BKK</p>
+                                                <p class="d-flex justify-content-center align-items-center mb-1"><i
+                                                        class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-sm-6">
-                            <div class="news p-2">
-                                <div class="shadow rounded-20 bg-white">
-                                    <div class="header d-flex justify-content-center align-items-center">
-                                        <div class="tools p-1 rounded-15">
-                                            <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
-                                                    class='bx bxs-edit align-middle'></i></a>
-                                            <span href="#" onclick="swalDelete()"
-                                                class="text-decoration-none text-white p-2"><i
-                                                    class='bx bxs-trash-alt align-middle'></i></>
+                            <div class="col-12 col-lg-4 col-sm-6">
+                                <div class="news p-2">
+                                    <div class="shadow rounded-20 bg-white">
+                                        <div class="header d-flex justify-content-center align-items-center">
+                                            <div class="tools p-1 rounded-15">
+                                                <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
+                                                        class='bx bxs-edit align-middle'></i></a>
+                                                <span href="#" onclick="swalDelete()"
+                                                    class="text-decoration-none text-white p-2"><i
+                                                        class='bx bxs-trash-alt align-middle'></i></>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="content p-3">
-                                        <a href="#" class="text-decoration-none text-link-black">
-                                            <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
-                                        </a>
-                                        <div class="d-flex justify-content-between">
-                                            <p class="mb-1">Administrator BKK</p>
-                                            <p class="d-flex justify-content-center align-items-center mb-1"><i
-                                                    class='bx bx-calendar me-1'></i>27 Aug 2019</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-sm-6">
-                            <div class="news p-2">
-                                <div class="shadow rounded-20 bg-white">
-                                    <div class="header d-flex justify-content-center align-items-center">
-                                        <div class="tools p-1 rounded-15">
-                                            <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
-                                                    class='bx bxs-edit align-middle'></i></a>
-                                            <span href="#" onclick="swalDelete()"
-                                                class="text-decoration-none text-white p-2"><i
-                                                    class='bx bxs-trash-alt align-middle'></i></>
-                                        </div>
-                                    </div>
-                                    <div class="content p-3">
-                                        <a href="#" class="text-decoration-none text-link-black">
-                                            <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
-                                        </a>
-                                        <div class="d-flex justify-content-between">
-                                            <p class="mb-1">Administrator BKK</p>
-                                            <p class="d-flex justify-content-center align-items-center mb-1"><i
-                                                    class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                        <div class="content p-3">
+                                            <a href="#" class="text-decoration-none text-link-black">
+                                                <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
+                                            </a>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="mb-1">Administrator BKK</p>
+                                                <p class="d-flex justify-content-center align-items-center mb-1"><i
+                                                        class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-sm-6">
-                            <div class="news p-2">
-                                <div class="shadow rounded-20 bg-white">
-                                    <div class="header d-flex justify-content-center align-items-center">
-                                        <div class="tools p-1 rounded-15">
-                                            <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
-                                                    class='bx bxs-edit align-middle'></i></a>
-                                            <span href="#" onclick="swalDelete()"
-                                                class="text-decoration-none text-white p-2"><i
-                                                    class='bx bxs-trash-alt align-middle'></i></>
+                            <div class="col-12 col-lg-4 col-sm-6">
+                                <div class="news p-2">
+                                    <div class="shadow rounded-20 bg-white">
+                                        <div class="header d-flex justify-content-center align-items-center">
+                                            <div class="tools p-1 rounded-15">
+                                                <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
+                                                        class='bx bxs-edit align-middle'></i></a>
+                                                <span href="#" onclick="swalDelete()"
+                                                    class="text-decoration-none text-white p-2"><i
+                                                        class='bx bxs-trash-alt align-middle'></i></>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="content p-3">
-                                        <a href="#" class="text-decoration-none text-link-black">
-                                            <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
-                                        </a>
-                                        <div class="d-flex justify-content-between">
-                                            <p class="mb-1">Administrator BKK</p>
-                                            <p class="d-flex justify-content-center align-items-center mb-1"><i
-                                                    class='bx bx-calendar me-1'></i>27 Aug 2019</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-sm-6">
-                            <div class="news p-2">
-                                <div class="shadow rounded-20 bg-white">
-                                    <div class="header d-flex justify-content-center align-items-center">
-                                        <div class="tools p-1 rounded-15">
-                                            <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
-                                                    class='bx bxs-edit align-middle'></i></a>
-                                            <span href="#" onclick="swalDelete()"
-                                                class="text-decoration-none text-white p-2"><i
-                                                    class='bx bxs-trash-alt align-middle'></i></>
-                                        </div>
-                                    </div>
-                                    <div class="content p-3">
-                                        <a href="#" class="text-decoration-none text-link-black">
-                                            <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
-                                        </a>
-                                        <div class="d-flex justify-content-between">
-                                            <p class="mb-1">Administrator BKK</p>
-                                            <p class="d-flex justify-content-center align-items-center mb-1"><i
-                                                    class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                        <div class="content p-3">
+                                            <a href="#" class="text-decoration-none text-link-black">
+                                                <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
+                                            </a>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="mb-1">Administrator BKK</p>
+                                                <p class="d-flex justify-content-center align-items-center mb-1"><i
+                                                        class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12 col-lg-4 col-sm-6">
+                                <div class="news p-2">
+                                    <div class="shadow rounded-20 bg-white">
+                                        <div class="header d-flex justify-content-center align-items-center">
+                                            <div class="tools p-1 rounded-15">
+                                                <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
+                                                        class='bx bxs-edit align-middle'></i></a>
+                                                <span href="#" onclick="swalDelete()"
+                                                    class="text-decoration-none text-white p-2"><i
+                                                        class='bx bxs-trash-alt align-middle'></i></>
+                                            </div>
+                                        </div>
+                                        <div class="content p-3">
+                                            <a href="#" class="text-decoration-none text-link-black">
+                                                <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
+                                            </a>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="mb-1">Administrator BKK</p>
+                                                <p class="d-flex justify-content-center align-items-center mb-1"><i
+                                                        class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4 col-sm-6">
+                                <div class="news p-2">
+                                    <div class="shadow rounded-20 bg-white">
+                                        <div class="header d-flex justify-content-center align-items-center">
+                                            <div class="tools p-1 rounded-15">
+                                                <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
+                                                        class='bx bxs-edit align-middle'></i></a>
+                                                <span href="#" onclick="swalDelete()"
+                                                    class="text-decoration-none text-white p-2"><i
+                                                        class='bx bxs-trash-alt align-middle'></i></>
+                                            </div>
+                                        </div>
+                                        <div class="content p-3">
+                                            <a href="#" class="text-decoration-none text-link-black">
+                                                <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
+                                            </a>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="mb-1">Administrator BKK</p>
+                                                <p class="d-flex justify-content-center align-items-center mb-1"><i
+                                                        class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4 col-sm-6">
+                                <div class="news p-2">
+                                    <div class="shadow rounded-20 bg-white">
+                                        <div class="header d-flex justify-content-center align-items-center">
+                                            <div class="tools p-1 rounded-15">
+                                                <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
+                                                        class='bx bxs-edit align-middle'></i></a>
+                                                <span href="#" onclick="swalDelete()"
+                                                    class="text-decoration-none text-white p-2"><i
+                                                        class='bx bxs-trash-alt align-middle'></i></>
+                                            </div>
+                                        </div>
+                                        <div class="content p-3">
+                                            <a href="#" class="text-decoration-none text-link-black">
+                                                <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
+                                            </a>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="mb-1">Administrator BKK</p>
+                                                <p class="d-flex justify-content-center align-items-center mb-1"><i
+                                                        class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4 col-sm-6">
+                                <div class="news p-2">
+                                    <div class="shadow rounded-20 bg-white">
+                                        <div class="header d-flex justify-content-center align-items-center">
+                                            <div class="tools p-1 rounded-15">
+                                                <a href="/ad/in/ubah" class="text-decoration-none text-white me-2 p-2"><i
+                                                        class='bx bxs-edit align-middle'></i></a>
+                                                <span href="#" onclick="swalDelete()"
+                                                    class="text-decoration-none text-white p-2"><i
+                                                        class='bx bxs-trash-alt align-middle'></i></>
+                                            </div>
+                                        </div>
+                                        <div class="content p-3">
+                                            <a href="#" class="text-decoration-none text-link-black">
+                                                <p class="fw-bold">Pengumuman Adzan subuh 12 Ramadhan</p>
+                                            </a>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="mb-1">Administrator BKK</p>
+                                                <p class="d-flex justify-content-center align-items-center mb-1"><i
+                                                        class='bx bx-calendar me-1'></i>27 Aug 2019</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- PAGINASI NEWS -->
                         </div>
-                        <!-- PAGINASI NEWS -->
+                        <nav class="d-flex justify-content-end">
+                            <ul class="pagination rounded-20">
+                                <li class="page-item"><a class="page-link" href="#"><i
+                                            class='bx bx-chevron-left align-middle'></i></a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i
+                                            class='bx bx-chevron-right align-middle'></i></a></li>
+                            </ul>
+                        </nav>
                     </div>
-                    <nav class="d-flex justify-content-end">
-                        <ul class="pagination rounded-20">
-                            <li class="page-item"><a class="page-link" href="#"><i
-                                        class='bx bx-chevron-left align-middle'></i></a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i
-                                        class='bx bx-chevron-right align-middle'></i></a></li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>

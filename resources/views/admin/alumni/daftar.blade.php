@@ -82,169 +82,173 @@
 
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
-        <div class="py-3 content-wrapper">
-            <!-- TITLE -->
-            <div class="title-back">
-                <a href="/ad/al/main" class="d-flex align-items-center text-decoration-none text-white"><i
-                        class='bx bx-left-arrow-alt'></i>Back</a>
-            </div>
-            <div class="title-page text-white my-5">
-                <h1 class="fw-light">Daftar</h1>
-                <h1 class="fw-bold">Alumni</h1>
-            </div>
-
-            <div class="alumni-table">
-                <!-- SEARCH BAR -->
-                <div class="search py-3">
-                    <form action="" method="GET" class="position-relative">
-                        <i class='bx bx-search position-absolute'></i>
-                        <div class="input-group mb-3 px-5">
-                            <input type="text" class="form-control rounded-20 shadow" placeholder="Search Alumni..."
-                                value="">
-                        </div>
-                    </form>
+        <div class="content-outer-wrapper mx-auto">
+            <div class="py-3 content-wrapper">
+                <!-- TITLE -->
+                <div class="title-back">
+                    <a href="/ad/al/main" class="d-flex align-items-center text-decoration-none text-white"><i
+                            class='bx bx-left-arrow-alt'></i>Back</a>
                 </div>
-                <div class="data-table rounded-20 p-2">
-                    <!-- HEADER ALAT ALAT -->
-                    <div class="header d-flex justify-content-between mb-3">
-                        <button class="btn btn-primary rounded-20 dropdown-toggle" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">10</button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">10</a></li>
-                            <li><a class="dropdown-item" href="#">20</a></li>
-                            <li><a class="dropdown-item" href="#">30</a></li>
-                        </ul>
-                        <button class="btn btn-primary rounded-20"><i class='bx bxs-plus-circle align-middle'></i>
-                            <p class="d-inline align-middle">Add</p>
-                        </button>
+                <div class="title-page text-white my-5">
+                    <h1 class="fw-light">Daftar</h1>
+                    <h1 class="fw-bold">Alumni</h1>
+                </div>
+
+                <div class="alumni-table">
+                    <!-- SEARCH BAR -->
+                    <div class="search py-3">
+                        <form action="" method="GET" class="position-relative">
+                            <i class='bx bx-search position-absolute'></i>
+                            <div class="input-group mb-3 px-5">
+                                <input type="text" class="form-control rounded-20 shadow" placeholder="Search Alumni..."
+                                    value="">
+                            </div>
+                        </form>
                     </div>
-                    <!-- ISI DATA KE TABEL -->
-                    <div class="content mb-2">
-                        <table class="table table-borderless">
-                            <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">NIS</th>
-                                    <th scope="col">Jurusan</th>
-                                    <th scope="col">Angkatan</th>
-                                    <th scope="col">Karir</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th><input type="checkbox"></th>
-                                    <th scope="row">1</th>
-                                    <td><a href="/ad/al/detail" class="text-link-black text-decoration-none">Akwan
-                                            Cakra</a></td>
-                                    <td>192010382</td>
-                                    <td><a href="/ad/al/penelusuran-jurusan"
-                                            class="text-link-black text-decoration-none">RPL</a></td>
-                                    <td><a href="/ad/al/penelusuran"
-                                            class="text-link-black text-decoration-none">2018/2019</a></td>
-                                    <td>Berkerja, Kuliah</td>
-                                </tr>
-                                <tr>
-                                    <th><input type="checkbox"></th>
-                                    <th scope="row">2</th>
-                                    <td><a href="/ad/al/detail" class="text-link-black text-decoration-none">Fahru Rhman</a>
-                                    </td>
-                                    <td>192010383</td>
-                                    <td><a href="/ad/al/penelusuran-jurusan"
-                                            class="text-link-black text-decoration-none">RPL</a></td>
-                                    <td><a href="/ad/al/penelusuran"
-                                            class="text-link-black text-decoration-none">2018/2019</a></td>
-                                    <td>Kuliah</td>
-                                </tr>
-                                <tr>
-                                    <th><input type="checkbox"></th>
-                                    <th scope="row">3</th>
-                                    <td><a href="/ad/al/detail" class="text-link-black text-decoration-none">Ahmad Zaky</a>
-                                    </td>
-                                    <td>192010384</td>
-                                    <td>TKR</td>
-                                    <td>2018/2019</td>
-                                    <td>Berkerja</td>
-                                </tr>
-                                <tr>
-                                    <th><input type="checkbox"></th>
-                                    <th scope="row">4</th>
-                                    <td>Fahru Rhman</td>
-                                    <td>192010383</td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Kuliah</td>
-                                </tr>
-                                <tr>
-                                    <th><input type="checkbox"></th>
-                                    <th scope="row">5</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>192010384</td>
-                                    <td>TKR</td>
-                                    <td>2018/2019</td>
-                                    <td>Berkerja</td>
-                                </tr>
-                                <tr>
-                                    <th><input type="checkbox"></th>
-                                    <th scope="row">6</th>
-                                    <td>Fahru Rhman</td>
-                                    <td>192010383</td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Kuliah</td>
-                                </tr>
-                                <tr>
-                                    <th><input type="checkbox"></th>
-                                    <th scope="row">7</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>192010384</td>
-                                    <td>TKR</td>
-                                    <td>2018/2019</td>
-                                    <td>Berkerja</td>
-                                </tr>
-                                <tr>
-                                    <th><input type="checkbox"></th>
-                                    <th scope="row">8</th>
-                                    <td>Fahru Rhman</td>
-                                    <td>192010383</td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Kuliah</td>
-                                </tr>
-                                <tr>
-                                    <th><input type="checkbox"></th>
-                                    <th scope="row">9</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>192010384</td>
-                                    <td>TKR</td>
-                                    <td>2018/2019</td>
-                                    <td>Berkerja</td>
-                                </tr>
-                                <tr>
-                                    <th><input type="checkbox"></th>
-                                    <th scope="row">10</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>192010384</td>
-                                    <td>TKR</td>
-                                    <td>2018/2019</td>
-                                    <td>Berkerja</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <nav class="d-flex justify-content-end">
-                            <ul class="pagination rounded-20">
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class='bx bx-chevron-left align-middle'></i></a></li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class='bx bx-chevron-right align-middle'></i></a></li>
+                    <div class="data-table rounded-20 p-2 bg-white">
+                        <!-- HEADER ALAT ALAT -->
+                        <div class="header d-flex justify-content-between mb-3">
+                            <button class="btn btn-primary rounded-20 dropdown-toggle" type="button"
+                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">10</button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">10</a></li>
+                                <li><a class="dropdown-item" href="#">20</a></li>
+                                <li><a class="dropdown-item" href="#">30</a></li>
                             </ul>
-                        </nav>
+                            <button class="btn btn-primary rounded-20"><i class='bx bxs-plus-circle align-middle'></i>
+                                <p class="d-inline align-middle">Add</p>
+                            </button>
+                        </div>
+                        <!-- ISI DATA KE TABEL -->
+                        <div class="content mb-2">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">NIS</th>
+                                        <th scope="col">Jurusan</th>
+                                        <th scope="col">Angkatan</th>
+                                        <th scope="col">Karir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th scope="row">1</th>
+                                        <td><a href="/ad/al/detail" class="text-link-black text-decoration-none">Akwan
+                                                Cakra</a></td>
+                                        <td>192010382</td>
+                                        <td><a href="/ad/al/penelusuran-jurusan"
+                                                class="text-link-black text-decoration-none">RPL</a></td>
+                                        <td><a href="/ad/al/penelusuran"
+                                                class="text-link-black text-decoration-none">2018/2019</a></td>
+                                        <td>Berkerja, Kuliah</td>
+                                    </tr>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th scope="row">2</th>
+                                        <td><a href="/ad/al/detail" class="text-link-black text-decoration-none">Fahru
+                                                Rhman</a>
+                                        </td>
+                                        <td>192010383</td>
+                                        <td><a href="/ad/al/penelusuran-jurusan"
+                                                class="text-link-black text-decoration-none">RPL</a></td>
+                                        <td><a href="/ad/al/penelusuran"
+                                                class="text-link-black text-decoration-none">2018/2019</a></td>
+                                        <td>Kuliah</td>
+                                    </tr>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th scope="row">3</th>
+                                        <td><a href="/ad/al/detail" class="text-link-black text-decoration-none">Ahmad
+                                                Zaky</a>
+                                        </td>
+                                        <td>192010384</td>
+                                        <td>TKR</td>
+                                        <td>2018/2019</td>
+                                        <td>Berkerja</td>
+                                    </tr>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th scope="row">4</th>
+                                        <td>Fahru Rhman</td>
+                                        <td>192010383</td>
+                                        <td>RPL</td>
+                                        <td>2018/2019</td>
+                                        <td>Kuliah</td>
+                                    </tr>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th scope="row">5</th>
+                                        <td>Ahmad Zaky</td>
+                                        <td>192010384</td>
+                                        <td>TKR</td>
+                                        <td>2018/2019</td>
+                                        <td>Berkerja</td>
+                                    </tr>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th scope="row">6</th>
+                                        <td>Fahru Rhman</td>
+                                        <td>192010383</td>
+                                        <td>RPL</td>
+                                        <td>2018/2019</td>
+                                        <td>Kuliah</td>
+                                    </tr>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th scope="row">7</th>
+                                        <td>Ahmad Zaky</td>
+                                        <td>192010384</td>
+                                        <td>TKR</td>
+                                        <td>2018/2019</td>
+                                        <td>Berkerja</td>
+                                    </tr>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th scope="row">8</th>
+                                        <td>Fahru Rhman</td>
+                                        <td>192010383</td>
+                                        <td>RPL</td>
+                                        <td>2018/2019</td>
+                                        <td>Kuliah</td>
+                                    </tr>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th scope="row">9</th>
+                                        <td>Ahmad Zaky</td>
+                                        <td>192010384</td>
+                                        <td>TKR</td>
+                                        <td>2018/2019</td>
+                                        <td>Berkerja</td>
+                                    </tr>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th scope="row">10</th>
+                                        <td>Ahmad Zaky</td>
+                                        <td>192010384</td>
+                                        <td>TKR</td>
+                                        <td>2018/2019</td>
+                                        <td>Berkerja</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <nav class="d-flex justify-content-end">
+                                <ul class="pagination rounded-20">
+                                    <li class="page-item"><a class="page-link" href="#"><i
+                                                class='bx bx-chevron-left align-middle'></i></a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                    <li class="page-item"><a class="page-link" href="#"><i
+                                                class='bx bx-chevron-right align-middle'></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>

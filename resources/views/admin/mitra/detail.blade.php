@@ -83,118 +83,121 @@
         <!-- IMAGE WAVES -->
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
-        <div class="py-3 content-wrapper">
-            <!-- TITLE -->
-            <div class="title-back">
-                <a href="/ad/mt/main" class="d-flex align-items-center text-decoration-none text-white"><i
-                        class='bx bx-left-arrow-alt'></i>Back</a>
-            </div>
-            <div class="title-page text-white my-5">
-                <h1 class="fw-light">Detail</h1>
-                <h1 class="fw-bold">Mitra</h1>
-            </div>
-
-            <!-- CONTENT -->
-            <div class="detail-outer-wrapper shadow-custom-2 rounded-20 mx-0 mx-md-5 mb-5">
-                <div class="header d-flex align-items-center">
-                    <!-- HEADER IMAGE DAN BANNER -->
-                    <div class="img rounded-circle ms-5"></div>
+        <div class="content-outer-wrapper mx-auto">
+            <div class="py-3 content-wrapper">
+                <!-- TITLE -->
+                <div class="title-back">
+                    <a href="/ad/mt/main" class="d-flex align-items-center text-decoration-none text-white"><i
+                            class='bx bx-left-arrow-alt'></i>Back</a>
                 </div>
-                <!-- ISI DATA-DATANYA -->
-                <div class="content py-3 px-5">
-                    <div class="mb-4 d-flex justify-content-between">
-                        <div>
-                            <h2 class="fw-900">PT. Yutaka Finance <i
-                                    class='bx bxs-badge-check text-primary align-middle'></i></h2>
-                        </div>
-                        <div class="tools d-flex">
-                            <div class="rounded-15 d-flex justify-content-center align-items-center me-1">
-                                <a href="#" class="text-white"><i class='bx bxs-edit'></i></a>
-                            </div>
-                            <div class="rounded-15 d-flex justify-content-center align-items-center">
-                                <a href="#" class="text-white"><i class='bx bxs-trash-alt'></i></a>
-                            </div>
-                        </div>
+                <div class="title-page text-white my-5">
+                    <h1 class="fw-light">Detail</h1>
+                    <h1 class="fw-bold">Mitra</h1>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="detail-outer-wrapper shadow-custom-2 rounded-20 mx-0 mx-md-5 mb-5">
+                    <div class="header d-flex align-items-center">
+                        <!-- HEADER IMAGE DAN BANNER -->
+                        <div class="img rounded-circle ms-5"></div>
                     </div>
-                    <div class="mb-3">
-                        <h5 class="fw-bold mb-1">Tentang</h5>
-                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum
-                            tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati
-                            aut, numquam, ab earum rerum? Nesciunt optio accusamus
-                            nisi, iusto animi illum molestias quia labore delectus neque soluta aspernatur!</p>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="col-4">
-                            <h5 class="fw-bold mb-1">Email</h5>
-                            <p>tysonngo@mail.com</p>
+                    <!-- ISI DATA-DATANYA -->
+                    <div class="content py-3 px-5">
+                        <div class="mb-4 d-flex justify-content-between">
+                            <div>
+                                <h2 class="fw-900">PT. Yutaka Finance <i
+                                        class='bx bxs-badge-check text-primary align-middle'></i></h2>
+                            </div>
+                            <div class="tools d-flex">
+                                <div class="rounded-15 d-flex justify-content-center align-items-center me-1">
+                                    <a href="#" class="text-white"><i class='bx bxs-edit'></i></a>
+                                </div>
+                                <div class="rounded-15 d-flex justify-content-center align-items-center">
+                                    <a href="#" class="text-white"><i class='bx bxs-trash-alt'></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-4">
-                            <h5 class="fw-bold mb-1">No. Telp</h5>
-                            <p>0031306665</p>
+                        <div class="mb-3">
+                            <h5 class="fw-bold mb-1">Tentang</h5>
+                            <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum
+                                tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci
+                                obcaecati
+                                aut, numquam, ab earum rerum? Nesciunt optio accusamus
+                                nisi, iusto animi illum molestias quia labore delectus neque soluta aspernatur!</p>
                         </div>
-                        <div class="col-4">
-                            <h5 class="fw-bold mb-1">Jenis Perusahaan</h5>
-                            <p>Perseroan Terbatas (PT)</p>
-                        </div>
-                        <div class="col-4">
-                            <h5 class="fw-bold mb-1">Kategori</h5>
-                            <p>Informasi dan teknologi</p>
-                        </div>
-                        <div class="col-4">
-                            <h5 class="fw-bold mb-1">Tahun Bergabung</h5>
-                            <p>2018</p>
-                        </div>
-                        <div class="col-12">
-                            <h5 class="fw-bold mb-1">Alamat</h5>
-                            <p>Jl. H. Naim no.67 RT/RW 02/23 Kec. Beruk serdang</p>
-                        </div>
-                        <hr>
-                        <div class="col-4">
-                            <h5 class="fw-bold mb-1">Alumni Melamar</h5>
-                            <p>123</p>
-                        </div>
-                        <div class="col-4">
-                            <h5 class="fw-bold mb-1">Lowongan Kerja Dibuat</h5>
-                            <p>9</p>
-                        </div>
-                        <div class="col-4">
-                            <h5 class="fw-bold mb-1">Level</h5>
-                            <p>Mitra</p>
-                        </div>
-                        <div class="col-4">
-                            <h5 class="fw-bold mb-1">Tanggal Dibuat</h5>
-                            <p>22-03-2018</p>
+                        <div class="mb-3 row">
+                            <div class="col-4">
+                                <h5 class="fw-bold mb-1">Email</h5>
+                                <p>tysonngo@mail.com</p>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="fw-bold mb-1">No. Telp</h5>
+                                <p>0031306665</p>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="fw-bold mb-1">Jenis Perusahaan</h5>
+                                <p>Perseroan Terbatas (PT)</p>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="fw-bold mb-1">Kategori</h5>
+                                <p>Informasi dan teknologi</p>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="fw-bold mb-1">Tahun Bergabung</h5>
+                                <p>2018</p>
+                            </div>
+                            <div class="col-12">
+                                <h5 class="fw-bold mb-1">Alamat</h5>
+                                <p>Jl. H. Naim no.67 RT/RW 02/23 Kec. Beruk serdang</p>
+                            </div>
+                            <hr>
+                            <div class="col-4">
+                                <h5 class="fw-bold mb-1">Alumni Melamar</h5>
+                                <p>123</p>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="fw-bold mb-1">Lowongan Kerja Dibuat</h5>
+                                <p>9</p>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="fw-bold mb-1">Level</h5>
+                                <p>Mitra</p>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="fw-bold mb-1">Tanggal Dibuat</h5>
+                                <p>22-03-2018</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="gallery mx-0 mx-md-5">
-                <h2 class="fw-900 mb-2">Gallery</h2>
-                <div class="row owl-carousel">
-                    <div class="col-4 col-md-2 mb-2">
-                        <div class="item overflow-hidden d-flex justify-content-center align-items-center"><img
-                                src="../../../assets/img/Free fire.jpeg" class="rounded-15"></div>
-                    </div>
-                    <div class="col-4 col-md-2 mb-2">
-                        <div class="item overflow-hidden d-flex justify-content-center align-items-center"><img
-                                src="../../../assets/img/ascent.png" class="rounded-15"></div>
-                    </div>
-                    <div class="col-4 col-md-2 mb-2">
-                        <div class="item overflow-hidden d-flex justify-content-center align-items-center"><img
-                                src="../../../assets/img/bind.jpg" class="rounded-15"></div>
-                    </div>
-                    <div class="col-4 col-md-2 mb-2">
-                        <div class="item overflow-hidden d-flex justify-content-center align-items-center"><img
-                                src="../../../assets/img/csgo.jpg" class="rounded-15"></div>
-                    </div>
-                    <div class="col-4 col-md-2 mb-2">
-                        <div class="item overflow-hidden d-flex justify-content-center align-items-center"><img
-                                src="../../../assets/img/aqsa.jpg" class="rounded-15"></div>
-                    </div>
-                    <div class="col-4 col-md-2 mb-2">
-                        <div class="item overflow-hidden d-flex justify-content-center align-items-center"><img
-                                src="../../../assets/img/Pergiin.png" class="rounded-15"></div>
+                <div class="gallery mx-0 mx-md-5">
+                    <h2 class="fw-900 mb-2">Gallery</h2>
+                    <div class="row owl-carousel">
+                        <div class="col-4 col-md-2 mb-2">
+                            <div class="item overflow-hidden d-flex justify-content-center align-items-center"><img
+                                    src="../../../assets/img/Free fire.jpeg" class="rounded-15"></div>
+                        </div>
+                        <div class="col-4 col-md-2 mb-2">
+                            <div class="item overflow-hidden d-flex justify-content-center align-items-center"><img
+                                    src="../../../assets/img/ascent.png" class="rounded-15"></div>
+                        </div>
+                        <div class="col-4 col-md-2 mb-2">
+                            <div class="item overflow-hidden d-flex justify-content-center align-items-center"><img
+                                    src="../../../assets/img/bind.jpg" class="rounded-15"></div>
+                        </div>
+                        <div class="col-4 col-md-2 mb-2">
+                            <div class="item overflow-hidden d-flex justify-content-center align-items-center"><img
+                                    src="../../../assets/img/csgo.jpg" class="rounded-15"></div>
+                        </div>
+                        <div class="col-4 col-md-2 mb-2">
+                            <div class="item overflow-hidden d-flex justify-content-center align-items-center"><img
+                                    src="../../../assets/img/aqsa.jpg" class="rounded-15"></div>
+                        </div>
+                        <div class="col-4 col-md-2 mb-2">
+                            <div class="item overflow-hidden d-flex justify-content-center align-items-center"><img
+                                    src="../../../assets/img/Pergiin.png" class="rounded-15"></div>
+                        </div>
                     </div>
                 </div>
             </div>

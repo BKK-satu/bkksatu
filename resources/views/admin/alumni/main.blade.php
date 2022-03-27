@@ -32,54 +32,56 @@
         @include('layouts.sidebar-admin')
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
-        <div class="py-3 content-wrapper">
-            <!-- TITLE -->
-            <div class="title-page text-white my-5">
-                <h1 class="fw-light">Data</h1>
-                <h1 class="fw-bold">Alumni</h1>
-            </div>
+        <div class="content-outer-wrapper mx-auto">
+            <div class="py-3 content-wrapper">
+                <!-- TITLE -->
+                <div class="title-page text-white my-5">
+                    <h1 class="fw-light">Data</h1>
+                    <h1 class="fw-bold">Alumni</h1>
+                </div>
 
-            <div class="alumni-table">
-                <!-- GRAFIX BATANG -->
-                <div class="alumni-graph">
-                    <div class="row mb-3">
-                        <div class="bg-white graph-item col">
-                            <div class="item rounded-20 p-3 shadow-custom-2">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <p class="mb-0">Alumni</p>
-                                    <a href="/ad/al/daftar" class="btn btn-primary rounded-20">Lihat Data</a>
+                <div class="alumni-table">
+                    <!-- GRAFIX BATANG -->
+                    <div class="alumni-graph">
+                        <div class="row mb-3">
+                            <div class="bg-white graph-item col">
+                                <div class="item rounded-20 p-3 shadow-custom-2">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="mb-0">Alumni</p>
+                                        <a href="/ad/al/daftar" class="btn btn-primary rounded-20">Lihat Data</a>
+                                    </div>
+                                    <p class="text-center">12.043</p>
                                 </div>
-                                <p class="text-center">12.043</p>
                             </div>
-                        </div>
-                        <div class="bg-white graph-item col">
-                            <div class="item rounded-20 p-3 shadow-custom-2">
-                                <p>Berkerja</p>
-                                <p class="text-center">5.403</p>
-                            </div>
-                        </div>
-                        <div class="bg-white graph-item col">
-                            <div class="item rounded-20 p-3 shadow-custom-2">
-                                <p>Kuliah</p>
-                                <p class="text-center">9.342</p>
-                            </div>
-                        </div>
-                        <div class="bg-white graph-item col">
-                            <div class="item rounded-20 p-3 shadow-custom-2">
-                                <p>Wirausaha</p>
-                                <p class="text-center">1.239</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="pe-3">
-                            <div class="bg-white rounded-20 p-3 shadow-custom-2">
-                                <div class="d-flex align-items-center mb-3">
-                                    <h2 class="fw-700 me-2 mb-0">Grafik karir alumni</h2>
-                                    <a href="/ad/al/penelusuran" class="btn btn-primary rounded-20">Lihat Penelusuran
-                                        Alumni</a>
+                            <div class="bg-white graph-item col">
+                                <div class="item rounded-20 p-3 shadow-custom-2">
+                                    <p>Berkerja</p>
+                                    <p class="text-center">5.403</p>
                                 </div>
-                                <canvas id="myChart" height="97px"></canvas>
+                            </div>
+                            <div class="bg-white graph-item col">
+                                <div class="item rounded-20 p-3 shadow-custom-2">
+                                    <p>Kuliah</p>
+                                    <p class="text-center">9.342</p>
+                                </div>
+                            </div>
+                            <div class="bg-white graph-item col">
+                                <div class="item rounded-20 p-3 shadow-custom-2">
+                                    <p>Wirausaha</p>
+                                    <p class="text-center">1.239</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="pe-3">
+                                <div class="bg-white rounded-20 p-3 shadow-custom-2">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <h2 class="fw-700 me-2 mb-0">Grafik karir alumni</h2>
+                                        <a href="/ad/al/penelusuran" class="btn btn-primary rounded-20">Lihat Penelusuran
+                                            Alumni</a>
+                                    </div>
+                                    <canvas id="myChart" height="97px"></canvas>
+                                </div>
                             </div>
                         </div>
                     </div>
