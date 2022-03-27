@@ -47,43 +47,45 @@
 
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
-        <div class="container py-3 content-wrapper">
-            <div class="title-back">
-                <a href="/ad/ak/detail" class="d-flex align-items-center text-decoration-none text-white"><i
-                        class='bx bx-left-arrow-alt'></i>Back</a>
-            </div>
-            <div class="title-page text-white my-5">
-                <h1 class="fw-light">Detail</h1>
-                <h1 class="fw-bold">Alumni</h1>
-            </div>
-
-            <div class="detail-outer-wrapper shadow-custom-2 rounded-20">
-                <div class="header">
+        <div class="content-outer-wrapper mx-auto">
+            <div class="container py-3 content-wrapper">
+                <div class="title-back">
+                    <a href="/ad/ak/detail" class="d-flex align-items-center text-decoration-none text-white"><i
+                            class='bx bx-left-arrow-alt'></i>Back</a>
                 </div>
-                <div class="content py-3 px-5">
-                    <div class="mb-4 d-flex justify-content-between">
-                        <h2 class="fw-900">tysonngo</h2>
-                        <div class="tools d-flex">
-                            <div class="rounded-15 d-flex justify-content-center align-items-center me-1">
-                                <a href="#" class="text-white"><i class='bx bxs-edit'></i></a>
-                            </div>
-                            <div class="rounded-15 d-flex justify-content-center align-items-center">
-                                <a href="#" class="text-white"><i class='bx bxs-trash-alt'></i></a>
-                            </div>
-                        </div>
+                <div class="title-page text-white my-5">
+                    <h1 class="fw-light">Detail</h1>
+                    <h1 class="fw-bold">Alumni</h1>
+                </div>
+
+                <div class="detail-outer-wrapper shadow-custom-2 rounded-20">
+                    <div class="header">
                     </div>
-                    <div class="mb-3 row">
-                        <div class="col-4">
-                            <h5 class="fw-bold mb-1">NIS</h5>
-                            <p>192010382</p>
+                    <div class="content py-3 px-5">
+                        <div class="mb-4 d-flex justify-content-between">
+                            <h2 class="fw-900">tysonngo</h2>
+                            <div class="tools d-flex">
+                                <div class="rounded-15 d-flex justify-content-center align-items-center me-1">
+                                    <a href="#" class="text-white"><i class='bx bxs-edit'></i></a>
+                                </div>
+                                <div class="rounded-15 d-flex justify-content-center align-items-center">
+                                    <a href="#" class="text-white"><i class='bx bxs-trash-alt'></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-4">
-                            <h5 class="fw-bold mb-1">Email</h5>
-                            <p>tysonngo@mail.com</p>
-                        </div>
-                        <div class="col-4">
-                            <h5 class="fw-bold mb-1">Level</h5>
-                            <p>Alumni</p>
+                        <div class="mb-3 row">
+                            <div class="col-4">
+                                <h5 class="fw-bold mb-1">NIS</h5>
+                                <p>192010382</p>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="fw-bold mb-1">Email</h5>
+                                <p>tysonngo@mail.com</p>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="fw-bold mb-1">Level</h5>
+                                <p>Alumni</p>
+                            </div>
                         </div>
                     </div>
                 </div>

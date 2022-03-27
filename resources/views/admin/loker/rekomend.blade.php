@@ -84,147 +84,150 @@
 
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
-        <div class="py-3 content-wrapper">
-            <!-- TITLE -->
-            <div class="title-back">
-                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
-                        class='bx bx-left-arrow-alt'></i>Back</a>
-            </div>
-            <div class="title-page text-white my-5">
-                <h1 class="fw-light">Rekomendasi</h1>
-                <h1 class="fw-bold">LOK00023</h1>
-            </div>
-
-            <div class="alumni-table">
-                <!-- SEARCH BAR -->
-                <div class="search py-3">
-                    <form action="" method="GET" class="position-relative">
-                        <i class='bx bx-search position-absolute'></i>
-                        <div class="input-group mb-3 px-5">
-                            <input type="text" class="form-control rounded-20 shadow"
-                                placeholder="Search Rekomendasi Alumni..." value="">
-                        </div>
-                    </form>
+        <div class="content-outer-wrapper mx-auto">
+            <div class="py-3 content-wrapper">
+                <!-- TITLE -->
+                <div class="title-back">
+                    <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
+                            class='bx bx-left-arrow-alt'></i>Back</a>
                 </div>
-                <div class="data-table rounded-20 py-2 px-4">
-                    <!-- HEADING DATATABLE -->
-                    <div class="header d-flex justify-content-between mb-3">
-                        <button class="btn btn-primary rounded-15 dropdown-toggle" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">10</button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">10</a></li>
-                            <li><a class="dropdown-item" href="#">20</a></li>
-                            <li><a class="dropdown-item" href="#">30</a></li>
-                        </ul>
-                        <div>
-                            <button class="btn btn-primary rounded-15 px-4">
-                                <p class="d-inline align-middle fw-bold">Add</p>
-                            </button>
-                            <button class="btn btn-primary rounded-15 px-4">
-                                <p class="d-inline align-middle fw-bold">Print</p>
-                            </button>
-                        </div>
+                <div class="title-page text-white my-5">
+                    <h1 class="fw-light">Rekomendasi</h1>
+                    <h1 class="fw-bold">LOK00023</h1>
+                </div>
+
+                <div class="alumni-table">
+                    <!-- SEARCH BAR -->
+                    <div class="search py-3">
+                        <form action="" method="GET" class="position-relative">
+                            <i class='bx bx-search position-absolute'></i>
+                            <div class="input-group mb-3 px-5">
+                                <input type="text" class="form-control rounded-20 shadow"
+                                    placeholder="Search Rekomendasi Alumni..." value="">
+                            </div>
+                        </form>
                     </div>
-                    <!-- ISI DATATABLE -->
-                    <div class="content mb-2">
-                        <table class="table table-borderless">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Alumni</th>
-                                    <th scope="col">Jurusan</th>
-                                    <th scope="col">Angakatan</th>
-                                    <th scope="col">Jenis Kelamim</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td><a href="/ad/al/detail" class="text-link-black text-decoration-none">Akwan Cakra</a>
-                                    </td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Fahru Rhman</td>
-                                    <td>TKJ</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>MM</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Fahru Rhman</td>
-                                    <td>TKJ</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>MM</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Fahru Rhman</td>
-                                    <td>TKJ</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>Fahru Rhman</td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">9</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">10</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <!-- PAGINASI -->
-                        <nav class="d-flex justify-content-end">
-                            <ul class="pagination rounded-20">
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class='bx bx-chevron-left align-middle'></i></a></li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class='bx bx-chevron-right align-middle'></i></a></li>
+                    <div class="data-table rounded-20 py-2 px-4 bg-white">
+                        <!-- HEADING DATATABLE -->
+                        <div class="header d-flex justify-content-between mb-3">
+                            <button class="btn btn-primary rounded-15 dropdown-toggle" type="button"
+                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">10</button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">10</a></li>
+                                <li><a class="dropdown-item" href="#">20</a></li>
+                                <li><a class="dropdown-item" href="#">30</a></li>
                             </ul>
-                        </nav>
+                            <div>
+                                <button class="btn btn-primary rounded-15 px-4">
+                                    <p class="d-inline align-middle fw-bold">Add</p>
+                                </button>
+                                <button class="btn btn-primary rounded-15 px-4">
+                                    <p class="d-inline align-middle fw-bold">Print</p>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- ISI DATATABLE -->
+                        <div class="content mb-2">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Alumni</th>
+                                        <th scope="col">Jurusan</th>
+                                        <th scope="col">Angakatan</th>
+                                        <th scope="col">Jenis Kelamim</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td><a href="/ad/al/detail" class="text-link-black text-decoration-none">Akwan
+                                                Cakra</a>
+                                        </td>
+                                        <td>RPL</td>
+                                        <td>2018/2019</td>
+                                        <td>Laki-laki</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Fahru Rhman</td>
+                                        <td>TKJ</td>
+                                        <td>2018/2019</td>
+                                        <td>Laki-laki</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Ahmad Zaky</td>
+                                        <td>MM</td>
+                                        <td>2018/2019</td>
+                                        <td>Laki-laki</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Fahru Rhman</td>
+                                        <td>TKJ</td>
+                                        <td>2018/2019</td>
+                                        <td>Laki-laki</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Ahmad Zaky</td>
+                                        <td>MM</td>
+                                        <td>2018/2019</td>
+                                        <td>Laki-laki</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">6</th>
+                                        <td>Fahru Rhman</td>
+                                        <td>TKJ</td>
+                                        <td>2018/2019</td>
+                                        <td>Laki-laki</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">7</th>
+                                        <td>Ahmad Zaky</td>
+                                        <td>RPL</td>
+                                        <td>2018/2019</td>
+                                        <td>Laki-laki</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">8</th>
+                                        <td>Fahru Rhman</td>
+                                        <td>RPL</td>
+                                        <td>2018/2019</td>
+                                        <td>Laki-laki</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">9</th>
+                                        <td>Ahmad Zaky</td>
+                                        <td>RPL</td>
+                                        <td>2018/2019</td>
+                                        <td>Laki-laki</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">10</th>
+                                        <td>Ahmad Zaky</td>
+                                        <td>RPL</td>
+                                        <td>2018/2019</td>
+                                        <td>Laki-laki</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- PAGINASI -->
+                            <nav class="d-flex justify-content-end">
+                                <ul class="pagination rounded-20">
+                                    <li class="page-item"><a class="page-link" href="#"><i
+                                                class='bx bx-chevron-left align-middle'></i></a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                    <li class="page-item"><a class="page-link" href="#"><i
+                                                class='bx bx-chevron-right align-middle'></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>

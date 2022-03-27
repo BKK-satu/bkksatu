@@ -42,83 +42,85 @@
 
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
-        <div class="container py-3 content-wrapper">
-            <div class="title-back">
-                <a href="/ad/ak/ubah" class="d-flex align-items-center text-decoration-none text-white"><i
-                        class='bx bx-left-arrow-alt'></i>Back</a>
-            </div>
-            <div class="title-page text-white my-5">
-                <h1 class="fw-light">Ubah</h1>
-                <h1 class="fw-bold">Akun</h1>
-            </div>
-
-            <div class="edit-wrapper d-flex">
-                <div class="data me-4">
-                    <h2 class="fw-700 mb-2">Data</h2>
-                    <form action="" method="POST" class="">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control rounded-15" id="username" placeholder="Username..."
-                                onkeyup="updateUsername(this.value)">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control rounded-15" id="email" placeholder="Email..."
-                                onkeyup="updateEmail(this.value)">
-                        </div>
-                        <div class="mb-3">
-                            <label for="level" class="form-label">Level</label>
-                            <select class="form-select rounded-15" onchange="updateLevel(this.value)">
-                                <option selected disabled hidden>Pilih Level</option>
-                                <option value="Alumni">Alumni</option>
-                                <option value="Mitra">Mitra</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control rounded-15" id="password" placeholder="Password..."
-                                onkeyup="updatePassword(this.value)">
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-secondary fw-700 rounded-15 me-2">Cancel</button>
-                            <button class="btn btn-primary fw-700 rounded-15">Save</button>
-                        </div>
+        <div class="content-outer-wrapper mx-auto">
+            <div class="container py-3 content-wrapper">
+                <div class="title-back">
+                    <a href="/ad/ak/ubah" class="d-flex align-items-center text-decoration-none text-white"><i
+                            class='bx bx-left-arrow-alt'></i>Back</a>
                 </div>
-                <div class="preview">
-                    <h2 class="fw-700 mb-2">Preview</h2>
-                    <div class="shadow bg-white rounded-20">
-                        <div class="header mb-2"></div>
-                        <div class="content p-3">
-                            <div>
-                                <h4 class="fw-bold" id="nama_value">Name</h4>
+                <div class="title-page text-white my-5">
+                    <h1 class="fw-light">Ubah</h1>
+                    <h1 class="fw-bold">Akun</h1>
+                </div>
+
+                <div class="edit-wrapper d-flex">
+                    <div class="data me-4">
+                        <h2 class="fw-700 mb-2">Data</h2>
+                        <form action="" method="POST" class="">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control rounded-15" id="username" placeholder="Username..."
+                                    onkeyup="updateUsername(this.value)">
                             </div>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <div>
-                                            <p class="fw-bold">Username</p>
-                                            <p id="username_value">-</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <p class="fw-bold">Email</p>
-                                            <p id="email_value">-</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div>
-                                            <p class="fw-bold">Level</p>
-                                            <p id="level_value">-</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control rounded-15" id="email" placeholder="Email..."
+                                    onkeyup="updateEmail(this.value)">
+                            </div>
+                            <div class="mb-3">
+                                <label for="level" class="form-label">Level</label>
+                                <select class="form-select rounded-15" onchange="updateLevel(this.value)">
+                                    <option selected disabled hidden>Pilih Level</option>
+                                    <option value="Alumni">Alumni</option>
+                                    <option value="Mitra">Mitra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control rounded-15" id="password"
+                                    placeholder="Password..." onkeyup="updatePassword(this.value)">
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-secondary fw-700 rounded-15 me-2">Cancel</button>
+                                <button class="btn btn-primary fw-700 rounded-15">Save</button>
+                            </div>
                     </div>
-                    </form>
+                    <div class="preview">
+                        <h2 class="fw-700 mb-2">Preview</h2>
+                        <div class="shadow bg-white rounded-20">
+                            <div class="header mb-2"></div>
+                            <div class="content p-3">
+                                <div>
+                                    <h4 class="fw-bold" id="nama_value">Name</h4>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <p class="fw-bold">Username</p>
+                                                <p id="username_value">-</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <p class="fw-bold">Email</p>
+                                                <p id="email_value">-</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <p class="fw-bold">Level</p>
+                                                <p id="level_value">-</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -58,131 +58,139 @@
 
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
-        <div class="py-3 content-wrapper">
-            <!-- TITLE -->
-            <div class="title-page text-white mb-5">
-                <h1 class="fw-light">Main</h1>
-                <h1 class="fw-bold">Dashboard</h1>
-            </div>
+        <div class="content-outer-wrapper mx-auto">
+            <div class="py-3 content-wrapper">
+                <!-- TITLE -->
+                <div class="title-page text-white mb-5">
+                    <h1 class="fw-light">Main</h1>
+                    <h1 class="fw-bold">Dashboard</h1>
+                </div>
 
-            <div class="welcome-admin text-white">
-                <!-- WELCOMING TEXT -->
-                <h4>Hello, Welcome <span class="fw-bolder">Tyson Ngo</span></h4>
-            </div>
+                <div class="welcome-admin text-white">
+                    <!-- WELCOMING TEXT -->
+                    <h4>Hello, Welcome <span class="fw-bolder">Tyson Ngo</span></h4>
+                </div>
 
-            <div class="overview-data px-2 px-lg-5">
-                <!-- IMAGE INFORMASI -->
-                <div class="data mb-3">
-                    <div class="row">
-                        <div class="col small-data">
-                            <div class="p-2">
-                                <div class="rounded-20 p-3 shadow h-auto bg-white">
-                                    <div class="">Alumni</div>
-                                    <div class="text-center fw-900">12.093</div>
+                <div class="overview-data">
+                    <!-- IMAGE INFORMASI -->
+                    <div class="data mb-3">
+                        <div class="row">
+                            <div class="col small-data">
+                                <div class="p-2 ps-0">
+                                    <div class="rounded-20 p-3 shadow h-auto bg-white">
+                                        <div class="">Alumni</div>
+                                        <div class="text-center fw-900">12.093</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col small-data">
+                                <div class="p-2">
+                                    <div class="rounded-20 p-3 shadow h-auto bg-white">
+                                        <div class="">Alumni</div>
+                                        <div class="text-center fw-900">12.093</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col small-data">
+                                <div class="p-2">
+                                    <div class="rounded-20 p-3 shadow h-auto bg-white">
+                                        <div class="">Alumni</div>
+                                        <div class="text-center fw-900">12.093</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col small-data">
+                                <div class="p-2">
+                                    <div class="rounded-20 p-3 shadow h-auto bg-white">
+                                        <div class="">Alumni</div>
+                                        <div class="text-center fw-900">12.093</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col small-data">
-                            <div class="p-2">
-                                <div class="rounded-20 p-3 shadow h-auto bg-white">
-                                    <div class="">Alumni</div>
-                                    <div class="text-center fw-900">12.093</div>
+                        <div class="w-auto big-data">
+                            <div class="py-2 px-0 me-2">
+                                <div class="rounded-20 p-2 shadow bg-white">
+                                    <canvas id="myChart" style="height: auto;"></canvas>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col small-data">
-                            <div class="p-2">
-                                <div class="rounded-20 p-3 shadow h-auto bg-white">
-                                    <div class="">Alumni</div>
-                                    <div class="text-center fw-900">12.093</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col small-data">
-                            <div class="p-2">
-                                <div class="rounded-20 p-3 shadow h-auto bg-white">
-                                    <div class="">Alumni</div>
-                                    <div class="text-center fw-900">12.093</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-auto big-data">
-                        <div class="p-2">
-                            <div class="rounded-20 p-2 shadow bg-white">
-                                <canvas id="myChart" style="height: auto;"></canvas>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="notification-wrapper p-3 rounded-20 shadow">
-                <!-- NOTIFIKASI DARI YANG DILAKUIN -->
-                <div class="mb-2">
-                    <h2 class="d-inline align-middle me-2 fw-bold">Notification</h2><span class="badge bg-danger">20+</span>
-                </div>
-                <div class="my-4">
-                    <!-- NOTIFIKASI ITEMNYA -->
-                    <div class="notif-item d-flex justify-content-between my-2">
-                        <div class="d-flex">
-                            <div class="notif-img rounded-circle"></div>
-                            <div class="notif-content mx-2">
-                                <p class="title fw-bold">Lowongan Kerja</p>
-                                <p class="content fw-bold">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
-                                    diberitahukan informasi terbaru.</p>
-                            </div>
-                        </div>
-                        <div class="notif-date align-self-center mx-2 fw-bold">27 Feb 2019</div>
+                <div class="notification-wrapper p-3 rounded-20 shadow bg-white me-2">
+                    <!-- NOTIFIKASI DARI YANG DILAKUIN -->
+                    <div class="mb-2">
+                        <h2 class="d-inline align-middle me-2 fw-bold">Notification</h2><span
+                            class="badge bg-danger">20+</span>
                     </div>
-                    <div class="notif-item d-flex justify-content-between my-2">
-                        <div class="d-flex">
-                            <div class="notif-img rounded-circle"></div>
-                            <div class="notif-content mx-2">
-                                <p class="title">Lowongan Kerja</p>
-                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
-                                    diberitahukan informasi terbaru.</p>
+                    <div class="my-4">
+                        <!-- NOTIFIKASI ITEMNYA -->
+                        <div class="notif-item d-flex justify-content-between my-2">
+                            <div class="d-flex">
+                                <div class="notif-img rounded-circle"></div>
+                                <div class="notif-content mx-2">
+                                    <p class="title fw-bold">Lowongan Kerja</p>
+                                    <p class="content fw-bold">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance.
+                                        Akan
+                                        diberitahukan informasi terbaru.</p>
+                                </div>
                             </div>
+                            <div class="notif-date align-self-center mx-2 fw-bold">27 Feb 2019</div>
                         </div>
-                        <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
-                    </div>
-                    <div class="notif-item d-flex justify-content-between my-2">
-                        <div class="d-flex">
-                            <div class="notif-img rounded-circle"></div>
-                            <div class="notif-content mx-2">
-                                <p class="title">Lowongan Kerja</p>
-                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
-                                    diberitahukan informasi terbaru.</p>
+                        <div class="notif-item d-flex justify-content-between my-2">
+                            <div class="d-flex">
+                                <div class="notif-img rounded-circle"></div>
+                                <div class="notif-content mx-2">
+                                    <p class="title">Lowongan Kerja</p>
+                                    <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance.
+                                        Akan
+                                        diberitahukan informasi terbaru.</p>
+                                </div>
                             </div>
+                            <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
                         </div>
-                        <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
-                    </div>
-                    <div class="notif-item d-flex justify-content-between my-2">
-                        <div class="d-flex">
-                            <div class="notif-img rounded-circle"></div>
-                            <div class="notif-content mx-2">
-                                <p class="title">Lowongan Kerja</p>
-                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
-                                    diberitahukan informasi terbaru.</p>
+                        <div class="notif-item d-flex justify-content-between my-2">
+                            <div class="d-flex">
+                                <div class="notif-img rounded-circle"></div>
+                                <div class="notif-content mx-2">
+                                    <p class="title">Lowongan Kerja</p>
+                                    <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance.
+                                        Akan
+                                        diberitahukan informasi terbaru.</p>
+                                </div>
                             </div>
+                            <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
                         </div>
-                        <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
-                    </div>
-                    <div class="notif-item d-flex justify-content-between my-2">
-                        <div class="d-flex">
-                            <div class="notif-img rounded-circle"></div>
-                            <div class="notif-content mx-2">
-                                <p class="title">Lowongan Kerja</p>
-                                <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance. Akan
-                                    diberitahukan informasi terbaru.</p>
+                        <div class="notif-item d-flex justify-content-between my-2">
+                            <div class="d-flex">
+                                <div class="notif-img rounded-circle"></div>
+                                <div class="notif-content mx-2">
+                                    <p class="title">Lowongan Kerja</p>
+                                    <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance.
+                                        Akan
+                                        diberitahukan informasi terbaru.</p>
+                                </div>
                             </div>
+                            <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
                         </div>
-                        <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
+                        <div class="notif-item d-flex justify-content-between my-2">
+                            <div class="d-flex">
+                                <div class="notif-img rounded-circle"></div>
+                                <div class="notif-content mx-2">
+                                    <p class="title">Lowongan Kerja</p>
+                                    <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance.
+                                        Akan
+                                        diberitahukan informasi terbaru.</p>
+                                </div>
+                            </div>
+                            <div class="notif-date align-self-center mx-2">27 Feb 2019</div>
+                        </div>
                     </div>
-                </div>
-                <!-- PINDAH KE NOTIFKASI LEBIH LENGKAP -->
-                <div class="text-center">
-                    <a href="/ad/notif" class="btn btn-primary rounded-20">More</a>
+                    <!-- PINDAH KE NOTIFKASI LEBIH LENGKAP -->
+                    <div class="text-center">
+                        <a href="/ad/notif" class="btn btn-primary rounded-20">More</a>
+                    </div>
                 </div>
             </div>
         </div>
