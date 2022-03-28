@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titlepage', $titlepage)
+@section('titlepage', 'Detail Loker | Mitra')
 
 @section('css')
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -72,7 +72,7 @@
         <div class="container py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
-                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
+                <a href="/mt/lk/main" class="d-flex align-items-center text-decoration-none text-white"><i
                         class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">
@@ -84,7 +84,8 @@
             <div class="detail-outer-wrapper shadow-custom-2 mb-5 rounded-custom">
                 <!-- HEADER -->
                 <div class="header d-flex align-items-center position-relative">
-                    <div class="img overflow-hidden position-absolute rounded-circle"><img src="" class="">
+                    <div class="img overflow-hidden position-absolute rounded-circle">
+                        <img src="" class="">
                     </div>
                 </div>
                 <div class="content py-3 px-5">
@@ -100,10 +101,11 @@
                         <!-- TOOLS UNTUK EDIT DAN DELETE -->
                         <div class="tools d-flex">
                             <div class="rounded-15 d-flex justify-content-center align-items-center me-1">
-                                <a href="#" class="text-white"><i class='bx bxs-edit'></i></a>
+                                <a href="/mt/lk/ubah" class="text-white"><i class='bx bxs-edit'></i></a>
                             </div>
                             <div class="rounded-15 d-flex justify-content-center align-items-center">
-                                <a href="#" class="text-white"><i class='bx bxs-trash-alt'></i></a>
+                                <span class="text-white" onclick="swalDelete('LOK00001')"><i
+                                        class='bx bxs-trash-alt'></i></span>
                             </div>
                         </div>
                     </div>
@@ -117,10 +119,15 @@
                     <!-- TOMBOL LIHAT PELAMAR DAN REKOMEND -->
                     <div class="pelamar row">
                         <div class="col p-1">
-                            <a href="#" class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat Pelamar</a>
+                            <a href="/mt/lk/pelamar" class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat Pelamar</a>
                         </div>
                         <div class="col p-1">
-                            <a href="#" class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat Rekomendasi</a>
+                            <a href="/mt/lk/tahap" class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
+                                Tahap</a>
+                        </div>
+                        <div class="col p-1">
+                            <a href="/mt/lk/rekomend" class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
+                                Rekomendasi</a>
                         </div>
                     </div>
                 </div>
@@ -149,8 +156,7 @@
                     </ul>
                 </div>
                 <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 phase">
-                    <h4 class="fw-bold mb-3">Tahap <a href="#"
-                            class="btn btn-primary ms-2 fw-bold rounded-15 text-decoration-none">See All</a></h4>
+                    <h4 class="fw-bold mb-3">Tahap</h4>
                     <div class="row">
                         <div class="col-6">
                             <p class="fw-bold mb-0">Tes Fisik</p>
@@ -193,4 +199,26 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <!-- SWEETALERT -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function swalDelete(id) {
+            var id = id;
+            swal({
+                    title: "Apakah anda yakin?",
+                    text: "Ketika data sudah terhapus maka data tidak bisa kembali!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location.replace('http://127.0.0.1:8000/mt/lk/hapus/' + id);
+                    }
+                });
+        }
+    </script>
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titlepage', $titlepage)
+@section('titlepage', 'Profil Perusahaan | Mitra')
 
 @section('css')
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -70,10 +70,10 @@
 @endsection
 
 @section('section')
-    @include('layouts.sidebar-mitra')
+    @include('layouts.navbar')
 
-    <div class="main-page d-flex">
-        @include('layouts.navbar')
+    <div class="main-page">
+        @include('layouts.sidebar-mitra')
 
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
@@ -87,7 +87,8 @@
             <div class="detail-wrapper shadow bg-white shadow-custom-2 rounded-custom mb-5">
                 <!-- HEADER -->
                 <div class="header d-flex align-items-center position-relative">
-                    <div class="img overflow-hidden position-absolute rounded-circle"><img src="" class="">
+                    <div class="img overflow-hidden position-absolute rounded-circle">
+                        <img src="" class="">
                     </div>
                 </div>
                 <div class="content py-3 px-5">
@@ -103,7 +104,7 @@
                         <!-- TOOLS UNTUK EDIT DAN DELETE -->
                         <div class="tools d-flex">
                             <div class="rounded-15 d-flex justify-content-center align-items-start">
-                                <a href="#" class="btn btn-warning text-white rounded-15 fw-bold">Edit</a>
+                                <a href="/mt/profil/ubah" class="btn btn-warning text-white rounded-15 fw-bold">Ubah</a>
                             </div>
                         </div>
                     </div>

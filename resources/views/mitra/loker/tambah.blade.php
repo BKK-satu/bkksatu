@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
-@section('titlepage', $titlepage)
+@section('titlepage', 'Tambah Loker | Mitra')
 
 @section('css')
     <!-- LOCAL CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/styleMitra.css">
     <!-- TEXTAREA EDITOR -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script> --}}
 
     <style>
         /* STYLING TITLE PAGE */
@@ -101,20 +101,22 @@
                 <div class="data me-4">
                     <!-- DATA INPUTAN -->
                     <h2 class="fw-700 mb-2">Data</h2>
-                    <form action="" class="">
+                    <form action="/mt/lk/tambahpost" method="POST" class="" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
                             <input type="text" class="form-control rounded-15" id="title" placeholder="Title..."
-                                onkeyup="updateTitle(this.value)">
+                                onkeyup="updateTitle(this.value)" name="title">
                         </div>
                         <div class="mb-3">
-                            <label for="lokasi" class="form-label">Lokasi Kerja</label>
-                            <input type="text" class="form-control rounded-15" id="lokasi" placeholder="Lokasi Kerja..."
-                                onkeyup="updateLokasi(this.value)">
+                            <label for="posisi" class="form-label">Posisi</label>
+                            <input type="text" class="form-control rounded-15" id="posisi" placeholder="Posisi..."
+                                onkeyup="updatePos(this.value)" name="posisi">
                         </div>
                         <div class="mb-3">
                             <label for="kategori" class="form-label">Kategori</label>
-                            <select class="form-select rounded-15" onchange="updateKat(this.value)" id="kategori">
+                            <select class="form-select rounded-15" onchange="updateKat(this.value)" id="kategori"
+                                name="kategori">
                                 <option selected disabled hidden>Pilih Kategori</option>
                                 <option value="Information and Technologies">Information and Technologies</option>
                                 <option value="Software Engineering">Software Engineering</option>
@@ -123,74 +125,65 @@
                         </div>
                         <div class="mb-3">
                             <label for="jurusan" class="form-label">Jurusan</label>
-                            <select class="form-select rounded-15" onchange="updateJur(this.value)" id="jurusan">
+                            <select class="form-select rounded-15" onchange="updateJur(this.value)" id="jurusan"
+                                name="jurusan">
                                 <option selected disabled hidden>Pilih Jurusan</option>
-                                <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
-                                <option value="Multimedia">Multimedia</option>
-                                <option value="Tata Busana">Tata Busana</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="perusahaan" class="form-label">Perusahaan</label>
-                            <select class="form-select rounded-15" onchange="updatePer(this.value)" id="perusahaan">
-                                <option selected disabled hidden>Pilih Perusahaan</option>
-                                <option value="PT. Yutaka Finance">PT. Yutaka Finance</option>
-                                <option value="PT. Akebono">PT. Akebono</option>
-                                <option value="PT. Nusa 2 Bangsa">PT. Nusa 2 Bangsa</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="jk" class="form-label">Jenis Kelamin</label>
-                            <select class="form-select rounded-15" onchange="updateJk(this.value)" id="jk">
-                                <option selected disabled hidden>Pilih Jenis Kelamin</option>
-                                <option value="Laki-laki">Laki-laki</option>
-                                <option value="Perempuan">Perempuan</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="wilayah" class="form-label">Wilayah</label>
-                            <select class="form-select rounded-15" onchange="updateWil(this.value)" id="wilayah">
-                                <option selected disabled hidden>Pilih Wilayah</option>
-                                <option value="Jakarta">Jakarta</option>
-                                <option value="Jawa Barat">Jawa Barat</option>
-                                <option value="Jawa Timur">Jawa Timur</option>
+                                @foreach ($jurusan as $jur)
+                                    <option value="{{ $jur['id'] }}">{{ $jur['nama'] }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="jenisPekerjaan" class="form-label">Jenis Pekerjaan</label>
-                            <select class="form-select rounded-15" onchange="updateJenisPek(this.value)"
-                                id="jenisPekerjaan">
+                            <select class="form-select rounded-15" onchange="updateJenisPek(this.value)" id="jenisPekerjaan"
+                                name="jenis_pekerjaan">
                                 <option selected disabled hidden>Pilih Jenis Pekerjaan</option>
                                 <option value="Part-Time">Part-Time</option>
                                 <option value="Full-Time">Full-Time</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="posisi" class="form-label">Posisi</label>
-                            <input type="text" class="form-control rounded-15" id="posisi" placeholder="Posisi..."
-                                onkeyup="updatePos(this.value)">
-                        </div>
-                        <div class="mb-3">
                             <label for="kuota" class="form-label">Kuota</label>
                             <input type="number" class="form-control rounded-15" id="kuota" placeholder="Kuota..."
-                                onkeyup="updateKuota(this.value)">
+                                onkeyup="updateKuota(this.value)" name="kuota">
                         </div>
                         <div class="mb-3">
                             <label for="gaji" class="form-label">Gaji</label>
                             <input type="number" class="form-control rounded-15" id="gaji" placeholder="Gaji..."
-                                onkeyup="updateGaji(this.value)">
+                                onkeyup="updateGaji(this.value)" name="gaji">
                         </div>
+                        <div class="mb-3">
+                            <label for="lokasi_kerja" class="form-label">Lokasi Kerja</label>
+                            <select class="form-select rounded-15" onchange="updateLok(this.value)" id="lokasi_kerja"
+                                name="lokasi_kerja">
+                                <option selected disabled hidden>Pilih Lokasi Kerja</option>
+                                @foreach ($lokasi_kerja as $lok)
+                                    <option value="{{ $lok['id'] }}">{{ $lok['alamat'] }} - {{ $lok['status'] }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        {{-- <div class="mb-3">
+                            <label for="wilayah" class="form-label">Wilayah</label>
+                            <select class="form-select rounded-15" onchange="updateWil(this.value)" id="wilayah"
+                                name="wilayah">
+                                <option selected disabled hidden>Pilih Wilayah</option>
+                                <option value="Jakarta">Jakarta</option>
+                                <option value="Jawa Barat">Jawa Barat</option>
+                                <option value="Jawa Timur">Jawa Timur</option>
+                            </select>
+                        </div> --}}
                         <div class="mb-3">
                             <label for="expired" class="form-label">Expired</label>
                             <input type="date" class="form-control rounded-15" id="expired" placeholder="Expired..."
-                                onkeyup="updateExp(this.value)">
+                                onkeyup="updateExp(this.value)" name="kedaluwarsa">
                         </div>
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="banner" class="form-label" id="bannerLabel">Image for banner</label>
                             <input type="file" class="form-control rounded-15" id="bannerImg">
                             <div class="" id="imgbannerPrev"><img src="" class="w-100 rounded-20"
                                     id="bannerPrev" draggable="false"></div>
-                        </div>
+                        </div> --}}
                         <div class="mb-3">
                             <label class="form-label">Images</label>
                             <div class="d-flex">
@@ -246,23 +239,23 @@
                             <div class="mb-2">
                                 <label class="form-label">Requirements</label>
                                 <input type="text" class="form-control rounded-15" id="requirement1"
-                                    placeholder="Requirement 1..." name="req1">
+                                    placeholder="Requirement 1..." name="req[]">
                             </div>
                             <div class="mb-2">
                                 <input type="text" class="form-control rounded-15" id="requirement2"
-                                    placeholder="Requirement 2..." name="req2">
+                                    placeholder="Requirement 2..." name="req[]">
                             </div>
                             <div class="mb-2">
                                 <input type="text" class="form-control rounded-15" id="requirement3"
-                                    placeholder="Requirement 3..." name="req3">
+                                    placeholder="Requirement 3..." name="req[]">
                             </div>
                             <div class="mb-2">
                                 <input type="text" class="form-control rounded-15" id="requirement4"
-                                    placeholder="Requirement 4..." name="req4">
+                                    placeholder="Requirement 4..." name="req[]">
                             </div>
                             <div class="mb-2">
                                 <input type="text" class="form-control rounded-15" id="requirement5"
-                                    placeholder="Requirement 5..." name="req5">
+                                    placeholder="Requirement 5..." name="req[]">
                             </div>
                             <!-- </div> -->
                         </div>
@@ -312,37 +305,46 @@
 @endsection
 
 @section('script')
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
     <script>
         // MENAMBAH REQUIREMENT JIKA DIKLIK
         var newReqNum = 5;
 
         function addReq() {
             newReqNum += 1;
-            let newReq = "<div class=\"mb-2\"><input type=\"text\" class=\"form-control rounded-15\" id=\"requirement" +
-                newReqNum + "\" placeholder=\"Requirement " + newReqNum + "...\" name=\"req" + newReqNum + "\"></div>"
-            document.getElementById("req-wrapper").innerHTML += newReq;
+            var req = document.createElement('div');
+            req.innerHTML = "<div class=\"mb-2\"><input type=\"text\" class=\"form-control rounded-15\" id=\"requirement" +
+                newReqNum + "\" placeholder=\"Requirement " + newReqNum + "...\" name=\"req[]\"></div>";
+
+            var wrapper = document.getElementById('req-wrapper');
+            wrapper.appendChild(req);
         }
+
 
         // MENAMBAH TAHAP JIKA DIKLIK
         let newSecNum = 0;
 
         function addSec() {
             newSecNum += 1;
-            let newSec = "<div class=\"mb-4\"><div class=\"mb-2\"><label class=\"form-label\">Tahap " + newSecNum +
+            var newSec = document.createElement('div');
+            newSec.innerHTML = "<div class=\"mb-4\"><div class=\"mb-2\"><label class=\"form-label\">Tahap " + newSecNum +
                 "</label><input type=\"number\" class=\"form-control rounded-15\" id=\"sec" + newSecNum +
-                "\" placeholder=\"Tahap Ke...\" name=\"tahapsec" + newSecNum +
-                "\"></div><div class=\"mb-2\"><label class=\"form-label\">Nama Tahap</label><input type=\"text\" class=\"form-control rounded-15\" id=\"namasec" +
-                newSecNum + "\" placeholder=\"Nama Tahap...\" name=\"namasec" + newSecNum +
-                "\"></div><div class=\"mb-2\"><label class=\"form-label\">Tanggal Tahap Dimulai</label><input type=\"date\" class=\"form-control rounded-15\" id=\"datesec" +
-                newSecNum + "\" name=\"datesec" + newSecNum + "\"></div><hr>"
-            document.getElementById("section-wrapper").innerHTML += newSec;
+                "\" placeholder=\"Tahap Ke...\" name=\"tahapsec[]\"></div><div class=\"mb-2\"><label class=\"form-label\">Nama Tahap</label><input type=\"text\" class=\"form-control rounded-15\" id=\"namasec" +
+                newSecNum +
+                "\" placeholder=\"Nama Tahap...\" name=\"namasec[]\"></div><div class=\"mb-2\"><label class=\"form-label\">Tanggal Tahap Dimulai</label><input type=\"date\" class=\"form-control rounded-15\" id=\"datesec" +
+                newSecNum + "\" name=\"datesec[]\"></div><hr>";
+
+            var wrapper = document.getElementById('section-wrapper');
+            wrapper.appendChild(newSec);
         }
+
         // MANGGIL CK EDITOR
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
+        CKEDITOR.replace('deskripsi');
+        // ClassicEditor
+        //     .create(document.querySelector('#editor'))
+        //     .catch(error => {
+        //         console.error(error);
+        //     });
 
         // BANNER
         bannerImg.onchange = evt => {

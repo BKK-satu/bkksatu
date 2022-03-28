@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titlepage', $titlepage)
+@section('titlepage', 'Ubah Profil | Mitra')
 
 @section('css')
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -40,7 +40,8 @@
             width: 50vw;
         }
 
-        .edit-wrapper .data form .btn-action button {
+        .edit-wrapper .data form .btn-action button,
+        .edit-wrapper .data form .btn-action a {
             width: 100px;
         }
 
@@ -104,10 +105,10 @@
 @endsection
 
 @section('section')
-    @include('layouts.sidebar-mitra')
+    @include('layouts.navbar')
 
-    <div class="main-page d-flex">
-        @include('layouts.navbar')
+    <div class="main-page">
+        @include('layouts.sidebar-mitra')
 
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
@@ -191,7 +192,7 @@
                         </div>
                         <!-- <div class="blue-line rounded-20 mb-3"></div> -->
                         <div class="d-flex justify-content-end btn-action">
-                            <button class="btn btn-secondary fw-700 rounded-15 me-2">Cancel</button>
+                            <a href="/mt/profil" class="btn btn-secondary fw-700 rounded-15 me-2">Cancel</a>
                             <button class="btn btn-primary fw-700 rounded-15">Save</button>
                         </div>
                 </div>

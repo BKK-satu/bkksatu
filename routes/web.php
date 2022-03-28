@@ -54,7 +54,27 @@ Route::prefix('ad')->group(function () {
 });
 
 Route::prefix('mt')->group(function () {
-        Route::get('/main', 'mitra\MainController@main');
+    Route::get('/main', 'mitra\MainController@main');
+    Route::get('/notif', 'mitra\MainController@notif');
+    Route::get('/profil', 'mitra\MainController@profil');
+    Route::get('/profil/ubah', 'mitra\MainController@profilUbah');
+
+    Route::prefix('lk')->group(function () {
+        Route::get('/main', 'mitra\LokerController@main')->name('daftar');
+        Route::get('/detail', 'mitra\LokerController@detail');
+        Route::get('/tambah', 'mitra\LokerController@tambah');
+        Route::post('/tambahpost', 'mitra\LokerController@tambahTes');
+        Route::get('/ubah', 'mitra\LokerController@ubah');
+        Route::post('/hapus', 'mitra\LokerController@hapus');
+
+        Route::get('/pelamar', 'mitra\LokerController@pelamar');
+        Route::get('/rekomend', 'mitra\LokerController@rekomend');
+        Route::get('/tahap', 'mitra\LokerController@tahap');
+    });
+
+    Route::prefix('re')->group(function () {
+        Route::get('/main', 'mitra\RekomendController@main');
+    });
 });
 
 Route::prefix('al')->group(function () {

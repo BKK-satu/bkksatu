@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titlepage', $titlepage)
+@section('titlepage', 'Main Loker | Mitra')
 
 @section('css')
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -38,8 +38,8 @@
 @endsection
 
 @section('section')
-
     @include('layouts.navbar')
+
     <div class="main-page">
         @include('layouts.sidebar-mitra')
 
@@ -52,7 +52,7 @@
                     <h1 class="fw-light">Main</h1>
                     <h1 class="fw-bold">Lowongan Kerja</h1>
                 </div>
-                <a href="#" class="btn btn-primary fw-bold rounded-15">Tambah</a>
+                <a href="/mt/lk/tambah" class="btn btn-primary fw-bold rounded-15">Tambah</a>
             </div>
 
             <div class="search py-3">
@@ -60,7 +60,7 @@
                 <form action="" class="position-relative">
                     <i class='bx bx-search position-absolute'></i>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control rounded-20 shadow" placeholder="Search Mitra...">
+                        <input type="text" class="form-control rounded-20 shadow" placeholder="Cari Mitra...">
                     </div>
                 </form>
             </div>
@@ -83,28 +83,9 @@
                                 <li>I'm feeling generous</li>
                             </ul>
                         </div>
-                        <hr>
-                        <div class="bottom">
-                            <p class="text-secondary mb-0">1 Day ago.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4">
-                    <div class="loker-item p-4 bg-white rounded-15 shadow">
-                        <div class="img mb-3">
-                            <img src="../../../assets/img/Pergiin.png" width="120px">
-                        </div>
-                        <div class="title">
-                            <h4 class="fw-900 mb-0 text-primary">IT Support</h4>
-                            <h6 class="mb-3">PT. Yutaka Finance</h6>
-                            <h6 class="fw-900 mb-3">Jakarta</h6>
-                        </div>
-                        <div class="req">
-                            <ul>
-                                <li>Good atitude</li>
-                                <li>Smart move</li>
-                                <li>I'm feeling generous</li>
-                            </ul>
+                        <div class="d-flex">
+                            <a href="/mt/lk/detail" class="w-100 fw-bold btn btn-primary rounded-15 me-2">Detil</a>
+                            <a href="/mt/lk/ubah" class="w-100 fw-bold btn btn-warning rounded-15">Ubah</a>
                         </div>
                         <hr>
                         <div class="bottom">
@@ -128,6 +109,37 @@
                                 <li>Smart move</li>
                                 <li>I'm feeling generous</li>
                             </ul>
+                        </div>
+                        <div class="d-flex">
+                            <a href="/mt/lk/detail" class="w-100 fw-bold btn btn-primary rounded-15 me-2">Detil</a>
+                            <a href="/mt/lk/ubah" class="w-100 fw-bold btn btn-warning rounded-15">Ubah</a>
+                        </div>
+                        <hr>
+                        <div class="bottom">
+                            <p class="text-secondary mb-0">1 Day ago.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="loker-item p-4 bg-white rounded-15 shadow">
+                        <div class="img mb-3">
+                            <img src="../../../assets/img/Pergiin.png" width="120px">
+                        </div>
+                        <div class="title">
+                            <h4 class="fw-900 mb-0 text-primary">IT Support</h4>
+                            <h6 class="mb-3">PT. Yutaka Finance</h6>
+                            <h6 class="fw-900 mb-3">Jakarta</h6>
+                        </div>
+                        <div class="req">
+                            <ul>
+                                <li>Good atitude</li>
+                                <li>Smart move</li>
+                                <li>I'm feeling generous</li>
+                            </ul>
+                        </div>
+                        <div class="d-flex">
+                            <a href="/mt/lk/detail" class="w-100 fw-bold btn btn-primary rounded-15 me-2">Detil</a>
+                            <a href="/mt/lk/ubah" class="w-100 fw-bold btn btn-warning rounded-15">Ubah</a>
                         </div>
                         <hr>
                         <div class="bottom">
