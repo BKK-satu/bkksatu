@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titlepage', $titlepage)
+@section('titlepage', 'Notifikasi | Mitra')
 
 @section('css')
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -31,17 +31,17 @@
 @endsection
 
 @section('section')
-    @include('layouts.sidebar-mitra')
+    @include('layouts.navbar')
 
-    <div class="main-page d-flex">
-        @include('layouts.navbar')
+    <div class="main-page">
+        @include('layouts.sidebar-mitra')
 
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
         <div class="container py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back mb-1 mb-md-4">
-                <a href="/mt/notif" class="d-flex align-items-center text-decoration-none text-white"><i
+                <a href="/mt/main" class="d-flex align-items-center text-decoration-none text-white"><i
                         class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white mb-5">

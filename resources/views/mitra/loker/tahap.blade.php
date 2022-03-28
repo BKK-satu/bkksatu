@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titlepage', $titlepage)
+@section('titlepage', 'Tahap LOK00001 | Mitra')
 
 @section('css')
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -8,7 +8,7 @@
 
     <style>
         .title-page h1.fw-bold {
-            margin-bottom: 120px;
+            margin-bottom: 60px;
         }
 
         .dropdown-menu {
@@ -80,7 +80,7 @@
                 <h1 class="fw-bold">LOK00023</h1>
             </div>
 
-            <div class="alumni-table">
+            <div class="alumni-table bg-white p-3 rounded-15">
                 <div class="header d-flex justify-content-between mb-3">
                     <div class="">
                         <h3 class="fw-bold mb-0">Tahap</h3>
@@ -92,7 +92,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="data-table rounded-20 py-2 px-4">
+                <div class="data-table rounded-20 py-2">
                     <!-- ISI DATATABLE -->
                     <div class="content mb-2">
                         <table class="table table-borderless">

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titlepage', $titlepage)
+@section('titlepage', 'Seleksi Pelamar LOK00001 | Mitra')
 
 @section('css')
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -219,19 +219,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('script')
-    <!-- SWEETALERT -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
-        function swalDelete() {
-            swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this imaginary file!",
-                icon: "warning",
-                buttons: [true, true],
-            })
-        }
-    </script>
 @endsection

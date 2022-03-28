@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titlepage', $titlepage)
+@section('titlepage', 'Rekomend LOK00001 | Mitra')
 
 @section('css')
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -81,6 +81,7 @@
 @section('section')
 
     @include('layouts.navbar')
+
     <div class="main-page">
         @include('layouts.sidebar-mitra')
 
@@ -89,7 +90,7 @@
         <div class="container py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
-                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
+                <a href="/mt/lk/detail" class="d-flex align-items-center text-decoration-none text-white"><i
                         class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">
@@ -142,7 +143,8 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td><a href="/mt/al/detail" class="text-link-black text-decoration-none">Akwan Cakra</a>
+                                    <td><a href="/alumni/detail" class="text-link-black text-decoration-none">Akwan
+                                            Cakra</a>
                                     </td>
                                     <td>RPL</td>
                                     <td>2018/2019</td>

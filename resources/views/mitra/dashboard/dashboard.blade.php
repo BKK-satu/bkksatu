@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titlepage', $titlepage)
+@section('titlepage', 'Dashboard Utama | Mitra')
 
 @section('css')
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -33,10 +33,10 @@
 @endsection
 
 @section('section')
-    @include('layouts.sidebar-mitra')
+    @include('layouts.navbar')
 
-    <div class="main-page d-flex">
-        @include('layouts.navbar')
+    <div class="main-page">
+        @include('layouts.sidebar-mitra')
 
         <img src="/assets/img/wave2.svg" class="position-absolute waves">
 
@@ -83,7 +83,7 @@
             <div class="notification-wrapper p-3 rounded-20 shadow">
                 <!-- NOTIFIKASI DARI YANG DILAKUIN -->
                 <div class="mb-2">
-                    <h2 class="d-inline align-middle me-2 fw-bold">Notification</h2><span class="badge bg-danger">20+</span>
+                    <h2 class="d-inline align-middle me-2 fw-bold">Notifikasi</h2><span class="badge bg-danger">20+</span>
                 </div>
                 <div class="my-4">
                     <!-- NOTIFIKASI ITEMNYA -->
@@ -145,7 +145,7 @@
                 </div>
                 <!-- PINDAH KE NOTIFKASI LEBIH LENGKAP -->
                 <div class="text-center">
-                    <a href="notification.html" class="btn btn-primary rounded-20">More</a>
+                    <a href="/mt/notif" class="btn btn-primary rounded-20">More</a>
                 </div>
             </div>
         </div>

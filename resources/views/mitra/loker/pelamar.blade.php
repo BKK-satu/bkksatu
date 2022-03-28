@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
-@section('titlepage', $titlepage)
+{{-- @section('titlepage', 'Pelamar {{ $id_loker }} | Mitra') --}}
+@section('titlepage', 'Pelamar LOK00001 | Mitra')
 
 @section('css')
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -89,7 +90,7 @@
         <div class="container py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
-                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
+                <a href="/mt/lk/detail" class="d-flex align-items-center text-decoration-none text-white"><i
                         class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">
@@ -139,7 +140,8 @@
                                     <td>PEL00012</td>
                                     <td><a href="/mt/lk/detail" class="text-link-black text-decoration-none">LOK00023</a>
                                     </td>
-                                    <td><a href="/mt/al/detail" class="text-link-black text-decoration-none">Akwan Cakra</a>
+                                    <td><a href="/alumni/detail" class="text-link-black text-decoration-none">Akwan
+                                            Cakra</a>
                                     </td>
                                     <td>28-03-2019</td>
                                 </tr>
