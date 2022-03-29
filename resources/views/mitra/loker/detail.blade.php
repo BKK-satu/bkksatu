@@ -24,6 +24,13 @@
             background-image: linear-gradient(to right, #2e51d1, #9cb0f0);
         }
 
+        .center {
+            display: block;
+            /* margin-left: auto; */
+            /* margin-right: auto; */
+            width: 100%;
+        }
+
         .detail-outer-wrapper .content .prestasi div.img div {
             width: 100px;
             height: 100px;
@@ -42,6 +49,10 @@
 
         .detail-outer-wrapper .content div.tools div:nth-child(2) {
             background: rgb(242, 42, 42);
+        }
+
+        .detail-outer-wrapper .content .deskripsi p {
+            margin-bottom: 0px
         }
 
         .detail-outer-wrapper .content .pelamar a.btn {
@@ -83,17 +94,17 @@
             <!-- CONTENT -->
             <div class="detail-outer-wrapper shadow-custom-2 mb-5 rounded-custom">
                 <!-- HEADER -->
-                <div class="header d-flex align-items-center position-relative">
-                    <div class="img overflow-hidden position-absolute rounded-circle">
-                        <img src="" class="">
-                    </div>
+                <div class="header d-flex align-items-center position-relative overflow-hidden">
+                    <img src="/assets/img/{{ $loker->banner }}" class="center" width="100%">
+                    {{-- <div class="img overflow-hidden position-absolute rounded-circle">
+                    </div> --}}
                 </div>
                 <div class="content py-3 px-5">
                     <div class="mb-4 d-flex justify-content-between">
                         <!-- TITLE NEWS -->
                         <div>
-                            <h1 class="fw-900 mb-0">IT Support</h1>
-                            <h3>LOK00023</h3>
+                            <h1 class="fw-900 mb-0">{{ $loker->posisi }}</h1>
+                            <h3>{{ $loker->id }}</h3>
                             <h4 class="mt-3">PT. Optic Gaming<i
                                     class='bx bxs-badge-check align-middle text-primary ms-1'></i></h4>
                             <h5 class="mt-3"><i class='bx bx-current-location align-middle me-1'></i>Jakarta</h5>
@@ -101,20 +112,21 @@
                         <!-- TOOLS UNTUK EDIT DAN DELETE -->
                         <div class="tools d-flex">
                             <div class="rounded-15 d-flex justify-content-center align-items-center me-1">
-                                <a href="/mt/lk/ubah" class="text-white"><i class='bx bxs-edit'></i></a>
+                                <a href="/mt/lk/ubah/{{ $loker->id }}" class="text-white"><i
+                                        class='bx bxs-edit'></i></a>
                             </div>
                             <div class="rounded-15 d-flex justify-content-center align-items-center">
-                                <span class="text-white" onclick="swalDelete('LOK00001')"><i
+                                <span class="text-white" onclick="swalDelete('{{ $loker->id }}')"><i
                                         class='bx bxs-trash-alt'></i></span>
                             </div>
                         </div>
                     </div>
                     <!-- CONTENT INFORMASI -->
-                    <div class="mb-3">
-                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum
-                            tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati
-                            aut, numquam, ab earum rerum? Nesciunt optio accusamus
-                            nisi, iusto animi illum molestias quia labore delectus neque soluta aspernatur!</p>
+                    <div class="mb-3 deskripsi">
+                        <p align="justify">{!! $loker->deskripsi !!} @if ($loker->deskripsi == '<p>&nbsp;</p>')
+                                Tidak ada deskripsi.
+                            @endif
+                        </p>
                     </div>
                     <!-- TOMBOL LIHAT PELAMAR DAN REKOMEND -->
                     <div class="pelamar row">
@@ -138,15 +150,12 @@
                 <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 requirement">
                     <h4 class="fw-bold">Persyaratan :</h4>
                     <ul class="mb-0">
-                        <li>Bachelor degree from Computer Science, Business Management, or any related field</li>
-                        <li>Minimum 8 years experience as IT Business Partner / IT Business Analyst / IT Project Manager
-                        </li>
-                        <li>Sehat Jasmani Rohani</li>
-                        <li>Experienced in project management, business process mapping, creating pin points, project
-                            prioritization, cost and benefit analysis</li>
+                        @foreach ($requirement as $req)
+                            <li>{{ $req->text }}</li>
+                        @endforeach
                     </ul>
                 </div>
-                <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 responsibility">
+                {{-- <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 responsibility">
                     <h4 class="fw-bold">Tanggung Jawab :</h4>
                     <ul class="mb-0">
                         <li>Can make a coffe.</li>
@@ -154,22 +163,16 @@
                         <li>Dapat membersihkan tempat kerja sendiri.</li>
                         <li>Bisa membuat anak.</li>
                     </ul>
-                </div>
+                </div> --}}
                 <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 phase">
                     <h4 class="fw-bold mb-3">Tahap</h4>
                     <div class="row">
-                        <div class="col-6">
-                            <p class="fw-bold mb-0">Tes Fisik</p>
-                            <p>Dilaksanankan pada 28 April 2018</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="fw-bold mb-0">Tes Psikotek & Krapelin</p>
-                            <p>Dilaksanankan pada 1 Mei 2018</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="fw-bold mb-0">Interview</p>
-                            <p>Dilaksanankan pada 9 Mei 2018</p>
-                        </div>
+                        @foreach ($tahap as $thp)
+                            <div class="col-6">
+                                <p class="fw-bold mb-0">{{ $thp->nama }}</p>
+                                <p>Dilaksanankan pada {{ $thp->tanggal_seleksi }}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -184,7 +187,7 @@
                         </div>
                         <div class="col-6 mb-3">
                             <h5 class="fw-bold mb-0">Jenis Pekerjaan</h5>
-                            <h5 class="fw-normal">Penuh waktu</h5>
+                            <h5 class="fw-normal">{{ $loker->jenis_pekerjaan }}</h5>
                         </div>
                         <div class="col-6 mb-3">
                             <h5 class="fw-bold mb-0">Pengalaman</h5>
@@ -192,7 +195,7 @@
                         </div>
                         <div class="col-6 mb-3">
                             <h5 class="fw-bold mb-0">Spesialisasi</h5>
-                            <h5 class="fw-normal">IT/Web developer/Computer science</h5>
+                            <h5 class="fw-normal">{{ $loker->kategori }}</h5>
                         </div>
                     </div>
                 </div>

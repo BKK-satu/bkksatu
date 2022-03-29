@@ -31,11 +31,23 @@ class Tahap extends Model
     protected $keyType = 'string';
 
     /**
+     * Membuat timestamps tidak automatis.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * fillable
      *
      * @var array
      */
     protected $fillable = [
-        'id', 'lowongankerja_id', 'nama', 'tahap_ke', 'tanggal_seleksi', 'keterangan'
+        'id',
+        'lowongankerja_id',
+        'nama',
+        'tahap_ke',
+        'tanggal_seleksi',
+        'keterangan'
     ];
 }

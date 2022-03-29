@@ -21,14 +21,14 @@ class Galeri extends Model
      *
      * @var bool
      */
-    public $incrementing = false;
+    public $incrementing = true;
 
     /**
-     * The data type of the auto-incrementing ID.
+     * Membuat timestamps tidak automatis.
      *
-     * @var string
+     * @var bool
      */
-    protected $keyType = 'string';
+    public $timestamps = false;
 
     /**
      * fillable
@@ -36,6 +36,9 @@ class Galeri extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'lowongankerja_id', 'foto', 'keterangan'
+        'id',
+        'lowongankerja_id',
+        'foto',
+        'keterangan'
     ];
 }

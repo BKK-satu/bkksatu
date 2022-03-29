@@ -61,15 +61,16 @@ Route::prefix('mt')->group(function () {
 
     Route::prefix('lk')->group(function () {
         Route::get('/main', 'mitra\LokerController@main')->name('daftar');
-        Route::get('/detail', 'mitra\LokerController@detail');
-        Route::get('/tambah', 'mitra\LokerController@tambah');
-        Route::post('/tambahpost', 'mitra\LokerController@tambahTes');
-        Route::get('/ubah', 'mitra\LokerController@ubah');
-        Route::post('/hapus', 'mitra\LokerController@hapus');
+        Route::get('/detail/{id}', 'mitra\LokerController@detail');
+        Route::get('/tambah', 'mitra\LokerController@tambah')->name('tambah-mitra');
+        Route::post('/tambahpost', 'mitra\LokerController@store');
+        Route::get('/ubah/{id}', 'mitra\LokerController@ubah');
 
-        Route::get('/pelamar', 'mitra\LokerController@pelamar');
-        Route::get('/rekomend', 'mitra\LokerController@rekomend');
-        Route::get('/tahap', 'mitra\LokerController@tahap');
+        Route::post('/hapus/{id}', 'mitra\LokerController@hapus');
+
+        Route::get('/pelamar', 'mitra\LokerController@pelamar')->name('pelamar');
+        Route::get('/rekomend', 'mitra\LokerController@rekomend')->name('rekomend');
+        Route::get('/tahap', 'mitra\LokerController@tahap')->name('tahap');
     });
 
     Route::prefix('re')->group(function () {
