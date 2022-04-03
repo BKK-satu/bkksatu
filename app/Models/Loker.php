@@ -31,6 +31,21 @@ class Loker extends Model
     protected $keyType = 'string';
 
     /**
+     * Membuat timestamps tidak automatis.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * Get the requirements.
+     */
+    public function requirement()
+    {
+        return $this->hasMany(Requirement::class);
+    }
+
+    /**
      * fillable
      *
      * @var array
@@ -41,7 +56,6 @@ class Loker extends Model
         'jurusan_id',
         'title',
         'kategori',
-        'jurusan',
         'jenis_pekerjaan',
         'posisi',
         'kuota',

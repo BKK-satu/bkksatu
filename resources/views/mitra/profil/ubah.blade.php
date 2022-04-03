@@ -123,72 +123,113 @@
                 <h1 class="fw-bold">Profil</h1>
             </div>
 
+            @if ($errors->any())
+                <div class="alert alert-danger rounded-15">
+                    @foreach ($errors->all() as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach
+                </div>
+            @endif
+
             <!-- KONTEN LUAR -->
             <div class="edit-wrapper d-flex">
                 <div class="data me-4">
                     <!-- DATA INPUTAN -->
                     <h2 class="fw-700 mb-2">Data Profil</h2>
-                    <form action="" class="">
+                    <form action="/mt/profil/ubahPost" method="POST" class="" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="id_mitra" value="{{ $mitra->id }}">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama</label>
                             <input type="text" class="form-control rounded-15" id="nama" placeholder="Nama..."
-                                onkeyup="updateNama(this.value)" name="nama">
+                                onkeyup="updateNama(this.value)" name="nama" value="{{ $mitra->nama }}">
                         </div>
                         <div class="mb-3">
                             <label for="jenis perusahaan" class="form-label">Jenis Perusahaan</label>
-                            <select class="form-select rounded-15" onchange="updateJenis(this.value)"
-                                name="jenisperusahaan">
+                            <select class="form-select rounded-15" onchange="updateJenis(this.value)" name="jenis">
                                 <option selected disabled hidden>Pilih Jenis Perusahaan</option>
-                                <option value="Perseroan Terbatas">Perseroan Terbatas (PT)</option>
-                                <option value="Persekutuan Komanditer">Persekutuan Komanditer (CV)</option>
-                                <option value="Lainnya">Lainnya</option>
+                                @foreach ($jenis as $item)
+                                    <option @if ($mitra->jenis == $item) {{ 'selected ' }} @endif
+                                        value="{{ $item }}">
+                                        {{ $item }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="kategori" class="form-label">Kategori</label>
                             <select class="form-select rounded-15" onchange="updateKat(this.value)" name="kategori">
                                 <option selected disabled hidden>Pilih Kategori</option>
-                                <option value="Informasi dan teknologi">Informasi dan teknologi</option>
-                                <option value="Otomotif">Otomotif</option>
-                                <option value="Software Engineering">Software Engineering</option>
+                                @foreach ($kat as $item)
+                                    <option @if ($mitra->kategori == $item) {{ 'selected ' }} @endif
+                                        value="{{ $item }}">
+                                        {{ $item }}</option>
+                                @endforeach
                             </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="wilayah" class="form-label">wilayah</label>
+                            <select class="form-select rounded-15" onchange="updateKat(this.value)" name="wilayah">
+                                <option selected disabled hidden>Pilih Wilayah</option>
+                                @foreach ($wil as $item)
+                                    <option @if ($mitra->wilayah == $item) {{ 'selected ' }} @endif
+                                        value="{{ $item }}">
+                                        {{ $item }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="website" class="form-label">Website</label>
+                            <input type="website" class="form-control rounded-15" id="website" placeholder="Website..."
+                                name="website" value="{{ $mitra->website }}" autocomplete="website">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control rounded-15" id="email" placeholder="Email..."
-                                onkeyup="updateEmail(this.value)" name="email">
+                                onkeyup="updateEmail(this.value)" name="email" value="{{ $user->email }}"
+                                autocomplete="email">
                         </div>
                         <div class="mb-3">
                             <label for="telepon" class="form-label">Telepon</label>
                             <input type="number" class="form-control rounded-15" id="telepon" placeholder="Telepon..."
-                                onkeyup="updateTlp(this.value)" name="telepon">
+                                onkeyup="updateTlp(this.value)" name="no_telp"
+                                value="{{ $mitra->no_telp ?? 'Default Message' }}">
                         </div>
                         <div class="mb-3">
                             <label for="uploadPhoto" class="form-label">Foto Profile</label>
                             <input type="file" class="form-control rounded-15" id="uploadPhoto"
-                                placeholder="Foto Profile..." name="photo" accept="image/*">
+                                placeholder="Foto Profile..." name="foto" accept="image/*">
                         </div>
-                        <div class="mb-3">
+                        <div class="img_preview mt-3">
+                            <img src="" height="200px" id="img_prev" class="rounded-15 mb-2">
+                        </div>
+                        {{-- <div class="mb-3">
                             <label for="alamat" class="form-label">Alamat</label>
                             <textarea name="alamat" id="alamat" rows="3" class="form-control rounded-15"
                                 onkeyup="updateAlamat(this.value)"></textarea>
-                        </div>
+                        </div> --}}
                         <div class="mb-3">
                             <!-- EDITOR CK EDITOR 5 -->
                             <label for="editor" class="mb-2">Deskripsi</label>
-                            <textarea name="deskripsi" id="editor">&lt;p&gt;Isi deskripsi.&lt;/p&gt;</textarea>
+                            <textarea name="deskripsi" id="editor">{{ $mitra->overview }}</textarea>
                         </div>
                         <div class="blue-line rounded-20 mb-3"></div>
                         <h3 class="fw-700 mb-2">Data Akun</h3>
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
                             <input type="text" class="form-control rounded-15" id="username" placeholder="Username..."
-                                name="username" onkeyup="updateUsername(this.value)">
+                                name="username" onkeyup="updateUsername(this.value)" value="{{ $mitra->nama }}"
+                                autocomplete="username">
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
+                            <label for="password" class="form-label">Change Password</label>
                             <input type="password" class="form-control rounded-15" id="password" placeholder="password"
-                                name="password">
+                                name="password" autocomplete="current-password">
+                            <small class="w-100 text-secondary">Kosongkan input jika tidak ingin mengubah password.</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password_confirmation" class="form-label">Confirmation Password</label>
+                            <input type="password" class="form-control rounded-15" id="password_confirmation"
+                                placeholder="Confirm Password" name="password_confirmation">
                         </div>
                         <!-- <div class="blue-line rounded-20 mb-3"></div> -->
                         <div class="d-flex justify-content-end btn-action">
@@ -203,25 +244,26 @@
                         <div class="header position-relative mb-5">
                             <div
                                 class="img rounded-circle position-absolute d-flex justify-content-center align-items-center overflow-hidden">
-                                <img src="" id="imagePreview" width="120" draggable="false">
+                                <img src="{{ $mitra->foto ? '/assets/img/' . $mitra->foto : '' }}" id="imagePreview"
+                                    width="120" draggable="false">
                             </div>
                         </div>
                         <div class="content p-3">
                             <div>
-                                <h4 class="fw-bold" id="nama_value">Name</h4>
+                                <h4 class="fw-bold" id="nama_value">{{ $mitra->nama }}</h4>
                             </div>
                             <table>
                                 <tr>
                                     <td>
                                         <div>
                                             <p class="fw-bold">Kategori</p>
-                                            <p id="kategori_value">-</p>
+                                            <p id="kategori_value">{{ $mitra->kategori }}</p>
                                         </div>
                                     </td>
                                     <td>
                                         <div>
                                             <p class="fw-bold">Jenis Perusahaan</p>
-                                            <p id="jenisperusahaan_value">-</p>
+                                            <p id="jenisperusahaan_value">{{ $mitra->jenis }}</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -229,15 +271,15 @@
                                     <td>
                                         <div>
                                             <p class="fw-bold">No. Telp</p>
-                                            <p id="notelp_value">-</p>
+                                            <p id="notelp_value">{{ $mitra->no_telp }}</p>
                                         </div>
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <div>
                                             <p class="fw-bold">Alamat</p>
                                             <p id="alamat_value">-</p>
                                         </div>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                                 <tr>
                                     <td colspan="2">
@@ -249,13 +291,13 @@
                                     <td>
                                         <div>
                                             <p class="fw-bold">Username</p>
-                                            <p id="username_value">-</p>
+                                            <p id="username_value">{{ $user->username }}</p>
                                         </div>
                                     </td>
                                     <td>
                                         <div>
                                             <p class="fw-bold">E-mail</p>
-                                            <p id="email_value">-</p>
+                                            <p id="email_value">{{ $user->email }}</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -289,11 +331,12 @@
         // IMAGE PROFILE
         uploadPhoto.onchange = evt => {
             const [file] = uploadPhoto.files;
-            let label = document.getElementById("labelPhoto");
             let input = document.getElementById("uploadPhoto");
+            // let img_prev = document.getElementByClassName("img_preview");
 
             if (file) {
                 imagePreview.src = URL.createObjectURL(file);
+                img_prev.src = URL.createObjectURL(file);
             }
         }
 
@@ -309,12 +352,12 @@
             document.getElementById("email_value").innerHTML = data;
         }
 
-        function updateAlamat(data) {
-            document.getElementById("alamat_value").innerHTML = data;
-        }
-
         function updateUsername(data) {
-            document.getElementById("username_value").innerHTML = data;
+            let newUsername = data.replace(/\s+/g, '');
+            console.log(newUsername);
+
+            document.getElementById("username_value").innerHTML = newUsername;
+            document.getElementById("username").value = newUsername;
         }
 
         function updateKat(data) {

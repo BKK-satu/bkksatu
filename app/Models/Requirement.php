@@ -21,14 +21,22 @@ class Requirement extends Model
      *
      * @var bool
      */
-    public $incrementing = false;
+    public $incrementing = true;
 
     /**
-     * The data type of the auto-incrementing ID.
+     * Membuat timestamps tidak automatis.
      *
-     * @var string
+     * @var bool
      */
-    protected $keyType = 'string';
+    public $timestamps = false;
+
+    /**
+     * Give data requirements.
+     */
+    public function loker()
+    {
+        return $this->belongsTo(Loker::class, 'lowongankerja_id', 'id');
+    }
 
     /**
      * fillable
@@ -36,7 +44,6 @@ class Requirement extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
         'lowongankerja_id',
         'text',
     ];

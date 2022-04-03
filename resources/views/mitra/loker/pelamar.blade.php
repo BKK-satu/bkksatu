@@ -90,7 +90,7 @@
         <div class="container py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
-                <a href="/mt/lk/detail" class="d-flex align-items-center text-decoration-none text-white"><i
+                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
                         class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">

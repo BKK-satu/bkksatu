@@ -56,20 +56,30 @@ Route::prefix('ad')->group(function () {
 Route::prefix('mt')->group(function () {
     Route::get('/main', 'mitra\MainController@main');
     Route::get('/notif', 'mitra\MainController@notif');
-    Route::get('/profil', 'mitra\MainController@profil');
-    Route::get('/profil/ubah', 'mitra\MainController@profilUbah');
+    Route::get('/profil', 'mitra\MainController@profil')->name('profil.daftar');
+    Route::get('/profil/ubah/{id}', 'mitra\MainController@prUbah');
+    Route::post('/profil/ubahPost', 'mitra\MainController@prUbahPost');
+
+    Route::get('/kantor/tambah', 'mitra\MainController@kantorAdd');
+    Route::post('/kantor/post', 'mitra\MainController@kantorPost');
+    Route::get('/kantor/ubah/{id}', 'mitra\MainController@kantorEdit');
+    Route::post('/kantor/editPost', 'mitra\MainController@kantorEditPost');
+    Route::post('/kantor/hapus/{id}', 'mitra\MainController@kantorDelete');
 
     Route::prefix('lk')->group(function () {
         Route::get('/main', 'mitra\LokerController@main')->name('daftar');
-        Route::get('/detail', 'mitra\LokerController@detail');
-        Route::get('/tambah', 'mitra\LokerController@tambah');
-        Route::post('/tambahpost', 'mitra\LokerController@tambahTes');
-        Route::get('/ubah', 'mitra\LokerController@ubah');
-        Route::post('/hapus', 'mitra\LokerController@hapus');
+        Route::get('/detail/{id}', 'mitra\LokerController@detail');
+        Route::get('/tambah', 'mitra\LokerController@tambah')->name('tambah-mitra');
+        Route::post('/tambahpost', 'mitra\LokerController@store');
+        Route::get('/ubah/{id}', 'mitra\LokerController@ubah');
+        Route::post('/ubah/post', 'mitra\LokerController@ubahStore');
+        Route::post('/hapus/{id}', 'mitra\LokerController@hapus')->name('loker.delete');
 
-        Route::get('/pelamar', 'mitra\LokerController@pelamar');
-        Route::get('/rekomend', 'mitra\LokerController@rekomend');
-        Route::get('/tahap', 'mitra\LokerController@tahap');
+        Route::get('/pelamar', 'mitra\LokerController@pelamar')->name('pelamar');
+        Route::get('/rekomend', 'mitra\LokerController@rekomend')->name('rekomend');
+        Route::get('/tahap', 'mitra\LokerController@tahap')->name('tahap');
+
+        Route::get('/rekomend','mitra\LokerController@rekomend');
     });
 
     Route::prefix('re')->group(function () {

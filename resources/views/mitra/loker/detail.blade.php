@@ -3,6 +3,7 @@
 @section('titlepage', 'Detail Loker | Mitra')
 
 @section('css')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/styleMitra.css">
 
@@ -20,7 +21,7 @@
         .detail-outer-wrapper .header {
             border-radius: 30px 30px 0px 0px;
             height: 250px;
-            margin-bottom: 70px;
+            margin-bottom: 20px;
             background-image: linear-gradient(to right, #2e51d1, #9cb0f0);
         }
 
@@ -44,6 +45,10 @@
             background: rgb(242, 42, 42);
         }
 
+        .detail-outer-wrapper .content .deskripsi p {
+            margin-bottom: 0px
+        }
+
         .detail-outer-wrapper .content .pelamar a.btn {
             font-size: 20px;
         }
@@ -55,6 +60,41 @@
             border: 7px solid #fff;
             top: 50%;
             left: 3%;
+        }
+
+        /* CUSTOMIZE GALLERY */
+
+        .gallery .img {
+            height: 400px;
+            width: 100%;
+        }
+
+        .gallery .img .big-img div,
+        .gallery .img .small-img div {
+            height: 100%;
+        }
+
+        .gallery .img .big-img div div {
+            height: 100%;
+            width: 100%;
+            background-color: rgb(202, 202, 202);
+        }
+
+        .gallery .small-img {
+            width: 200px;
+        }
+
+        .gallery .img .small-img div {
+            border: 2px solid #2e51d1;
+
+        }
+
+        .gallery .img .small-img div img {
+            background-color: rgb(202, 202, 202);
+        }
+
+        .row {
+            --bs-gutter-x: 0px;
         }
 
     </style>
@@ -83,17 +123,15 @@
             <!-- CONTENT -->
             <div class="detail-outer-wrapper shadow-custom-2 mb-5 rounded-custom">
                 <!-- HEADER -->
-                <div class="header d-flex align-items-center position-relative">
-                    <div class="img overflow-hidden position-absolute rounded-circle">
-                        <img src="" class="">
-                    </div>
+                <div class="header d-flex align-items-center position-relative overflow-hidden">
+                    <img src="/assets/img/{{ $loker->banner }}" class="center" width="100%">
                 </div>
                 <div class="content py-3 px-5">
                     <div class="mb-4 d-flex justify-content-between">
                         <!-- TITLE NEWS -->
                         <div>
-                            <h1 class="fw-900 mb-0">IT Support</h1>
-                            <h3>LOK00023</h3>
+                            <h1 class="fw-900 mb-0">{{ $loker->posisi }}</h1>
+                            <h3>{{ $loker->id }}</h3>
                             <h4 class="mt-3">PT. Optic Gaming<i
                                     class='bx bxs-badge-check align-middle text-primary ms-1'></i></h4>
                             <h5 class="mt-3"><i class='bx bx-current-location align-middle me-1'></i>Jakarta</h5>
@@ -101,25 +139,27 @@
                         <!-- TOOLS UNTUK EDIT DAN DELETE -->
                         <div class="tools d-flex">
                             <div class="rounded-15 d-flex justify-content-center align-items-center me-1">
-                                <a href="/mt/lk/ubah" class="text-white"><i class='bx bxs-edit'></i></a>
+                                <a href="/mt/lk/ubah/{{ $loker->id }}" class="text-white"><i
+                                        class='bx bxs-edit'></i></a>
                             </div>
                             <div class="rounded-15 d-flex justify-content-center align-items-center">
-                                <span class="text-white" onclick="swalDelete('LOK00001')"><i
-                                        class='bx bxs-trash-alt'></i></span>
+                                <button class="btn btn-danger rounded-15 p-0" onclick="deleteData('{{ $loker->id }}')"
+                                    type="submit"><i class='bx bxs-trash-alt'></i></button>
                             </div>
                         </div>
                     </div>
                     <!-- CONTENT INFORMASI -->
-                    <div class="mb-3">
-                        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti voluptatum
-                            tempora omnis reprehenderit voluptate, autem commodi quisquam harum pariatur adipisci obcaecati
-                            aut, numquam, ab earum rerum? Nesciunt optio accusamus
-                            nisi, iusto animi illum molestias quia labore delectus neque soluta aspernatur!</p>
+                    <div class="mb-3 deskripsi">
+                        <p align="justify">{!! $loker->deskripsi !!} @if ($loker->deskripsi == '<p>&nbsp;</p>')
+                                Tidak ada deskripsi.
+                            @endif
+                        </p>
                     </div>
                     <!-- TOMBOL LIHAT PELAMAR DAN REKOMEND -->
                     <div class="pelamar row">
                         <div class="col p-1">
-                            <a href="/mt/lk/pelamar" class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat Pelamar</a>
+                            <a href="/mt/lk/pelamar" class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
+                                Pelamar</a>
                         </div>
                         <div class="col p-1">
                             <a href="/mt/lk/tahap" class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
@@ -134,48 +174,30 @@
             </div>
 
             <div class="job-desc">
-                <h2 class="fw-900 mb-3">Deskripsi Pekerjaan</h2>
+                <h2 class="fw-bold mb-3">Deskripsi Pekerjaan</h2>
                 <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 requirement">
                     <h4 class="fw-bold">Persyaratan :</h4>
                     <ul class="mb-0">
-                        <li>Bachelor degree from Computer Science, Business Management, or any related field</li>
-                        <li>Minimum 8 years experience as IT Business Partner / IT Business Analyst / IT Project Manager
-                        </li>
-                        <li>Sehat Jasmani Rohani</li>
-                        <li>Experienced in project management, business process mapping, creating pin points, project
-                            prioritization, cost and benefit analysis</li>
-                    </ul>
-                </div>
-                <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 responsibility">
-                    <h4 class="fw-bold">Tanggung Jawab :</h4>
-                    <ul class="mb-0">
-                        <li>Can make a coffe.</li>
-                        <li>Can piket in midnight.</li>
-                        <li>Dapat membersihkan tempat kerja sendiri.</li>
-                        <li>Bisa membuat anak.</li>
+                        @foreach ($requirement as $req)
+                            <li>{{ $req->text }}</li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 phase">
                     <h4 class="fw-bold mb-3">Tahap</h4>
                     <div class="row">
-                        <div class="col-6">
-                            <p class="fw-bold mb-0">Tes Fisik</p>
-                            <p>Dilaksanankan pada 28 April 2018</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="fw-bold mb-0">Tes Psikotek & Krapelin</p>
-                            <p>Dilaksanankan pada 1 Mei 2018</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="fw-bold mb-0">Interview</p>
-                            <p>Dilaksanankan pada 9 Mei 2018</p>
-                        </div>
+                        @foreach ($tahap as $thp)
+                            <div class="col-6">
+                                <p class="fw-bold mb-0">{{ $thp->nama }}</p>
+                                <p>Dilaksanankan pada {{ $thp->tanggal_seleksi }}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
 
             <div class="more-info">
-                <h2 class="fw-900 mb-3">Informasi Tambahan</h2>
+                <h2 class="fw-bold mb-3">Informasi Tambahan</h2>
                 <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 phase">
                     <div class="row p-2">
                         <div class="col-6 mb-3">
@@ -184,7 +206,7 @@
                         </div>
                         <div class="col-6 mb-3">
                             <h5 class="fw-bold mb-0">Jenis Pekerjaan</h5>
-                            <h5 class="fw-normal">Penuh waktu</h5>
+                            <h5 class="fw-normal">{{ $loker->jenis_pekerjaan }}</h5>
                         </div>
                         <div class="col-6 mb-3">
                             <h5 class="fw-bold mb-0">Pengalaman</h5>
@@ -192,9 +214,29 @@
                         </div>
                         <div class="col-6 mb-3">
                             <h5 class="fw-bold mb-0">Spesialisasi</h5>
-                            <h5 class="fw-normal">IT/Web developer/Computer science</h5>
+                            <h5 class="fw-normal">{{ $loker->kategori }}</h5>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="gallery">
+                <h2 class="fw-bold">Gallery</h2>
+                <!-- IMAGE INFORMASI -->
+                <div class="row">
+                    @if ($galeri->isEmpty())
+                        <div class="alert alert-info rounded-15">
+                            <p class="mb-0"><i class='bx bx-info-circle align-middle'
+                                    style="font-size: 28px;"></i> Tidak ada data untuk
+                                galeri.</p>
+                        </div>
+                    @else
+                        @foreach ($galeri as $gal)
+                            <div class="col col-md-6 small-img p-2 overflow-hiddenR">
+                                <img src="/assets/img/{{ $gal->foto }}" class="" width="200" height="200">
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
@@ -203,20 +245,54 @@
 
 @section('script')
     <!-- SWEETALERT -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../../../assets/js/sweetalert.min.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+
     <script>
-        function swalDelete(id) {
-            var id = id;
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        function deleteData(id) {
             swal({
-                    title: "Apakah anda yakin?",
-                    text: "Ketika data sudah terhapus maka data tidak bisa kembali!",
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
                 })
                 .then((willDelete) => {
                     if (willDelete) {
-                        window.location.replace('http://127.0.0.1:8000/mt/lk/hapus/' + id);
+                        $.ajax({
+                            url: "{{ url('/mt/lk/hapus') }}" + '/' + id,
+                            type: "POST",
+                            data: {
+                                '_method': 'POST'
+                            },
+                            success: function() {
+                                swal({
+                                    title: "Success!",
+                                    text: "Redirecting in 2 seconds.",
+                                    icon: "success",
+                                    timer: 2000,
+                                    button: true
+                                }).then(function() {
+                                    window.location.replace("http://127.0.0.1:8000/mt/lk/main");
+                                });
+                            },
+                            error: function() {
+                                swal({
+                                    title: 'Opps...',
+                                    text: 'Ada masalah saat menghapus data.',
+                                    icon: 'error',
+                                    timer: '1500'
+                                })
+                            }
+                        })
+                    } else {
+                        swal("Data tidak dihapus!");
                     }
                 });
         }
