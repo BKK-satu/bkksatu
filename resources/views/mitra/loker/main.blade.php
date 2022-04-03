@@ -65,6 +65,10 @@
                 </form>
             </div>
 
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissable rounded-15">{{ session('success') }}</div>
+            @endif
+
             <div class="loker-wrapper row">
                 @foreach ($loker as $item)
                     <div class="col-6 col-md-4">
@@ -96,7 +100,11 @@
                             </div>
                             <hr>
                             <div class="bottom">
-                                <p class="text-secondary mb-0">{{ $item->tanggal_posting }}</p>
+                                @foreach ($ages as $age)
+                                    @if ($item->id == $age['id'])
+                                        <p class="text-secondary mb-0">{{ $age['date'] }}</p>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>

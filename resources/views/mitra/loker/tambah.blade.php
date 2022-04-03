@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/styleMitra.css">
     <!-- TEXTAREA EDITOR -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script> --}}
+    <script src="../../../assets/js/ckeditor.js"></script>
 
     <style>
         /* STYLING TITLE PAGE */
@@ -73,6 +74,18 @@
             font-size: 14px;
         }
 
+        .edit-wrapper .data .icon-hover i {
+            visibility: hidden;
+        }
+
+        .edit-wrapper .data .icon-hover:hover i {
+            visibility: visible;
+        }
+
+        .edit-wrapper .data .row {
+            --bs-gutter-y: 0 !important;
+        }
+
     </style>
 @endsection
 
@@ -88,13 +101,21 @@
         <div class="container py-3 content-wrapper">
             <!-- TITLE HALAMAN -->
             <div class="title-back">
-                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
+                <a href="/mt/lk/main" class="d-flex align-items-center text-decoration-none text-white"><i
                         class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">
                 <h1 class="fw-light">Ubah</h1>
                 <h1 class="fw-bold">Lowongan Kerja</h1>
             </div>
+
+            @if ($errors->any())
+                <div class="alert alert-danger rounded-15">
+                    @foreach ($errors->all() as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach
+                </div>
+            @endif
 
             <!-- KONTEN LUAR -->
             <div class="edit-wrapper d-flex">
@@ -189,6 +210,8 @@
                             <label for="gaji" class="form-label">Gaji</label>
                             <input type="number" class="form-control rounded-15 @error('gaji') is-invalid @enderror"
                                 id="gaji" placeholder="Gaji..." name="gaji" value="{{ old('gaji') }}">
+                            <small class="w-100 text-secondary">Jika data ini sudah disubmit, maka tidak bisa diubah
+                                kembali.</small>
                             @error('gaji')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -217,6 +240,8 @@
                             <input type="date" class="form-control rounded-15 @error('kedaluwarsa') is-invalid @enderror"
                                 id="expired" placeholder="Expired..." name="kedaluwarsa"
                                 value="{{ old('kedaluwarsa') }}">
+                            <small class="w-100 text-secondary">Jika data ini sudah disubmit, maka tidak bisa diubah
+                                kembali.</small>
                             @error('kedaluwarsa')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -343,41 +368,7 @@
                             @endif
                             <div>
                                 <div class="mb-2">
-                                    <label class="form-label">Tahap</label>
-                                    <input type="number" class="form-control rounded-15" id="sec" placeholder="Tahap Ke..."
-                                        name="tahapsec[]">
-                                </div>
-                                <div class="mb-2">
-                                    <label class="form-label">Nama Tahap</label>
-                                    <input type="text" class="form-control rounded-15" id="namasec"
-                                        placeholder="Nama Tahap..." name="namasec[]">
-                                </div>
-                                <div class="mb-2">
-                                    <label class="form-label">Tanggal Tahap Dimulai</label>
-                                    <input type="date" class="form-control rounded-15" id="datesec" name="datesec[]">
-                                </div>
-                                <hr>
-                            </div>
-                            <div>
-                                <div class="mb-2">
-                                    <label class="form-label">Tahap</label>
-                                    <input type="number" class="form-control rounded-15" id="sec" placeholder="Tahap Ke..."
-                                        name="tahapsec[]">
-                                </div>
-                                <div class="mb-2">
-                                    <label class="form-label">Nama Tahap</label>
-                                    <input type="text" class="form-control rounded-15" id="namasec"
-                                        placeholder="Nama Tahap..." name="namasec[]">
-                                </div>
-                                <div class="mb-2">
-                                    <label class="form-label">Tanggal Tahap Dimulai</label>
-                                    <input type="date" class="form-control rounded-15" id="datesec" name="datesec[]">
-                                </div>
-                                <hr>
-                            </div>
-                            <div>
-                                <div class="mb-2">
-                                    <label class="form-label">Tahap</label>
+                                    <label class="form-label">Tahap 1</label>
                                     <input type="number" class="form-control rounded-15" id="sec" placeholder="Tahap Ke..."
                                         name="tahapsec[]">
                                 </div>
@@ -407,7 +398,7 @@
                             <img src="../../../assets/img/Pergiin.png" width="120px">
                         </div>
                         <div class="title">
-                            <h4 class="fw-900 mb-0 text-primary" id="position_value">Title</h4>
+                            <h4 class="fw-900 mb-0 text-primary" id="position_value">Position</h4>
                             <h6 class="mb-3">PT. Yutaka Finance</h6>
                             <h6 class="fw-900 mb-3">Jakarta</h6>
                         </div>
@@ -434,7 +425,6 @@
 @endsection
 
 @section('script')
-    {{-- <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script> --}}
     <script>
         // MENAMBAH REQUIREMENT JIKA DIKLIK
         var newReqNum = 5;
@@ -451,7 +441,7 @@
 
 
         // MENAMBAH TAHAP JIKA DIKLIK
-        let newSecNum = 3;
+        let newSecNum = 1;
 
         function addSec() {
             newSecNum += 1;
@@ -494,7 +484,7 @@
             const [file] = uploadPhoto1.files;
             let label = document.getElementById("labelPhoto1");
             let input = document.getElementById("uploadPhoto1");
-            // let wrap = document.getElementById("uploadImage1");
+            document.getElementById('labelPhoto1').classList.add('icon-hover')
 
             if (file) {
                 imagePreview1.src = URL.createObjectURL(file);
@@ -504,6 +494,7 @@
             const [file] = uploadPhoto2.files;
             let label = document.getElementById("labelPhoto2");
             let input = document.getElementById("uploadPhoto2");
+            document.getElementById('labelPhoto2').classList.add('icon-hover')
 
             if (file) {
                 imagePreview2.src = URL.createObjectURL(file);
@@ -513,6 +504,7 @@
             const [file] = uploadPhoto3.files;
             let label = document.getElementById("labelPhoto3");
             let input = document.getElementById("uploadPhoto3");
+            document.getElementById('labelPhoto3').classList.add('icon-hover')
 
             if (file) {
                 imagePreview3.src = URL.createObjectURL(file);
@@ -523,6 +515,7 @@
             const [file] = uploadPhoto4.files;
             let label = document.getElementById("labelPhoto4");
             let input = document.getElementById("uploadPhoto4");
+            document.getElementById('labelPhoto4').classList.add('icon-hover')
 
             if (file) {
                 imagePreview4.src = URL.createObjectURL(file);
@@ -533,6 +526,7 @@
             const [file] = uploadPhoto5.files;
             let label = document.getElementById("labelPhoto5");
             let input = document.getElementById("uploadPhoto5");
+            document.getElementById('labelPhoto5').classList.add('icon-hover')
 
             if (file) {
                 imagePreview5.src = URL.createObjectURL(file);

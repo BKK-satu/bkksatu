@@ -3,6 +3,15 @@
 @section('titlepage', 'Rekomend LOK00001 | Mitra')
 
 @section('css')
+    {{-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"> --}}
+    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <!-- jQuery CDN -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/styleMitra.css">
 
@@ -104,7 +113,7 @@
                     <form action="" class="position-relative">
                         <i class='bx bx-search position-absolute'></i>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control rounded-20 shadow"
+                            <input type="search" class="form-control rounded-20 shadow"
                                 placeholder="Search Rekomendasi Alumni...">
                         </div>
                     </form>
@@ -135,84 +144,23 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Alumni</th>
-                                    <th scope="col">Jurusan</th>
-                                    <th scope="col">Angakatan</th>
+                                    <th scope="col">Angakata</th>
+                                    <th scope="col">NIS</th>
                                     <th scope="col">Jenis Kelamim</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td><a href="/alumni/detail" class="text-link-black text-decoration-none">Akwan
-                                            Cakra</a>
-                                    </td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Fahru Rhman</td>
-                                    <td>TKJ</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>MM</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Fahru Rhman</td>
-                                    <td>TKJ</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>MM</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Fahru Rhman</td>
-                                    <td>TKJ</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>Fahru Rhman</td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">9</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">10</th>
-                                    <td>Ahmad Zaky</td>
-                                    <td>RPL</td>
-                                    <td>2018/2019</td>
-                                    <td>Laki-laki</td>
-                                </tr>
+                                @foreach ($alumni as $data)
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td><a href="/alumni/detail"
+                                                class="text-link-black text-decoration-none">{{ $data->nama }}</a>
+                                        </td>
+                                        <td>{{ $data->angkatan }}</td>
+                                        <td>{{ $data->nis }}</td>
+                                        <td>{{ $data->gender }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <!-- PAGINASI -->
@@ -237,17 +185,5 @@
 @endsection
 
 @section('script')
-    <!-- SWEETALERT -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
-        function swalDelete() {
-            swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this imaginary file!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-        }
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 @endsection

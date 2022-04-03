@@ -31,6 +31,13 @@ class Kantor extends Model
     protected $keyType = 'string';
 
     /**
+     * Membuat timestamps tidak automatis.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * fillable
      *
      * @var array
@@ -40,6 +47,8 @@ class Kantor extends Model
         'mitra_id',
         'alamat',
         'no_telp',
-        'status'
+        'kota',
+        'status',
+        'kontrol'
     ];
 }

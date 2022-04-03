@@ -69,13 +69,13 @@
                 <div class="col small-graph-item p-1">
                     <div class="graph-item-wrapper p-3 shadow rounded-20 bg-white">
                         <div class="">Lowongan Dibuat</div>
-                        <div class="text-center fw-900">12</div>
+                        <div class="text-center fw-900">{{ $lokerCreated }}</div>
                     </div>
                 </div>
                 <div class="col small-graph-item p-1">
                     <div class="graph-item-wrapper p-3 shadow rounded-20 bg-white">
                         <div class="">Lowongan Aktif</div>
-                        <div class="text-center fw-900">8</div>
+                        <div class="text-center fw-900">{{ $lokerActive }}</div>
                     </div>
                 </div>
             </div>

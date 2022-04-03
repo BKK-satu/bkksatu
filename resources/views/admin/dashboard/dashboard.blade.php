@@ -199,7 +199,7 @@
 
 @section('script')
     <!-- CHART JS 3.5.1 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../../assets/js/chart.js"></script>
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
