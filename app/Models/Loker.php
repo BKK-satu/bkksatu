@@ -67,4 +67,12 @@ class Loker extends Model
         'banner',
         'status'
     ];
+
+    /**
+     * Relation to alumni_direkomendasikan table
+     */
+    public function mitra()
+    {
+        return $this->belongsTo(Mitra::class);
+    }
 }

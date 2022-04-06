@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mitra extends Model
+class Jurusan extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Mitra extends Model
      *
      * @var string
      */
-    protected $table = 'mitra';
+    protected $table = 'jurusan';
 
     /**
      * Indicates if the model's ID is auto-incrementing.
@@ -38,36 +38,21 @@ class Mitra extends Model
     public $timestamps = false;
 
     /**
-     * fillable
+     * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $fillable = [
         'id',
-        'user_id',
-        'jenis',
         'nama',
-        'wilayah',
-        'no_telp',
-        'kategori',
-        'website',
-        'overview',
-        'foto',
+        'akronim',
     ];
 
     /**
-     * Relation to loker table
+     * Relation to alumni with hasMany
      */
-    public function loker()
+    public function alumni()
     {
-        return $this->hasMany(Loker::class);
-    }
-
-    /**
-     * Relation to kantor table
-     */
-    public function kantor()
-    {
-        return $this->hasMany(Kantor::class);
+        return $this->hasMany(Alumni::class);
     }
 }

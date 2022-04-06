@@ -1,17 +1,14 @@
 @extends('layouts.master')
 
-@section('titlepage', 'Rekomend LOK00001 | Mitra')
+@section('titlepage', 'Rekomend ' . $loker->id . ' | Mitra')
 
 @section('css')
-    {{-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"> --}}
-    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
-    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    <!-- jQuery CDN -->
+    <!-- SELECT 2 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <!-- INTERN CSS -->
+    <link rel="stylesheet" href="../../../assets/css/custom-modal.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/styleMitra.css">
 
@@ -84,6 +81,38 @@
             display: block;
         }
 
+        /* STYLING SELECT */
+
+        .select2.select2-container {
+            width: 100% !important;
+        }
+
+        .select2.select2-container .select2-selection {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            height: 40px;
+            outline: none !important;
+            transition: all .15s ease-in-out;
+        }
+
+        .select2.select2-container .select2-selection .select2-selection__rendered {
+            color: #333;
+            line-height: 38px;
+            padding-right: 33px;
+            padding-left: 12px;
+            font-size: 1rem;
+        }
+
+        .select2.select2-container .select2-selection .select2-selection__arrow {
+            background: #f8f8f8;
+            border-left: 1px solid #ccc;
+            -webkit-border-radius: 0 10px 10px 0;
+            -moz-border-radius: 0 10px 10px 0;
+            border-radius: 0 10px 10px 0;
+            height: 38px;
+            width: 40px;
+        }
+
     </style>
 @endsection
 
@@ -99,13 +128,26 @@
         <div class="container py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
-                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
+                <a href="/mt/lk/detail/{{ $loker->id }}"
+                    class="d-flex align-items-center text-decoration-none text-white"><i
                         class='bx bx-left-arrow-alt'></i>Back</a>
             </div>
             <div class="title-page text-white my-5">
                 <h1 class="fw-light">Rekomendasi</h1>
-                <h1 class="fw-bold">LOK00023</h1>
+                <h1 class="fw-bold">{{ $loker->id }}</h1>
             </div>
+
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissable rounded-15">{{ session('success') }}</div>
+            @endif
+
+            @if ($errors->any())
+                <div class="alert alert-danger rounded-15">
+                    @foreach ($errors->all() as $error)
+                        <div>{{ $error }}</div>
+                    @endforeach
+                </div>
+            @endif
 
             <div class="alumni-table">
                 <!-- SEARCH BAR -->
@@ -129,7 +171,7 @@
                             <li><a class="dropdown-item" href="#">30</a></li>
                         </ul>
                         <div>
-                            <button class="btn btn-primary rounded-15 px-4">
+                            <button class="btn btn-primary rounded-15 px-4" id="invoke" class="warn">
                                 <p class="d-inline align-middle fw-bold">Add</p>
                             </button>
                             <button class="btn btn-primary rounded-15 px-4">
@@ -143,23 +185,30 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
+                                    <th scope="col">ID Rekomend</th>
                                     <th scope="col">Alumni</th>
-                                    <th scope="col">Angakata</th>
-                                    <th scope="col">NIS</th>
-                                    <th scope="col">Jenis Kelamim</th>
+                                    <th scope="col">Jurusan</th>
+                                    <th scope="col">Angkatan</th>
+                                    <th scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($alumni as $data)
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><a href="/alumni/detail"
-                                                class="text-link-black text-decoration-none">{{ $data->nama }}</a>
-                                        </td>
-                                        <td>{{ $data->angkatan }}</td>
-                                        <td>{{ $data->nis }}</td>
-                                        <td>{{ $data->gender }}</td>
-                                    </tr>
+                                @php
+                                    $index = 1;
+                                @endphp
+                                @foreach ($dataRekomend as $key => $rek)
+                                    {{-- MERELASIKAN DATA REKOMENDASI --}}
+                                    @if ($rek->id_lowongankerja == $loker->id)
+                                        <tr>
+                                            <th scope="row">{{ $index++ }}</th>
+                                            <td>{{ $rek->id_rekomendasi }}</td>
+                                            <td>{{ $rek->alumni }}</td>
+                                            <td>{{ $alumniJur[$key][0]->jurusan->nama }}</td>
+                                            <td>{{ $alumniJur[$key][0]->angkatan->tahun_masuk }}/{{ $alumniJur[$key][0]->angkatan->tahun_lulus }}
+                                            </td>
+                                            <td>{{ ucwords($rek->status) }}</td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -182,8 +231,77 @@
             </div>
         </div>
     </div>
+
+    <dialog class="modalCSM" id="modalCSM">
+        <form action="/mt/lk/rekomend/post" method="POST">
+            <div class="header d-flex justify-content-between mb-3">
+                <strong>Tambah Rekomendasi</strong>
+                <button type="button" class="btn-close" id="cancelCSM"></button>
+            </div>
+            <div class="modal-main mb-3">
+                <div class="alert alert-warning rounded-15">
+                    <p class="mb-0"><i class='bx bx-info-circle align-middle' style="font-size: 28px;"></i>
+                        Data yang sudah dikirim tidak bisa diubah atau dihapus.</p>
+                </div>
+                @csrf
+                <div class="mb-3">
+                    <label for="alumni" class="form-label">Pilih Alumni</label>
+                    <select class="js-select2 form-control" id="select2" name="alumni">
+                        <option selected hidden>Pilih Alumni</option>
+                        @foreach ($alumni as $alm)
+                            <option @if (old('alumni') == $alm->id) selected @endif value="{{ $alm->id }}">
+                                {{ $alm->nama }} -
+                                {{ $alm->jurusan->nama }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="loker" class="form-label">Lowongan Kerja</label>
+                    <input type="text" class="form-control rounded-15" id="loker" name="loker" value="{{ $loker->id }}"
+                        readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="judul" class="form-label">Judul Deskripsi</label>
+                    <input type="text" class="form-control rounded-15" id="judul"
+                        placeholder="Anda direkomendasi untuk pekerjaan ini..." name="judul" value="{{ old('judul') }}">
+                </div>
+                <div class="mb-3">
+                    <label for="text" class="form-label">Deskripsi</label>
+                    <textarea class="form-control rounded-15" id="text" rows="3" name="text">{{ old('text') }}</textarea>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="defaultMsg" name="defaultMsg">
+                    <label class="form-check-label" for="defaultMsg">Gunakan pesan otomatis.</label>
+                </div>
+            </div>
+            <menu class="modal-menu">
+                <small><i class='bx bxs-keyboard align-middle'></i> esc</small>
+                <button class="modal-button fw-bold" id="buttoncancelCSM" type="button">Close</button>
+                <button class="modal-button bg-primary fw-bold" type="submit">Submit</button>
+            </menu>
+        </form>
+    </dialog>
 @endsection
 
 @section('script')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../../assets/js/custom-modal.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#select2").select2({
+                dropdownParent: $("#modalCSM")
+            });
+        });
+
+        $('#defaultMsg').click(function() {
+            // console.log($(this).is(':checked'));
+            if ($(this).is(':checked') == true) {
+                $('#judul').attr("readonly", true);
+                $('#text').attr("readonly", true);
+            } else {
+                $('#judul').removeAttr('readonly');
+                $('#text').removeAttr('readonly');
+            }
+        });
+    </script>
 @endsection

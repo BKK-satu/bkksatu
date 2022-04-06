@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('titlepage', $titlepage)
+@section('titlepage', 'Tahap ' . $tahap->id . 'detail | Mitra')
 
 @section('css')
     <link rel="stylesheet" href="/assets/css/style.css">
