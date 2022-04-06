@@ -66,7 +66,17 @@
             </div>
 
             @if (session('success'))
-                <div class="alert alert-success alert-dismissable rounded-15">{{ session('success') }}</div>
+                <div class="alert alert-success alert-dismissible fade show rounded-15" role="alert">
+                    <i class='bx bx-info-circle align-middle' style="font-size: 28px;"></i> {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger alert-dismissible fade show rounded-15" role="alert">
+                    <i class='bx bx-info-circle align-middle' style="font-size: 28px;"></i> {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             @endif
 
             <div class="loker-wrapper row">
@@ -74,12 +84,13 @@
                     <div class="col-6 col-md-4">
                         <div class="loker-item p-4 bg-white rounded-15 shadow">
                             <div class="img mb-3">
-                                <img src="../../../assets/img/Pergiin.png" width="120px">
+                                <img src="{{ $item->mitra->foto ? '/assets/img/' . $item->mitra->foto : '' }}"
+                                    width="120px" class="rounded-15">
                             </div>
                             <div class="title">
                                 <h4 class="fw-900 mb-0 text-primary">{{ $item->posisi }}</h4>
-                                <h6 class="mb-3">PT. Yutaka Finance</h6>
-                                <h6 class="fw-900 mb-3">Jakarta</h6>
+                                <h6 class="mb-3">{{ $item->mitra->jenis }}. {{ $item->mitra->nama }}</h6>
+                                <h6 class="fw-900 mb-3">{{ $item->mitra->wilayah }}</h6>
                             </div>
                             <div class="req">
                                 <ul>

@@ -397,12 +397,13 @@
                     <h2 class="fw-700 mb-2">Preview</h2>
                     <div class="loker-preview p-4 bg-white rounded-15 shadow">
                         <div class="img mb-3">
-                            <img src="../../../assets/img/Pergiin.png" width="120px">
+                            <img src="{{ $loker->mitra->foto ? '/assets/img/' . $loker->mitra->foto : '' }}"
+                                width="120px" class="rounded-15">
                         </div>
                         <div class="title">
                             <h4 class="fw-900 mb-0 text-primary" id="position_value">{{ $loker->posisi }}</h4>
-                            <h6 class="mb-3">PT. Yutaka Finance</h6>
-                            <h6 class="fw-900 mb-3">Jakarta</h6>
+                            <h6 class="mb-3">{{ $loker->mitra->jenis }}. {{ $loker->mitra->nama }}</h6>
+                            <h6 class="fw-900 mb-3">{{ $loker->mitra->wilayah }}</h6>
                         </div>
                         <div class="row">
                             <div class="col-6">

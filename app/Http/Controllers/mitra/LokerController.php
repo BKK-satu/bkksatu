@@ -9,6 +9,9 @@ use App\Models\Tahap;
 use App\Models\Galeri;
 use App\Models\Alumni;
 use App\Models\Requirement;
+use App\Models\Jurusan;
+use App\Models\Alumni_direkomendasikan;
+use App\Models\Rekomend;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -29,11 +32,14 @@ class LokerController extends Controller
     */
     public function main()
     {
-        $loker = Loker::all();
+        $loker = Loker::where('mitra_id', 'MRA00002')->get();
         foreach ($loker as $key => $lkr) {
             $requirement[$key++] = Requirement::where('lowongankerja_id', $lkr->id)->get();
             $age[$key++] = ['id' => $lkr->id, 'date' => Carbon::parse($lkr->tanggal_posting)->diffForHumans()];
         }
+
+        // $lokers = Loker::where('mitra_id', 'MRA00002')->first();
+        // dd($lokers->mitra->nama);
 
         $data = [
             'title' => 'loker',
@@ -53,7 +59,12 @@ class LokerController extends Controller
      */
     public function detail($id)
     {
-        $loker = Loker::find($id);
+        $loker = Loker::where([['mitra_id', 'MRA00002'],['id', $id]])->first();
+
+        if ($loker == null) {
+            return redirect('/mt/lk/main')->with('error', 'Data tidak dapat diakses!');
+        }
+
         $requirement = Requirement::where('lowongankerja_id', $loker->id)->get();
         $tahap = Tahap::where('lowongankerja_id', $loker->id)->get();
         $galeri = Galeri::where('lowongankerja_id', $loker->id)->get();
@@ -151,7 +162,7 @@ class LokerController extends Controller
         // BUAT LOKER BARU
         $loker = Loker::create([
             'id'                => $kodeloker,
-            'mitra_id'          => 'MRA00001',
+            'mitra_id'          => 'MRA00002',
             'jurusan_id'        => 'JRSN0001',
             'title'             => $request->title,
             'kategori'          => $request->kategori,
@@ -245,7 +256,12 @@ class LokerController extends Controller
     */
     public function ubah($id)
     {
-        $loker = Loker::find($id);
+        $loker = Loker::where([['mitra_id', 'MRA00002'],['id', $id]])->first();
+
+        if ($loker == null) {
+            return redirect('/mt/lk/main')->with('error', 'Data tidak dapat diakses!');
+        }
+
         $age = Carbon::parse($loker->tanggal_posting)->diffForHumans();
         $jurusan = [['id' => 'JRSN0001','nama' => 'Teknik Permesinan'],['id' => 'JRSN0004','nama' => 'Rekayasa Perangkat Lunak']];
         $lokasi_kerja = [['id' => 'KTR00001','alamat' => 'Jl. H. Ucok', 'status' => 'Kantor Cabang']];
@@ -266,34 +282,6 @@ class LokerController extends Controller
         ];
 
         return view('mitra.loker.ubah', $data);
-    }
-
-    public function tambahTes(Request $request)
-    {
-        // dd($request->all());
-        // $tahap = $request->tahapsec;
-        // $nama = $request->namasec;
-        // $date = $request->datesec;
-        // $arrayTahap = ['tahap' => $tahap,'nama' => $nama,'date' => $date];
-        // dd($arrayTahap);
-
-        // MULTIPLE FOREACH
-        // foreach($tahap as $i => $val) {
-        //     echo $val, $nama[$i], $date[$i];
-        //     echo "<br>";
-        // }
-
-        // foreach ($tahap as $tah => $index) {
-            // $index = $array2[$];
-            // echo $tah;
-            // echo pathinfo($data->getClientOriginalName(), PATHINFO_FILENAME);
-            // echo "<br>";
-            // echo pathinfo($data->getClientOriginalName(), PATHINFO_EXTENSION);
-            // echo "<br>";
-            // echo pathinfo($data->getClientOriginalName(), PATHINFO_FILENAME)."-".time().$data->getClientOriginalExtension();
-            // $image = $request->file('image');
-            // $image->storeAs('public/assets/img', $image->hashName());
-        // }
     }
 
     /**
@@ -523,7 +511,7 @@ class LokerController extends Controller
             // 'loker' => $loker,
         ];
 
-        return view('admin.mitra.ubah', $data);
+        return view('mitra.loker.pelamar', $data);
     }
 
     /**
@@ -532,16 +520,92 @@ class LokerController extends Controller
     *
     * @return void
     */
-    public function rekomend()
+    public function rekomend($id)
     {
+        // DATA BUAT SELECT2
         $alumni = Alumni::all();
+        $jurusan = Jurusan::all();
+
+        // DATA BUAT TABLE
+        $loker = Loker::where([['mitra_id', 'MRA00002'],['id', $id]])->first();
+        if ($loker == null) {
+            return redirect()->back()->with('error',' Data tidak data diakses!');
+        }
+        $dataRekomend = DB::table('recommendations')->get();
+
+        // BUAT NGAMBIL NAMA JURUSAN
+        foreach ($dataRekomend as $key => $val) {
+            $alumniJur[] = Alumni::where('id', $val->id_alumni)->get();
+        }
+
+        // dd($alumniJur, $jurusanNam);
 
         $data = [
             'title' => 'loker',
+            'loker' => $loker,
+            'dataRekomend' => $dataRekomend,
             'alumni' => $alumni,
+            'jurusan' => $jurusan,
+            'alumniJur' => $alumniJur,
         ];
 
         return view('mitra.loker.rekomend', $data);
+    }
+
+    /**
+    * menampilkan post data rekomend ke DB
+    *
+    *
+    * @return void
+    */
+    public function rekomendAdd(Request $request)
+    {
+        // MENGAMBIL ID REKOMEND BARU
+        $koderekomend = DB::select('SELECT newidrekomend() AS koderekomend');
+        $koderekomend = $koderekomend[0]->koderekomend;
+
+        // CHEKC IF DEFAULTMSG ID CHEKCED
+        if (isset($request->defaultMsg)) {
+            $judul = 'Selamat! anda direkomendasikan untuk lowongan '. $request->loker .' ini.';
+            $text = 'Daftarkan diri anda sekarang, jangan sampai terlewatkan';
+            $valjudul = '';
+            $valtext = '';
+        }else{
+            $judul = $request->judul;
+            $text = $request->text;
+            $valjudul = 'required|min:5|max:80';
+            $valtext = 'required|min:5';
+        }
+
+        $this->validate($request, [
+            'alumni'    => 'required',
+            'loker'     => 'required',
+            'judul'     => $valjudul,
+            'text'      => $valtext,
+        ]);
+
+        // REKOMEND CREATE
+        $rekomend = Rekomend::create([
+            'id'                => $koderekomend,
+            'lowongankerja_id'  => $request->loker,
+            'judul'             => $judul,
+            'text'              => $text,
+            'status'            => 'menunggu',
+            'created_at'         => Carbon::now('Asia/Jakarta')->format('Y-m-d'),
+        ]);
+
+        $alumni_direkomend = Alumni_direkomendasikan::create([
+            'alumni_id'         => $request->alumni,
+            'rekomendasi_id'    => $koderekomend,
+        ]);
+
+        if($rekomend && $alumni_direkomend){
+            //redirect dengan pesan sukses
+            return redirect()->back()->with(['success' => 'Data Rekomendasi Berhasil Ditambahkan!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->back()->withErrors(['error' => 'Data Rekomendasi Gagal Ditambahkan!']);
+        }
     }
 
     /**
@@ -550,16 +614,91 @@ class LokerController extends Controller
     *
     * @return void
     */
-    public function tahap()
+    public function tahap($id)
     {
-        // $loker = Loker::find($id);
+        $alumni = Alumni::all();
+        $loker = Loker::where([['mitra_id', 'MRA00002'],['id', $id]])->first();
+        if ($loker == null) {
+            return redirect()->back()->with('error',' Data tidak data diakses!');
+        }
+        $tahap = Tahap::where([['lowongankerja_id', $loker->id]])->get();
+
+        $data = [
+            'title' => 'loker',
+            'loker' => $loker,
+            'tahap' => $tahap,
+            'alumni' => $alumni,
+        ];
+
+        return view('mitra.loker.tahap', $data);
+    }
+
+    /**
+    * menampilkan halman daftar tahapan
+    *
+    *
+    * @return void
+    */
+    public function tahapAdd(Request $request)
+    {
+        $kodetahap = DB::select('SELECT newidtahap() AS kodetahap');
+        $kodetahap = $kodetahap[0]->kodetahap;
+
+        // CHEKC IF DEFAULTMSG ID CHEKCED
+        if (isset($request->defaultMsg)) {
+            $keterangan = 'Ini adalah tahapan ke '. $request->tahap_ke .' yang akan dilakukan pada '. Carbon::parse($request->tanggal_seleksi)->format('Y-m-d');
+            $valketerangan = '';
+        }else{
+            $keterangan = $request->keterangan;
+            $valketerangan = 'required|min:5';
+        }
+
+        $this->validate($request, [
+            'nama'              => 'required|min:5',
+            'tahap_ke'          => 'required|numeric',
+            'tanggal_seleksi'   => 'required|date',
+            'keterangan'        => $valketerangan,
+        ]);
+
+        $tahap = Tahap::create([
+            'id'                => $kodetahap,
+            'lowongankerja_id'  => $request->loker_id,
+            'nama'              => $request->nama,
+            'tahap_ke'          => $request->tahap_ke,
+            'tanggal_seleksi'   => $request->tanggal_seleksi,
+            'keterangan'        => $keterangan,
+        ]);
+
+        if($tahap){
+            //redirect dengan pesan sukses
+            return redirect()->back()->with(['success' => 'Data Tahap Berhasil Ditambahkan!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->back()->withErrors(['error' => 'Data Tahap Gagal Ditambahkan!']);
+        }
+    }
+
+    /**
+    * menampilkan halman detail tahapan
+    *
+    *
+    * @return void
+    */
+    public function tahapSeleksi($id)
+    {
+        // $loker = Loker::where([['mitra_id', 'MRA00002'],['id', $id]])->first();
+        // if ($loker == null) {
+        //     return redirect()->back()->with('error',' Data tidak data diakses!');
+        // }
+        $tahap = Tahap::where([['id', $id]])->first();
 
         $data = [
             'title' => 'loker',
             // 'loker' => $loker,
+            'tahap' => $tahap,
         ];
 
-        return view('mitra.loker.tahap', $data);
+        return view('mitra.loker.tahap_detail', $data);
     }
 
     /**

@@ -20,6 +20,9 @@ Route::get('/', function () {
 // Route::get('/dashboard', 'DashboardController@index');
 Route::get('/add', 'TestController@cek');
 
+Route::get('/login', 'TestController@cek');
+Route::get('/register', 'TestController@cek');
+
 Route::get('/tes', function () {
     return view('tes', ['title' => 'dashboard']);
 });
@@ -75,15 +78,19 @@ Route::prefix('mt')->group(function () {
         Route::post('/ubah/post', 'mitra\LokerController@ubahStore');
         Route::post('/hapus/{id}', 'mitra\LokerController@hapus')->name('loker.delete');
 
-        Route::get('/pelamar', 'mitra\LokerController@pelamar')->name('pelamar');
-        Route::get('/rekomend', 'mitra\LokerController@rekomend')->name('rekomend');
-        Route::get('/tahap', 'mitra\LokerController@tahap')->name('tahap');
+        Route::get('/pelamar/{id}', 'mitra\LokerController@pelamar')->name('pelamar');
+        Route::get('/rekomend/{id}', 'mitra\LokerController@rekomend')->name('rekomend');
+        Route::post('/rekomend/post', 'mitra\LokerController@rekomendAdd');
+        Route::get('/tahap/{id}', 'mitra\LokerController@tahap')->name('tahap');
+        Route::post('/tahap/post', 'mitra\LokerController@tahapAdd');
+        Route::get('/tahap/detail/{id}', 'mitra\LokerController@tahapSeleksi');
 
         Route::get('/rekomend','mitra\LokerController@rekomend');
     });
 
     Route::prefix('re')->group(function () {
-        Route::get('/main', 'mitra\RekomendController@main');
+        Route::get('/main', 'mitra\RekomendController@main')->name('rekomend.awal');
+        Route::post('/tambah', 'mitra\RekomendController@add');
     });
 });
 

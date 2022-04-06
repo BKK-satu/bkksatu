@@ -45,6 +45,18 @@ class Rekomend extends Model
     protected $fillable = [
         'id',
         'lowongankerja_id',
-        'text'
+        'judul',
+        'text',
+        'status',
+        'created_at'
     ];
+
+    /**
+     * Relation to alumni with hasMany
+     */
+    // public function loker()
+    // {
+
+    //     return $this->belongsTo(Loker::class, 'lowongankerja_id', 'id');
+    // }
 }

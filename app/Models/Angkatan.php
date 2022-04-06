@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alumni extends Model
+class Angkatan extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Alumni extends Model
      *
      * @var string
      */
-    protected $table = 'alumni';
+    protected $table = 'angkatan';
 
     /**
      * Indicates if the model's ID is auto-incrementing.
@@ -44,44 +44,15 @@ class Alumni extends Model
      */
     protected $fillable = [
         'id',
-        'jurusan_id',
-        'angkatan_id',
-        'user_id',
-        'nama',
-        'nis',
-        'nisn',
-        'tanggal_lahir',
-        'gender',
-        'agama',
-        'alamat',
-        'no_telp',
-        'berat_badan',
-        'tinggi_badan',
-        'bio',
-        'foto'
+        'tahun_masuk',
+        'tahun_lulus',
     ];
-
-    /**
-     * Relation to jurusan table
-     */
-    public function jurusan()
-    {
-        return $this->belongsTo(Jurusan::class);
-    }
 
     /**
      * Relation to angakatan table
      */
-    public function angkatan()
+    public function alumni()
     {
-        return $this->belongsTo(Angkatan::class);
+        return $this->hasMany(Alumni::class);
     }
-
-    /**
-     * Relation to alumni with hasMany
-     */
-    // public function alumni_direkomendasikan()
-    // {
-    //     return $this->hasOne(Alumni_direkomendasikan::class);
-    // }
 }

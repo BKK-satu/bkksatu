@@ -68,9 +68,9 @@
         }
 
         /* table {
-                    table-layout: fixed;
-                    word-wrap: break-word;
-                } */
+                                                                                                table-layout: fixed;
+                                                                                                word-wrap: break-word;
+                                                                                            } */
 
     </style>
 @endsection
@@ -91,7 +91,17 @@
             </div>
 
             @if (session('success'))
-                <div class="alert alert-success alert-dismissable rounded-15">{{ session('success') }}</div>
+                <div class="alert alert-success alert-dismissible fade show rounded-15" role="alert">
+                    <i class='bx bx-info-circle align-middle' style="font-size: 28px;"></i> {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger alert-dismissible fade show rounded-15" role="alert">
+                    <i class='bx bx-info-circle align-middle' style="font-size: 28px;"></i> {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             @endif
 
             <div class="detail-wrapper shadow bg-white shadow-custom-2 rounded-custom mb-5">
@@ -160,7 +170,8 @@
                                     @endphp
                                     <tr>
                                         <th scope="row">{{ $key }}</th>
-                                        <td><a href="#" class="text-link-black text-decoration-none">{{ $item->id }}</a>
+                                        <td><a href="#"
+                                                class="text-link-black text-decoration-none">{{ $item->id }}</a>
                                         </td>
                                         <td>{{ $item->kota }}</td>
                                         <td>{{ $item->alamat }}</td>

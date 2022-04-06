@@ -80,10 +80,6 @@
             background-color: rgb(202, 202, 202);
         }
 
-        .gallery .small-img {
-            width: 200px;
-        }
-
         .gallery .img .small-img div {
             border: 2px solid #2e51d1;
 
@@ -124,7 +120,7 @@
             <div class="detail-outer-wrapper shadow-custom-2 mb-5 rounded-custom">
                 <!-- HEADER -->
                 <div class="header d-flex align-items-center position-relative overflow-hidden">
-                    <img src="/assets/img/{{ $loker->banner }}" class="center" width="100%">
+                    <img src="/assets/img/{{ $loker->banner }}" class="center" width="100%" draggable="false">
                 </div>
                 <div class="content py-3 px-5">
                     <div class="mb-4 d-flex justify-content-between">
@@ -132,9 +128,15 @@
                         <div>
                             <h1 class="fw-900 mb-0">{{ $loker->posisi }}</h1>
                             <h3>{{ $loker->id }}</h3>
-                            <h4 class="mt-3">PT. Optic Gaming<i
+                            {{-- <div class="d-flex justify-content-between align-items-center"> --}}
+                            <h4 class="mt-3 mb-0">{{ $loker->mitra->jenis }}. {{ $loker->mitra->nama }}<i
                                     class='bx bxs-badge-check align-middle text-primary ms-1'></i></h4>
-                            <h5 class="mt-3"><i class='bx bx-current-location align-middle me-1'></i>Jakarta</h5>
+                            <a href="{{ $loker->mitra->website }}" class="btn btn-secondary rounded-15 fw-bold"><i
+                                    class='bx bx-world align-middle' style="font-size: 20px;"></i></a>
+                            {{-- </div> --}}
+                            <h5 class="mt-3"><i
+                                    class='bx bx-current-location align-middle me-1'></i>{{ $loker->mitra->wilayah }}
+                            </h5>
                         </div>
                         <!-- TOOLS UNTUK EDIT DAN DELETE -->
                         <div class="tools d-flex">
@@ -158,15 +160,18 @@
                     <!-- TOMBOL LIHAT PELAMAR DAN REKOMEND -->
                     <div class="pelamar row">
                         <div class="col p-1">
-                            <a href="/mt/lk/pelamar" class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
+                            <a href="/mt/lk/pelamar/{{ $loker->id }}"
+                                class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
                                 Pelamar</a>
                         </div>
                         <div class="col p-1">
-                            <a href="/mt/lk/tahap" class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
+                            <a href="/mt/lk/tahap/{{ $loker->id }}"
+                                class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
                                 Tahap</a>
                         </div>
                         <div class="col p-1">
-                            <a href="/mt/lk/rekomend" class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
+                            <a href="/mt/lk/rekomend/{{ $loker->id }}"
+                                class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
                                 Rekomendasi</a>
                         </div>
                     </div>
@@ -201,20 +206,17 @@
                 <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 phase">
                     <div class="row p-2">
                         <div class="col-6 mb-3">
-                            <h5 class="fw-bold mb-0">Level</h5>
-                            <h5 class="fw-normal">Menengah</h5>
-                        </div>
-                        <div class="col-6 mb-3">
                             <h5 class="fw-bold mb-0">Jenis Pekerjaan</h5>
                             <h5 class="fw-normal">{{ $loker->jenis_pekerjaan }}</h5>
                         </div>
                         <div class="col-6 mb-3">
-                            <h5 class="fw-bold mb-0">Pengalaman</h5>
-                            <h5 class="fw-normal">1 tahun</h5>
-                        </div>
-                        <div class="col-6 mb-3">
                             <h5 class="fw-bold mb-0">Spesialisasi</h5>
                             <h5 class="fw-normal">{{ $loker->kategori }}</h5>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <h5 class="fw-bold mb-0">Kedaluwarsa</h5>
+                            <h5 class="fw-normal">{{ \Carbon\Carbon::parse($loker->kedaluwarsa)->format('d M Y') }}
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -232,8 +234,8 @@
                         </div>
                     @else
                         @foreach ($galeri as $gal)
-                            <div class="col col-md-6 small-img p-2 overflow-hiddenR">
-                                <img src="/assets/img/{{ $gal->foto }}" class="" width="200" height="200">
+                            <div class="col col-md-6 small-img p-2 w-auto">
+                                <img src="/assets/img/{{ $gal->foto }}" class="rounded-15 me-1" height="200">
                             </div>
                         @endforeach
                     @endif

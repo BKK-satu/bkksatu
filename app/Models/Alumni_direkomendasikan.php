@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mitra extends Model
+class Alumni_direkomendasikan extends Model
 {
     use HasFactory;
 
@@ -14,14 +14,7 @@ class Mitra extends Model
      *
      * @var string
      */
-    protected $table = 'mitra';
-
-    /**
-     * Indicates if the model's ID is auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
+    protected $table = 'alumni_direkomendasikan';
 
     /**
      * The data type of the auto-incrementing ID.
@@ -43,31 +36,23 @@ class Mitra extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
-        'user_id',
-        'jenis',
-        'nama',
-        'wilayah',
-        'no_telp',
-        'kategori',
-        'website',
-        'overview',
-        'foto',
+        'alumni_id',
+        'rekomendasi_id',
     ];
 
     /**
-     * Relation to loker table
+     * Relation to rekomend with hasMany
      */
-    public function loker()
-    {
-        return $this->hasMany(Loker::class);
-    }
+    // public function rekomend()
+    // {
+    //     return $this->hasOne(Rekomend::class);
+    // }
 
     /**
-     * Relation to kantor table
+     * Relation to alumni_direkomendasikan table
      */
-    public function kantor()
-    {
-        return $this->hasMany(Kantor::class);
-    }
+    // public function alumni()
+    // {
+    //     return $this->belongsTo(Alumni::class);
+    // }
 }

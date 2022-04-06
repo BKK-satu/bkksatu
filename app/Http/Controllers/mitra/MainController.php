@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Kantor;
 use App\Models\Loker;
 use App\Models\Mitra;
+use App\Models\Rekomend;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
@@ -22,9 +24,15 @@ class MainController extends Controller
     */
     public function main()
     {
-        $loker = Loker::all();
+        // BUAT COUNTING
+        $loker = Loker::where('mitra_id', 'MRA00002')->get();
         $lokerCreated = count($loker);
-        $lokerActive = count(Loker::where('status', 'active')->get());
+        $lokerActive = count(Loker::where([['mitra_id', 'MRA00002'],['status', 'active']])->get());
+
+        // NOTIF
+        // CARA DAPETIN REKOMEND DATA YG ID == MRA00002
+        $rekomend = Rekomend::latest()->paginate(5);
+
         // $alumniWork =
         // $alumniRekomend =
 
@@ -34,6 +42,7 @@ class MainController extends Controller
             'title' => 'dashboard',
             'lokerActive' => $lokerActive,
             'lokerCreated' => $lokerCreated,
+            'rekomend' => $rekomend,
         ];
 
         return view('mitra.dashboard.dashboard', $data);
@@ -47,8 +56,12 @@ class MainController extends Controller
     */
     public function notif()
     {
+        // NOTIF
+        $rekomend = Rekomend::latest()->paginate(5);
+
         $data = [
             'title' => 'dashboard',
+            'rekomend' => $rekomend,
         ];
 
         return view('mitra.dashboard.notifikasi', $data);
@@ -81,9 +94,13 @@ class MainController extends Controller
     *
     * @return void
     */
-    public function prUbah()
+    public function prUbah($id)
     {
-        $mitra = Mitra::findOrFail('MRA00002');
+        if ($id !== 'MRA00002') {
+            return redirect('/mt/profil')->with('error', 'Data tidak dapat diakses!');
+        }
+
+        $mitra = Mitra::findOrFail($id);
         $user = User::findOrFail($mitra->user_id);
         $kat = ['Information and Technologies','Automotive','Software Engrineering', 'Manufacturing', 'Accounting'];
         $wil = ['Jakarta Timur','Jakarta barat','Bekasi Selatan', 'Bekasi Barat', 'Pondok Gede'];
@@ -109,6 +126,10 @@ class MainController extends Controller
     */
     public function prUbahPost(Request $request)
     {
+        if ($request->id_mitra !== 'MRA00002') {
+            return redirect('/mt/profil')->with('error', 'Data tidak dapat diakses!');
+        }
+
         $mitra = Mitra::findOrFail($request->id_mitra);
         $user = User::findOrFail($mitra->user_id);
         // dd($mitra->id, $mitra->nama, $mitra->user_id, $user->id);

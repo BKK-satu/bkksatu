@@ -51,4 +51,12 @@ class Kantor extends Model
         'status',
         'kontrol'
     ];
+
+    /**
+     * Relation to mitra table
+     */
+    public function mitra()
+    {
+        return $this->belongsTo(Mitra::class);
+    }
 }
