@@ -122,14 +122,15 @@
         <!-- SIDEBAR -->
         @include('layouts.sidebar-mitra')
 
-        <img src="/assets/img/wave2.svg" class="position-absolute waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="position-absolute waves"
+            preserveAspectRatio="none">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,288L60,282.7C120,277,240,267,360,234.7C480,203,600,149,720,149.3C840,149,960,203,1080,213.3C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
 
-        <div class="container py-3 content-wrapper">
+        <div class="container-lg py-3 content-wrapper">
             <!-- TITLE -->
-            {{-- <div class="title-back">
-                <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
-                        class='bx bx-left-arrow-alt'></i>Back</a>
-            </div> --}}
             <div class="title-page text-white my-5">
                 <h1 class="fw-light">Rekomendasi</h1>
                 <h1 class="fw-bold">Alumni</h1>
@@ -174,7 +175,7 @@
                         </button>
                     </div>
                     <!-- ISI DATATABLE -->
-                    <div class="content mb-2">
+                    <div class="content mb-2 overflow-auto">
                         <table class="table table-borderless">
                             <thead>
                                 <tr>
@@ -208,21 +209,21 @@
                                 @endif
                             </tbody>
                         </table>
-                        <!-- PAGINASI -->
-                        <nav class="d-flex justify-content-end">
-                            <ul class="pagination rounded-20">
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class='bx bx-chevron-left align-middle'></i></a></li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class='bx bx-chevron-right align-middle'></i></a></li>
-                            </ul>
-                        </nav>
                     </div>
+                    <!-- PAGINASI -->
+                    <nav class="d-flex justify-content-end">
+                        <ul class="pagination rounded-20">
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class='bx bx-chevron-left align-middle'></i></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class='bx bx-chevron-right align-middle'></i></a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>

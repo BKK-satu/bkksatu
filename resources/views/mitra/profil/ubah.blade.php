@@ -101,6 +101,18 @@
             visibility: visible;
         }
 
+        @media only screen and (max-width: 768px) {
+
+            /* UBAH PREVIEW DAN DATA */
+            .edit-wrapper .data form {
+                width: 100%;
+            }
+
+            .edit-wrapper .preview {
+                width: 100%;
+            }
+        }
+
     </style>
 @endsection
 
@@ -110,9 +122,14 @@
     <div class="main-page">
         @include('layouts.sidebar-mitra')
 
-        <img src="/assets/img/wave2.svg" class="position-absolute waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="position-absolute waves"
+            preserveAspectRatio="none">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,288L60,282.7C120,277,240,267,360,234.7C480,203,600,149,720,149.3C840,149,960,203,1080,213.3C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
 
-        <div class="container py-3 content-wrapper">
+        <div class="container-lg py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back mb-4">
                 <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
@@ -132,8 +149,8 @@
             @endif
 
             <!-- KONTEN LUAR -->
-            <div class="edit-wrapper d-flex">
-                <div class="data me-4">
+            <div class="edit-wrapper d-lg-flex">
+                <div class="data me-1 me-lg-4 bg-white rounded-15 p-2">
                     <!-- DATA INPUTAN -->
                     <h2 class="fw-700 mb-2">Data Profil</h2>
                     <form action="/mt/profil/ubahPost" method="POST" class="" enctype="multipart/form-data">

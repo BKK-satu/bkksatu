@@ -8,14 +8,15 @@ use App\Models\Loker;
 use App\Models\Tahap;
 use App\Models\Galeri;
 use App\Models\Alumni;
-use App\Models\Requirement;
+use App\Models\Alumni_mendaftar_pelamar;
 use App\Models\Jurusan;
-use App\Models\Alumni_direkomendasikan;
+use App\Models\Requirement;
 use App\Models\Rekomend;
+use App\Models\Pelamar;
+use App\Models\Seleksi_pelamar;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
-// use DataTables;
 
 class LokerController extends Controller
 {
@@ -502,13 +503,18 @@ class LokerController extends Controller
     *
     * @return void
     */
-    public function pelamar()
+    public function pelamar($id)
     {
-        $loker = Loker::all();
+        // $loker = Loker::where([['mitra_id', 'MRA00002'],['id', $id]])->first();
+        // if ($loker == null) {
+        //     return redirect()->back()->with('error',' Data tidak data diakses!');
+        // }
+
+        $pelamar = Pelamar::where('lowongankerja_id', $id)->get();
 
         $data = [
             'title' => 'loker',
-            // 'loker' => $loker,
+            'pelamar' => $pelamar,
         ];
 
         return view('mitra.loker.pelamar', $data);
@@ -522,31 +528,22 @@ class LokerController extends Controller
     */
     public function rekomend($id)
     {
-        // DATA BUAT SELECT2
-        $alumni = Alumni::all();
-        $jurusan = Jurusan::all();
-
         // DATA BUAT TABLE
         $loker = Loker::where([['mitra_id', 'MRA00002'],['id', $id]])->first();
         if ($loker == null) {
             return redirect()->back()->with('error',' Data tidak data diakses!');
         }
-        $dataRekomend = DB::table('recommendations')->get();
 
-        // BUAT NGAMBIL NAMA JURUSAN
-        foreach ($dataRekomend as $key => $val) {
-            $alumniJur[] = Alumni::where('id', $val->id_alumni)->get();
-        }
+        // DATA BUAT SELECT2
+        $alumni = Alumni::orderBy('jurusan_id', 'ASC')->get();
 
-        // dd($alumniJur, $jurusanNam);
+        $rekomend = Rekomend::where('lowongankerja_id', $id)->get();
 
         $data = [
             'title' => 'loker',
             'loker' => $loker,
-            'dataRekomend' => $dataRekomend,
+            'rekomend' => $rekomend,
             'alumni' => $alumni,
-            'jurusan' => $jurusan,
-            'alumniJur' => $alumniJur,
         ];
 
         return view('mitra.loker.rekomend', $data);
@@ -594,10 +591,12 @@ class LokerController extends Controller
             'created_at'         => Carbon::now('Asia/Jakarta')->format('Y-m-d'),
         ]);
 
-        $alumni_direkomend = Alumni_direkomendasikan::create([
-            'alumni_id'         => $request->alumni,
-            'rekomendasi_id'    => $koderekomend,
-        ]);
+        // $dataAD = array('alumni_id' => $request->alumni,'rekomendasi_id' => $koderekomend);
+        $alumni_direkomend = DB::table('alumni_direkomendasikan')->insert(
+            array(
+            'alumni_id' => $request->alumni,
+            'rekomendasi_id' => $koderekomend
+        ));
 
         if($rekomend && $alumni_direkomend){
             //redirect dengan pesan sukses
@@ -616,26 +615,26 @@ class LokerController extends Controller
     */
     public function tahap($id)
     {
-        $alumni = Alumni::all();
+        // MENGAMBIL LOEKR DAN CEK APAKAH DATA BISA DIAKSES
         $loker = Loker::where([['mitra_id', 'MRA00002'],['id', $id]])->first();
         if ($loker == null) {
             return redirect()->back()->with('error',' Data tidak data diakses!');
         }
+        // MENGAMBIL TAHAPAN
         $tahap = Tahap::where([['lowongankerja_id', $loker->id]])->get();
 
         $data = [
             'title' => 'loker',
             'loker' => $loker,
             'tahap' => $tahap,
-            'alumni' => $alumni,
         ];
 
         return view('mitra.loker.tahap', $data);
     }
 
     /**
-    * menampilkan halman daftar tahapan
-    *
+    * menginsert tahapan baru
+    * dengan method POST
     *
     * @return void
     */
@@ -667,6 +666,7 @@ class LokerController extends Controller
             'tahap_ke'          => $request->tahap_ke,
             'tanggal_seleksi'   => $request->tanggal_seleksi,
             'keterangan'        => $keterangan,
+            'status'            => '1',
         ]);
 
         if($tahap){
@@ -679,30 +679,92 @@ class LokerController extends Controller
     }
 
     /**
-    * menampilkan halman detail tahapan
-    *
+    * menampilkan halman seleksi pelamar
+    * http://127.0.0.1:8000/mt/lk/tahap/detail/id_tahap
     *
     * @return void
     */
     public function tahapSeleksi($id)
     {
+        // JIKA STATUS 1 = BELUM DIMULAI, JIKA STATUS 2 = SEDANG BERLANGSUNG, JIKA STATUS 3 = SUDAH SELESAI
         // $loker = Loker::where([['mitra_id', 'MRA00002'],['id', $id]])->first();
         // if ($loker == null) {
         //     return redirect()->back()->with('error',' Data tidak data diakses!');
         // }
+
+        // CARA NGEAKSES
+        $alumni = Alumni::orderBy('jurusan_id', 'ASC')->get();
         $tahap = Tahap::where([['id', $id]])->first();
+
+        if ($tahap->status == '2') {
+            // $pelamar = Pelamar::where('lowongankerja_id', $tahap->lowongankerja_id)->get();
+            $pelamar = Seleksi_pelamar::where('tahap_id', $id)->get();
+        }else{
+            // $seleksi_pel = Seleksi_pelamar::where([['tahap_id', 'THP00010'],['keterangan', 1]])->get();
+            $pelamar = Seleksi_pelamar::where([['tahap_id', 'THP00010'],['keterangan', 1]])->get();
+        }
 
         $data = [
             'title' => 'loker',
-            // 'loker' => $loker,
             'tahap' => $tahap,
+            'pelamar' => $pelamar,
+            'alumni' => $alumni,
+            // 'seleksi_pel' => $seleksi_pel,
+            'loker_id' => $tahap->lowongankerja_id,
         ];
 
-        return view('mitra.loker.tahap_detail', $data);
+        if ($tahap->status == '2') {
+            return view('mitra.loker.tahap_detail', $data);
+        }else{
+            return view('mitra.loker.seleksi_pelamar', $data);
+        }
     }
 
     /**
-    * Delete data loker
+    * menyeleksi alumni alumni
+    * dengan method POST
+    *
+    * @return void
+    */
+    public function alumniSeleksi(Request $request)
+    {
+        $this->validate($request, [
+            'nilai.*'           => 'required|numeric',
+        ]);
+
+        $lolos = $request->loloscek;
+        $nilai = $request->nilai;
+
+        Tahap::findOrFail($request->tahap_id)->update([
+            'status'    => '2'
+        ]);
+
+        foreach ($nilai as $key => $data) {
+            if ($lolos[$key] == true) {
+                $lolos[$key] = 1;
+            }else{
+                $lolos[$key] = 0;
+            }
+            $alumniSeleksi = Seleksi_pelamar::create([
+                'alumni_id'     => $request->alumni_id[$key],
+                'pelamar_id'    => $request->pelamar_id[$key],
+                'tahap_id'      => $request->tahap_id,
+                'nilai'         => $data,
+                'keterangan'    => $lolos[$key],
+            ]);
+        }
+
+        if($alumniSeleksi){
+            //redirect dengan pesan sukses
+            return redirect('/mt/lk/tahap/detail/'.$request->tahap_id)->with(['success' => 'Data Seleksi Pelamar Berhasil!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->back()->withErrors(['error' => 'Data Seleksi Pelamar Gagal!']);
+        }
+    }
+
+    /**
+    * menghapus data loker
     *
     *
     * @return void

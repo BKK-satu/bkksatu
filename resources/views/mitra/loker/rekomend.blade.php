@@ -113,6 +113,14 @@
             width: 40px;
         }
 
+        @media only screen and (max-width: 768px) {
+
+            /* UBAH PREVIEW DAN DATA */
+            .search i.bx {
+                left: 5% !important;
+            }
+        }
+
     </style>
 @endsection
 
@@ -123,9 +131,14 @@
     <div class="main-page">
         @include('layouts.sidebar-mitra')
 
-        <img src="/assets/img/wave2.svg" class="position-absolute waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="position-absolute waves"
+            preserveAspectRatio="none">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,288L60,282.7C120,277,240,267,360,234.7C480,203,600,149,720,149.3C840,149,960,203,1080,213.3C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
 
-        <div class="container py-3 content-wrapper">
+        <div class="container-lg py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
                 <a href="/mt/lk/detail/{{ $loker->id }}"
@@ -180,7 +193,7 @@
                         </div>
                     </div>
                     <!-- ISI DATATABLE -->
-                    <div class="content mb-2">
+                    <div class="content mb-2 overflow-auto">
                         <table class="table table-borderless">
                             <thead>
                                 <tr>
@@ -196,37 +209,37 @@
                                 @php
                                     $index = 1;
                                 @endphp
-                                @foreach ($dataRekomend as $key => $rek)
+                                @foreach ($rekomend as $key => $rek)
                                     {{-- MERELASIKAN DATA REKOMENDASI --}}
-                                    @if ($rek->id_lowongankerja == $loker->id)
-                                        <tr>
-                                            <th scope="row">{{ $index++ }}</th>
-                                            <td>{{ $rek->id_rekomendasi }}</td>
-                                            <td>{{ $rek->alumni }}</td>
-                                            <td>{{ $alumniJur[$key][0]->jurusan->nama }}</td>
-                                            <td>{{ $alumniJur[$key][0]->angkatan->tahun_masuk }}/{{ $alumniJur[$key][0]->angkatan->tahun_lulus }}
-                                            </td>
-                                            <td>{{ ucwords($rek->status) }}</td>
-                                        </tr>
-                                    @endif
+                                    {{-- @if ($rek->id_lowongankerja == $loker->id) --}}
+                                    <tr>
+                                        <th scope="row">{{ $index++ }}</th>
+                                        <td>{{ $rek->id }}</td>
+                                        <td>{{ $rek->alumni_direkomend->alumni->nama }}</td>
+                                        <td>{{ $rek->alumni_direkomend->alumni->jurusan->nama }}</td>
+                                        <td>{{ $rek->alumni_direkomend->alumni->angkatan->tahun_masuk }}/{{ $rek->alumni_direkomend->alumni->angkatan->tahun_lulus }}
+                                        </td>
+                                        <td>{{ ucwords($rek->status) }}</td>
+                                    </tr>
+                                    {{-- @endif --}}
                                 @endforeach
                             </tbody>
                         </table>
                         <!-- PAGINASI -->
-                        <nav class="d-flex justify-content-end">
-                            <ul class="pagination rounded-20">
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class='bx bx-chevron-left align-middle'></i></a></li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class='bx bx-chevron-right align-middle'></i></a></li>
-                            </ul>
-                        </nav>
                     </div>
+                    <nav class="d-flex justify-content-end">
+                        <ul class="pagination rounded-20">
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class='bx bx-chevron-left align-middle'></i></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class='bx bx-chevron-right align-middle'></i></a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>

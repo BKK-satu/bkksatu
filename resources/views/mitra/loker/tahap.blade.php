@@ -91,6 +91,26 @@
             width: 40px;
         }
 
+        @media only screen and (max-width: 768px) {
+            .content-wrapper {
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+
+            .navbar-toggle {
+                padding: 5px 5px 5px 2px;
+            }
+
+            .navbar-toggle i.bx-chevrons-right {
+                font-size: 16px;
+            }
+
+            .waves {
+                width: 100vw;
+                height: 300px;
+            }
+        }
+
     </style>
 @endsection
 
@@ -100,9 +120,14 @@
     <div class="main-page">
         @include('layouts.sidebar-mitra')
 
-        <img src="/assets/img/wave2.svg" class="position-absolute waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="position-absolute waves"
+            preserveAspectRatio="none">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,288L60,282.7C120,277,240,267,360,234.7C480,203,600,149,720,149.3C840,149,960,203,1080,213.3C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
 
-        <div class="container py-3 content-wrapper">
+        <div class="container-lg py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
                 <a href="/mt/lk/detail/{{ $loker->id }}"
@@ -134,13 +159,13 @@
                     </div>
                     <div>
                         <button class="btn btn-primary rounded-15 px-4" data-bs-toggle="modal" data-bs-target="#addTahap">
-                            <p class="d-inline align-middle fw-bold">Add</p>
+                            <p class="d-inline align-middle fw-bold">Tambah</p>
                         </button>
                     </div>
                 </div>
                 <div class="data-table rounded-20 py-2">
                     <!-- ISI DATATABLE -->
-                    <div class="content mb-2">
+                    <div class="content mb-2 overflow-auto">
                         <table class="table table-borderless">
                             <thead>
                                 <tr>
@@ -157,15 +182,19 @@
                                 @foreach ($tahap as $key => $data)
                                     <tr class="align-middle">
                                         <th scope="row">{{ $key += 1 }}</th>
-                                        <td><a href="/mt/lk/tahap/detail/{{ $data->id }}"
-                                                class="text-link-black text-decoration-none">{{ $loker->id }}</a>
-                                        </td>
+                                        <td>{{ $loker->id }}</td>
                                         <td>{{ $data->tahap_ke }}</td>
                                         <td>{{ $data->nama }}</td>
                                         <td>{{ \Carbon\Carbon::parse($data->tanggal_seleksi)->format('d M Y') }}</td>
-                                        <td>{{ $data->tahap_ke }}</td>
+                                        @if ($data->status == '1')
+                                            <td>Belum Dimulai</td>
+                                        @else
+                                            <td>Selesai</td>
+                                        @endif
                                         <td><a href="/mt/lk/tahap/detail/{{ $data->id }}"
-                                                class="btn btn-primary rounded-15 fw-bold">Seleksi</a>
+                                                class="btn btn-primary rounded-15 fw-bold">
+                                                {{ $data->status == '1' ? 'Seleksi' : 'Detail' }}
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -182,24 +211,13 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content rounded-15">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addTahapLabel">Modal title</h5>
+                    <h5 class="modal-title" id="addTahapLabel">Tambah Tahap</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="/mt/lk/tahap/post" method="POST">
                         @csrf
                         <input type="hidden" name="loker_id" value="{{ $loker->id }}">
-                        {{-- <div class="mb-3">
-                            <label for="alumni" class="form-label">Pilih Alumni</label>
-                            <select class="js-select2 form-control" id="select2" name="alumni">
-                                <option selected hidden disabled>Pilih Alumni</option>
-                                @foreach ($alumni as $alm)
-                                    <option @if (old('alumni') == $alm->id) selected @endif value="{{ $alm->id }}">
-                                        {{ $alm->nama }} -
-                                        {{ $alm->jurusan->nama }}</option>
-                                @endforeach
-                            </select>
-                        </div> --}}
                         <div class="mb-3">
                             <label for="tahap_ke" class="form-label">Tahap Ke</label>
                             <input type="number" class="form-control rounded-15" id="tahap_ke" placeholder="Tahap Ke..."

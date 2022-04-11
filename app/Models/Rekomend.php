@@ -52,11 +52,18 @@ class Rekomend extends Model
     ];
 
     /**
-     * Relation to alumni with hasMany
+     * Relation to alumni_direkomend with belongsTo
      */
-    // public function loker()
-    // {
+    public function alumni_direkomend()
+    {
+        return $this->hasOne(Alumni_direkomendasikan::class, 'rekomendasi_id', 'id');
+    }
 
-    //     return $this->belongsTo(Loker::class, 'lowongankerja_id', 'id');
-    // }
+    /**
+     * Relation to loker with belongsTo
+     */
+    public function loker()
+    {
+        return $this->hasOne(Loker::class, 'id', 'lowongankerja_id');
+    }
 }
