@@ -11,6 +11,7 @@ use App\Models\Jurusan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+// use Kyslik\ColumnSortable\Sortable;
 
 class RekomendController extends Controller
 {
@@ -23,7 +24,7 @@ class RekomendController extends Controller
     public function main()
     {
         // DATA BUAT SELECT2
-        $alumni = Alumni::all();
+        $alumni = Alumni::orderBy('jurusan_id', 'ASC')->get();
         $jurusan = Jurusan::all();
 
         // DATA BUAT TABLE

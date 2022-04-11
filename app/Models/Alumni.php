@@ -62,6 +62,14 @@ class Alumni extends Model
     ];
 
     /**
+     * Relation to user table
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
      * Relation to jurusan table
      */
     public function jurusan()
@@ -78,10 +86,34 @@ class Alumni extends Model
     }
 
     /**
-     * Relation to alumni with hasMany
+     * Relation to pelamar table
      */
-    // public function alumni_direkomendasikan()
-    // {
-    //     return $this->hasOne(Alumni_direkomendasikan::class);
-    // }
+    public function pelamar()
+    {
+        return $this->hasMany(Pelamar::class);
+    }
+
+    /**
+     * Relation to alumni_daftar table
+     */
+    public function alumni_daftar()
+    {
+        return $this->hasMany(Alumni_mendaftar_pelamar::class);
+    }
+
+    /**
+     * Relation to alumni_rekomend table
+     */
+    public function alumni_rekomend()
+    {
+        return $this->hasMany(Alumni_direkomendasikan::class);
+    }
+
+    /**
+     * Relation to seleksi_pelamar table
+     */
+    public function seleksi_pelamar()
+    {
+        return $this->hasMany(Seleksi_pelamar::class, 'alumni_id', 'id');
+    }
 }

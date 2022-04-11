@@ -29,6 +29,20 @@
             margin: 0;
         }
 
+        @media only screen and (max-width: 768px) {
+
+            /* NOTIF */
+            .notification-wrapper .notif-item .notif-img {
+                width: fit-content;
+                height: fit-content;
+            }
+
+            .notification-wrapper .notif-item .notif-img i {
+                font-size: 10px;
+                padding: 5px;
+            }
+        }
+
     </style>
 @endsection
 
@@ -38,9 +52,15 @@
     <div class="main-page">
         @include('layouts.sidebar-mitra')
 
-        <img src="/assets/img/wave2.svg" class="position-absolute waves">
+        {{-- <img src="/assets/img/wave2.svg" class="position-absolute waves"> --}}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="position-absolute waves"
+            preserveAspectRatio="none">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,288L60,282.7C120,277,240,267,360,234.7C480,203,600,149,720,149.3C840,149,960,203,1080,213.3C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
 
-        <div class="container py-3 content-wrapper">
+        <div class="container-lg py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-page text-white mb-5">
                 <h1 class="fw-light">Main</h1>
@@ -54,25 +74,25 @@
 
             <!-- INFORMATION ABOUT DATAS -->
             <div class="row small-graph mb-3">
-                <div class="col small-graph-item p-1">
+                <div class="col-md col-6 small-graph-item p-1">
                     <div class="graph-item-wrapper p-3 shadow rounded-20 bg-white">
                         <div class="">Rekomendasi Alumni</div>
                         <div class="text-center fw-900">102</div>
                     </div>
                 </div>
-                <div class="col small-graph-item p-1">
+                <div class="col-md col-6 small-graph-item p-1">
                     <div class="graph-item-wrapper p-3 shadow rounded-20 bg-white">
                         <div class="">Alumni Berkerja</div>
                         <div class="text-center fw-900">54</div>
                     </div>
                 </div>
-                <div class="col small-graph-item p-1">
+                <div class="col-md col-6 small-graph-item p-1">
                     <div class="graph-item-wrapper p-3 shadow rounded-20 bg-white">
                         <div class="">Lowongan Dibuat</div>
                         <div class="text-center fw-900">{{ $lokerCreated }}</div>
                     </div>
                 </div>
-                <div class="col small-graph-item p-1">
+                <div class="col-md col-6 small-graph-item p-1">
                     <div class="graph-item-wrapper p-3 shadow rounded-20 bg-white">
                         <div class="">Lowongan Aktif</div>
                         <div class="text-center fw-900">{{ $lokerActive }}</div>

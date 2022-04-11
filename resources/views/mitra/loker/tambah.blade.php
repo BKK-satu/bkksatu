@@ -86,6 +86,35 @@
             --bs-gutter-y: 0 !important;
         }
 
+        @media only screen and (max-width: 768px) {
+
+            /* UBAH PREVIEW DAN DATA */
+            .edit-wrapper .data form {
+                width: 100%;
+            }
+
+            .edit-wrapper .preview {
+                width: 100%;
+            }
+
+            .edit-wrapper .data .image {
+                width: 50px;
+                height: 50px;
+            }
+
+            .edit-wrapper .data .image img {
+                width: 50px;
+            }
+
+            .edit-wrapper .data .image label {
+                font-size: 25px;
+            }
+
+            .search input {
+                font-size: 14px;
+            }
+        }
+
     </style>
 @endsection
 
@@ -96,7 +125,12 @@
         <!-- SIDEBAR -->
         @include('layouts.sidebar-mitra')
 
-        <img src="/assets/img/wave2.svg" class="position-absolute waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="position-absolute waves"
+            preserveAspectRatio="none">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,288L60,282.7C120,277,240,267,360,234.7C480,203,600,149,720,149.3C840,149,960,203,1080,213.3C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
 
         <div class="container py-3 content-wrapper">
             <!-- TITLE HALAMAN -->
@@ -118,8 +152,8 @@
             @endif
 
             <!-- KONTEN LUAR -->
-            <div class="edit-wrapper d-flex">
-                <div class="data me-4">
+            <div class="edit-wrapper d-lg-flex">
+                <div class="data me-1 me-lg-4 bg-white rounded-15 p-2 mb-4 mb-lg-0">
                     <!-- DATA INPUTAN -->
                     <h2 class="fw-700 mb-2">Data</h2>
                     <form action="/mt/lk/tambahpost" method="POST" class="" enctype="multipart/form-data">
@@ -264,7 +298,7 @@
                             <label class="form-label">Images</label>
                             <div class="d-flex">
                                 <div class="image rounded-20 text-center overflow-hidden position-relative me-1">
-                                    <img src="" id="imagePreview1" width="100" draggable="false">
+                                    <img src="" id="imagePreview1" width="100px" draggable="false">
                                     <div class="upload-image" id="uploadImage1">
                                         <label for="uploadPhoto1" id="labelPhoto1" class="position-absolute"><i
                                                 class='bx bxs-image-add'></i></label>
@@ -273,7 +307,7 @@
                                     </div>
                                 </div>
                                 <div class="image rounded-20 text-center overflow-hidden position-relative me-1">
-                                    <img src="" id="imagePreview2" width="100" draggable="false">
+                                    <img src="" id="imagePreview2" width="100px" draggable="false">
                                     <div class="upload-image" id="uploadImage2">
                                         <label for="uploadPhoto2" id="labelPhoto2" class="position-absolute"><i
                                                 class='bx bxs-image-add'></i></label>
@@ -282,7 +316,7 @@
                                     </div>
                                 </div>
                                 <div class="image rounded-20 text-center overflow-hidden position-relative me-1">
-                                    <img src="" id="imagePreview3" width="100" draggable="false">
+                                    <img src="" id="imagePreview3" width="100px" draggable="false">
                                     <div class="upload-image" id="uploadImage3">
                                         <label for="uploadPhoto3" id="labelPhoto3" class="position-absolute"><i
                                                 class='bx bxs-image-add'></i></label>
@@ -291,7 +325,7 @@
                                     </div>
                                 </div>
                                 <div class="image rounded-20 text-center overflow-hidden position-relative me-1">
-                                    <img src="" id="imagePreview4" width="100" draggable="false">
+                                    <img src="" id="imagePreview4" width="100px" draggable="false">
                                     <div class="upload-image" id="uploadImage4">
                                         <label for="uploadPhoto4" id="labelPhoto4" class="position-absolute"><i
                                                 class='bx bxs-image-add'></i></label>
@@ -300,7 +334,7 @@
                                     </div>
                                 </div>
                                 <div class="image rounded-20 text-center overflow-hidden position-relative">
-                                    <img src="" id="imagePreview5" width="100" draggable="false">
+                                    <img src="" id="imagePreview5" width="100px" draggable="false">
                                     <div class="upload-image" id="uploadImage5">
                                         <label for="uploadPhoto5" id="labelPhoto5" class="position-absolute"><i
                                                 class='bx bxs-image-add'></i></label>
@@ -386,8 +420,8 @@
                         </div>
                         <span class="btn btn-primary rounded-15 mb-3" onclick="addSec()">Tambah Tahap</span>
                         <div class="d-flex justify-content-end btn-action">
-                            <button class="btn btn-secondary fw-700 rounded-15 me-2">Cancel</button>
-                            <button class="btn btn-primary fw-700 rounded-15">Save</button>
+                            <button class="btn btn-secondary fw-700 rounded-15 me-2" type="button">Cancel</button>
+                            <button class="btn btn-primary fw-700 rounded-15" type="submit">Save</button>
                         </div>
                 </div>
                 <!-- HASIL PREVIEW -->

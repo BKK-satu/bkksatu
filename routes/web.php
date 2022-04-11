@@ -23,6 +23,8 @@ Route::get('/add', 'TestController@cek');
 Route::get('/login', 'TestController@cek');
 Route::get('/register', 'TestController@cek');
 
+Route::get('/alumni-detail/{id}', 'TestController@alumniDetail');
+
 Route::get('/tes', function () {
     return view('tes', ['title' => 'dashboard']);
 });
@@ -79,13 +81,18 @@ Route::prefix('mt')->group(function () {
         Route::post('/hapus/{id}', 'mitra\LokerController@hapus')->name('loker.delete');
 
         Route::get('/pelamar/{id}', 'mitra\LokerController@pelamar')->name('pelamar');
+
         Route::get('/rekomend/{id}', 'mitra\LokerController@rekomend')->name('rekomend');
         Route::post('/rekomend/post', 'mitra\LokerController@rekomendAdd');
-        Route::get('/tahap/{id}', 'mitra\LokerController@tahap')->name('tahap');
-        Route::post('/tahap/post', 'mitra\LokerController@tahapAdd');
-        Route::get('/tahap/detail/{id}', 'mitra\LokerController@tahapSeleksi');
 
-        Route::get('/rekomend','mitra\LokerController@rekomend');
+        Route::get('/tahap/{id}', 'mitra\LokerController@tahap')->name('tahap');
+        // MENAMBAH TAHAPAN BARU
+        Route::post('/tahap/post', 'mitra\LokerController@tahapAdd');
+        // HALAMAN TAHAP SELEKSI
+        Route::get('/tahap/detail/{id}', 'mitra\LokerController@tahapSeleksi');
+        // HALAMAN UNTUK MENAMBAH ALUMNI YANG DISELEKSI
+        Route::post('/tahap/seleksi/{id}', 'mitra\LokerController@alumniSeleksi');
+
     });
 
     Route::prefix('re')->group(function () {

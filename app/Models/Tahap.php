@@ -48,6 +48,15 @@ class Tahap extends Model
         'nama',
         'tahap_ke',
         'tanggal_seleksi',
-        'keterangan'
+        'keterangan',
+        'status'
     ];
+
+    /**
+     * Relation to loker with belongsTo
+     */
+    public function loker()
+    {
+        return $this->hasOne(Loker::class, 'id', 'lowongankerja_id');
+    }
 }

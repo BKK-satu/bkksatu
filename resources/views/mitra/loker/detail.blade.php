@@ -93,6 +93,12 @@
             --bs-gutter-x: 0px;
         }
 
+        @media only screen and (max-width: 768px) {
+            .detail-outer-wrapper .header {
+                height: auto;
+            }
+        }
+
     </style>
 @endsection
 
@@ -103,9 +109,14 @@
         @include('layouts.sidebar-mitra')
 
         <!-- IMAGE WAVES -->
-        <img src="/assets/img/wave2.svg" class="position-absolute waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="position-absolute waves"
+            preserveAspectRatio="none">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,288L60,282.7C120,277,240,267,360,234.7C480,203,600,149,720,149.3C840,149,960,203,1080,213.3C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
 
-        <div class="container py-3 content-wrapper">
+        <div class="container-lg py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
                 <a href="/mt/lk/main" class="d-flex align-items-center text-decoration-none text-white"><i
@@ -122,7 +133,7 @@
                 <div class="header d-flex align-items-center position-relative overflow-hidden">
                     <img src="/assets/img/{{ $loker->banner }}" class="center" width="100%" draggable="false">
                 </div>
-                <div class="content py-3 px-5">
+                <div class="content py-3 px-md-5 px-2">
                     <div class="mb-4 d-flex justify-content-between">
                         <!-- TITLE NEWS -->
                         <div>
@@ -131,7 +142,7 @@
                             {{-- <div class="d-flex justify-content-between align-items-center"> --}}
                             <h4 class="mt-3 mb-0">{{ $loker->mitra->jenis }}. {{ $loker->mitra->nama }}<i
                                     class='bx bxs-badge-check align-middle text-primary ms-1'></i></h4>
-                            <a href="{{ $loker->mitra->website }}" class="btn btn-secondary rounded-15 fw-bold"><i
+                            <a href="{{ $loker->mitra->website }}" class="btn btn-secondary rounded-15 fw-bold p-2"><i
                                     class='bx bx-world align-middle' style="font-size: 20px;"></i></a>
                             {{-- </div> --}}
                             <h5 class="mt-3"><i
@@ -159,17 +170,17 @@
                     </div>
                     <!-- TOMBOL LIHAT PELAMAR DAN REKOMEND -->
                     <div class="pelamar row">
-                        <div class="col p-1">
+                        <div class="col-12 col-md-4 p-1">
                             <a href="/mt/lk/pelamar/{{ $loker->id }}"
                                 class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
                                 Pelamar</a>
                         </div>
-                        <div class="col p-1">
+                        <div class="col-12 col-md-4 p-1">
                             <a href="/mt/lk/tahap/{{ $loker->id }}"
                                 class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
                                 Tahap</a>
                         </div>
-                        <div class="col p-1">
+                        <div class="col-12 col-md-4 p-1">
                             <a href="/mt/lk/rekomend/{{ $loker->id }}"
                                 class="btn btn-primary rounded-15 w-100 fw-bold p-2">Lihat
                                 Rekomendasi</a>
@@ -180,7 +191,7 @@
 
             <div class="job-desc">
                 <h2 class="fw-bold mb-3">Deskripsi Pekerjaan</h2>
-                <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 requirement">
+                <div class="shadow-custom-2 px-md-5 px-2 py-4 rounded-20 mb-5 requirement">
                     <h4 class="fw-bold">Persyaratan :</h4>
                     <ul class="mb-0">
                         @foreach ($requirement as $req)
@@ -188,13 +199,18 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 phase">
+                <div class="shadow-custom-2 px-md-5 px-2 py-4 rounded-20 mb-5 phase">
                     <h4 class="fw-bold mb-3">Tahap</h4>
                     <div class="row">
                         @foreach ($tahap as $thp)
                             <div class="col-6">
-                                <p class="fw-bold mb-0">{{ $thp->nama }}</p>
-                                <p>Dilaksanankan pada {{ $thp->tanggal_seleksi }}</p>
+                                <div class="pe-1">
+                                    <a href="/mt/lk/tahap/detail/{{ $thp->id }}"
+                                        class="text-decoration-none text-link-black">
+                                        <p class="fw-bold mb-0">{{ $thp->nama }}</p>
+                                    </a>
+                                    <p>Dilaksanankan pada {{ $thp->tanggal_seleksi }}</p>
+                                </div>
                             </div>
                         @endforeach
                     </div>
@@ -203,20 +219,27 @@
 
             <div class="more-info">
                 <h2 class="fw-bold mb-3">Informasi Tambahan</h2>
-                <div class="shadow-custom-2 px-5 py-4 rounded-20 mb-5 phase">
+                <div class="shadow-custom-2 px-md-5 px-2 py-4 rounded-20 mb-5 phase">
                     <div class="row p-2">
                         <div class="col-6 mb-3">
-                            <h5 class="fw-bold mb-0">Jenis Pekerjaan</h5>
-                            <h5 class="fw-normal">{{ $loker->jenis_pekerjaan }}</h5>
+                            <div class="pe-1">
+                                <h5 class="fw-bold mb-0">Jenis Pekerjaan</h5>
+                                <h5 class="fw-normal">{{ $loker->jenis_pekerjaan }}</h5>
+                            </div>
                         </div>
                         <div class="col-6 mb-3">
-                            <h5 class="fw-bold mb-0">Spesialisasi</h5>
-                            <h5 class="fw-normal">{{ $loker->kategori }}</h5>
+                            <div class="pe-1">
+                                <h5 class="fw-bold mb-0">Spesialisasi</h5>
+                                <h5 class="fw-normal">{{ $loker->kategori }}</h5>
+                            </div>
                         </div>
                         <div class="col-6 mb-3">
-                            <h5 class="fw-bold mb-0">Kedaluwarsa</h5>
-                            <h5 class="fw-normal">{{ \Carbon\Carbon::parse($loker->kedaluwarsa)->format('d M Y') }}
-                            </h5>
+                            <div class="pe-1">
+                                <h5 class="fw-bold mb-0">Kedaluwarsa</h5>
+                                <h5 class="fw-normal">
+                                    {{ \Carbon\Carbon::parse($loker->kedaluwarsa)->format('d M Y') }}
+                                </h5>
+                            </div>
                         </div>
                     </div>
                 </div>

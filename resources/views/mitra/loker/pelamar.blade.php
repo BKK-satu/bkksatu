@@ -85,9 +85,14 @@
         <!-- SIDEBAR -->
         @include('layouts.sidebar-mitra')
 
-        <img src="/assets/img/wave2.svg" class="position-absolute waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="position-absolute waves"
+            preserveAspectRatio="none">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,288L60,282.7C120,277,240,267,360,234.7C480,203,600,149,720,149.3C840,149,960,203,1080,213.3C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
 
-        <div class="container py-3 content-wrapper">
+        <div class="container-lg py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-back">
                 <a href="{{ url()->previous() }}" class="d-flex align-items-center text-decoration-none text-white"><i
@@ -123,126 +128,57 @@
                         </button>
                     </div>
                     <!-- ISI DATATABLE -->
-                    <div class="content mb-2">
+                    <div class="content mb-2 overflow-auto">
                         <table class="table table-borderless">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">ID Pelamar</th>
-                                    <th scope="col">ID Loker</th>
-                                    <th scope="col">Alumni</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Jurusan</th>
+                                    <th scope="col">Angkatan</th>
+                                    {{-- <th scope="col">Status</th> --}}
                                     <th scope="col">Tanggal Submit</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>PEL00012</td>
-                                    <td><a href="/mt/lk/detail" class="text-link-black text-decoration-none">LOK00023</a>
-                                    </td>
-                                    <td><a href="/alumni/detail" class="text-link-black text-decoration-none">Akwan
-                                            Cakra</a>
-                                    </td>
-                                    <td>28-03-2019</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>PEL00012</td>
-                                    <td>LOK00023</td>
-                                    <td>Fahru Rhman</td>
-                                    <td>28-03-2019</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>PEL00012</td>
-                                    <td>LOK00023</td>
-                                    <td>Ahmad Zaky</td>
-                                    <td>28-03-2019</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>PEL00012</td>
-                                    <td>LOK00023</td>
-                                    <td>Fahru Rhman</td>
-                                    <td>28-03-2019</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>PEL00012</td>
-                                    <td>LOK00023</td>
-                                    <td>Ahmad Zaky</td>
-                                    <td>28-03-2019</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>PEL00012</td>
-                                    <td>LOK00023</td>
-                                    <td>Fahru Rhman</td>
-                                    <td>28-03-2019</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>PEL00012</td>
-                                    <td>LOK00023</td>
-                                    <td>Ahmad Zaky</td>
-                                    <td>28-03-2019</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>PEL00012</td>
-                                    <td>LOK00023</td>
-                                    <td>Fahru Rhman</td>
-                                    <td>28-03-2019</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">9</th>
-                                    <td>PEL00012</td>
-                                    <td>LOK00023</td>
-                                    <td>Ahmad Zaky</td>
-                                    <td>28-03-2019</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">10</th>
-                                    <td>PEL00012</td>
-                                    <td>LOK00023</td>
-                                    <td>Ahmad Zaky</td>
-                                    <td>28-03-2019</td>
-                                </tr>
+                                @php
+                                    $no = 1;
+                                @endphp
+                                @foreach ($pelamar as $key => $data)
+                                    <tr>
+                                        <th scope="row">{{ $no++ }}</th>
+                                        <td>{{ $data->id }}</td>
+                                        <td><a href="#"
+                                                class="text-link-black text-decoration-none">{{ $data->alumni_daftar->alumni->nama }}</a>
+                                        </td>
+                                        <td>{{ $data->alumni_daftar->alumni->jurusan->nama }}</td>
+                                        <td scope="col rounded-15">
+                                            {{ $data->alumni_daftar->alumni->angkatan->tahun_masuk }}/{{ $data->alumni_daftar->alumni->angkatan->tahun_lulus }}
+                                        </td>
+                                        {{-- <td>Lolos</td> --}}
+                                        <td>{{ \Carbon\Carbon::parse($data->tanggal_submit)->format('d M Y') }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
-                        <!-- PAGINASI -->
-                        <nav class="d-flex justify-content-end">
-                            <ul class="pagination rounded-20">
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class='bx bx-chevron-left align-middle'></i></a></li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class='bx bx-chevron-right align-middle'></i></a></li>
-                            </ul>
-                        </nav>
                     </div>
+                    <!-- PAGINASI -->
+                    <nav class="d-flex justify-content-end">
+                        <ul class="pagination rounded-20">
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class='bx bx-chevron-left align-middle'></i></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class='bx bx-chevron-right align-middle'></i></a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
     </div>
-@endsection
-
-@section('script')
-    <!-- SWEETALERT -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
-        function swalDelete() {
-            swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this imaginary file!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-        }
-    </script>
 @endsection

@@ -17,6 +17,13 @@ class Alumni_direkomendasikan extends Model
     protected $table = 'alumni_direkomendasikan';
 
     /**
+     * Indicates if the model's ID is auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * The data type of the auto-incrementing ID.
      *
      * @var string
@@ -41,18 +48,18 @@ class Alumni_direkomendasikan extends Model
     ];
 
     /**
-     * Relation to rekomend with hasMany
+     * Relation to rekomend with belongsTo
      */
-    // public function rekomend()
-    // {
-    //     return $this->hasOne(Rekomend::class);
-    // }
+    public function rekomend()
+    {
+        return $this->belongsTo(Rekomend::class, 'rekomendasi_id', 'id');
+    }
 
     /**
      * Relation to alumni_direkomendasikan table
      */
-    // public function alumni()
-    // {
-    //     return $this->belongsTo(Alumni::class);
-    // }
+    public function alumni()
+    {
+        return $this->belongsTo(Alumni::class);
+    }
 }

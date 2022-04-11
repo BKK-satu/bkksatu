@@ -67,10 +67,20 @@
             --bs-gutter-x: 0px;
         }
 
-        /* table {
-                                                                                                table-layout: fixed;
-                                                                                                word-wrap: break-word;
-                                                                                            } */
+        @media only screen and (max-width: 768px) {
+
+            /* PROFIL DATA */
+            .detail-wrapper .header {
+                height: 120px;
+                margin-bottom: 50px;
+            }
+
+            .detail-wrapper .header .img {
+                height: 120px;
+                width: 120px;
+                border: 4px solid #fff;
+            }
+        }
 
     </style>
 @endsection
@@ -81,9 +91,14 @@
     <div class="main-page">
         @include('layouts.sidebar-mitra')
 
-        <img src="/assets/img/wave2.svg" class="position-absolute waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="position-absolute waves"
+            preserveAspectRatio="none">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,288L60,282.7C120,277,240,267,360,234.7C480,203,600,149,720,149.3C840,149,960,203,1080,213.3C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
 
-        <div class="container py-3 content-wrapper">
+        <div class="container-lg py-3 content-wrapper">
             <!-- TITLE -->
             <div class="title-page text-white mb-5">
                 <h1 class="fw-light">Main</h1>
@@ -112,7 +127,7 @@
                         <img src="{{ $mitra->foto ? '/assets/img/' . $mitra->foto : '' }}" width="200px">
                     </div>
                 </div>
-                <div class="content py-3 px-5">
+                <div class="content py-3 px-lg-5 px-3">
                     <div class="mb-4 d-flex justify-content-between">
                         <!-- TITLE NEWS -->
                         <div>
@@ -140,7 +155,7 @@
             </div>
 
             <div class="kantor-wrapper mb-4">
-                <div class="rounded-custom bg-white shadow-custom-2 p-3 px-5">
+                <div class="rounded-custom bg-white shadow-custom-2 p-3 px-lg-5 px-3">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <div>
                             <h2 class="fw-bold mb-0">Kantor</h2>
@@ -150,7 +165,7 @@
                             <a href="/mt/kantor/tambah" class="btn btn-primary rounded-15 fw-bold">Tambah</a>
                         </div>
                     </div>
-                    <div>
+                    <div class="overflow-auto">
                         <table class="table table-borderless overflow-scroll">
                             <thead>
                                 <tr>
