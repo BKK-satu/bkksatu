@@ -10,6 +10,20 @@
             z-index: -1;
         }
 
+        /* STYLING NAVBAR TOGGLE */
+        .navbar-toggle {
+            cursor: pointer;
+            position: fixed;
+            top: 50%;
+            padding: 10px 10px 10px 0px;
+            border-radius: 0px 50px 50px 0px;
+            background: #fff;
+        }
+
+        .navbar-toggle i.bx-chevrons-right {
+            font-size: 24px;
+        }
+
         /* CUSTOMIZING TITLE PAGE */
 
         .title-page h1.fw-bold {
@@ -48,17 +62,36 @@
             --bs-gutter-x: 0px;
         }
 
+        @media only screen and (max-width: 768px) {
+            /* NOTIF */
+            .notification-wrapper .notif-item .notif-img {
+                width: fit-content;
+                height: fit-content;
+            }
+
+            .notification-wrapper .notif-item .notif-img i {
+                font-size: 10px;
+                padding: 5px;
+            }
+        }
+
     </style>
 @endsection
 
 @section('section')
     <div class="main-page">
         <!-- SIDEBAR -->
-        @include('layouts.sidebar-admin')
 
-        <img src="/assets/img/wave2.svg" class="position-absolute waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="position-absolute waves"
+            preserveAspectRatio="none">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,288L60,282.7C120,277,240,267,360,234.7C480,203,600,149,720,149.3C840,149,960,203,1080,213.3C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
 
         <div class="content-outer-wrapper mx-auto">
+            @include('layouts.sidebar-admin')
+
             <div class="py-3 content-wrapper">
                 <!-- TITLE -->
                 <div class="title-page text-white mb-5">
@@ -108,7 +141,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-auto big-data">
+                        <div class="w-auto big-data d-none d-md-block">
                             <div class="py-2 px-0 me-2">
                                 <div class="rounded-20 p-2 shadow bg-white">
                                     <canvas id="myChart" style="height: auto;"></canvas>
@@ -128,7 +161,9 @@
                         <!-- NOTIFIKASI ITEMNYA -->
                         <div class="notif-item d-flex justify-content-between my-2">
                             <div class="d-flex">
-                                <div class="notif-img rounded-circle"></div>
+                                <div class="notif-img rounded-circle d-flex justify-content-center align-items-center"><i
+                                        class='bx bxs-briefcase-alt-2 text-white' style="font-size: 20px;"></i>
+                                </div>
                                 <div class="notif-content mx-2">
                                     <p class="title fw-bold">Lowongan Kerja</p>
                                     <p class="content fw-bold">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance.
@@ -140,7 +175,9 @@
                         </div>
                         <div class="notif-item d-flex justify-content-between my-2">
                             <div class="d-flex">
-                                <div class="notif-img rounded-circle"></div>
+                                <div class="notif-img rounded-circle d-flex justify-content-center align-items-center"><i
+                                        class='bx bxs-briefcase-alt-2 text-white' style="font-size: 20px;"></i>
+                                </div>
                                 <div class="notif-content mx-2">
                                     <p class="title">Lowongan Kerja</p>
                                     <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance.
@@ -152,7 +189,9 @@
                         </div>
                         <div class="notif-item d-flex justify-content-between my-2">
                             <div class="d-flex">
-                                <div class="notif-img rounded-circle"></div>
+                                <div class="notif-img rounded-circle d-flex justify-content-center align-items-center"><i
+                                        class='bx bxs-briefcase-alt-2 text-white' style="font-size: 20px;"></i>
+                                </div>
                                 <div class="notif-content mx-2">
                                     <p class="title">Lowongan Kerja</p>
                                     <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance.
@@ -164,7 +203,9 @@
                         </div>
                         <div class="notif-item d-flex justify-content-between my-2">
                             <div class="d-flex">
-                                <div class="notif-img rounded-circle"></div>
+                                <div class="notif-img rounded-circle d-flex justify-content-center align-items-center"><i
+                                        class='bx bxs-briefcase-alt-2 text-white' style="font-size: 20px;"></i>
+                                </div>
                                 <div class="notif-content mx-2">
                                     <p class="title">Lowongan Kerja</p>
                                     <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance.
@@ -176,7 +217,9 @@
                         </div>
                         <div class="notif-item d-flex justify-content-between my-2">
                             <div class="d-flex">
-                                <div class="notif-img rounded-circle"></div>
+                                <div class="notif-img rounded-circle d-flex justify-content-center align-items-center"><i
+                                        class='bx bxs-briefcase-alt-2 text-white' style="font-size: 20px;"></i>
+                                </div>
                                 <div class="notif-content mx-2">
                                     <p class="title">Lowongan Kerja</p>
                                     <p class="content">Anda telah mendaftar ke lowongan kerja PT. Yutaka Finance.
@@ -201,6 +244,16 @@
     <!-- CHART JS 3.5.1 -->
     <script src="../../../assets/js/chart.js"></script>
     <script>
+        // function sidebarIn() {
+        //     document.getElementById('navbar-wrapper-main').style.display = 'block';
+        //     document.getElementById('navbar-toggle').style.display = 'none';
+        // }
+
+        // function sidebarOut() {
+        //     document.getElementById('navbar-wrapper-main').style.display = 'none';
+        //     document.getElementById('navbar-toggle').style.display = 'block';
+        // }
+
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',

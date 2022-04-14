@@ -7,23 +7,6 @@
     <link rel="stylesheet" href="/assets/css/styleMitra.css">
 
     <style>
-        /* STYLING SEARCH */
-
-        .search input {
-            height: 60px;
-            padding-left: 60px;
-            font-size: 18px;
-            border: 2px solid rgba(0, 0, 0, 0.2);
-        }
-
-        .search i.bx {
-            z-index: 10;
-            font-size: 30px;
-            top: 15px;
-            left: 2%;
-            color: rgba(0, 0, 0, 0.5);
-        }
-
         /* CUSTOMIZING LOKER ITEM */
 
         .loker-item .bottom p {
@@ -69,10 +52,11 @@
 
             <div class="search py-3">
                 <!-- SEARCH BAR -->
-                <form action="" class="position-relative">
-                    <i class='bx bx-search position-absolute'></i>
+                <form action="" class="position-relative d-flex justify-content-center">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control rounded-20 shadow" placeholder="Cari Mitra...">
+                        <button class="input-group-text btn-search"><i class='bx bx-search'></i></button>
+                        <input type="text" class="form-control" placeholder="Search Pelamar..." aria-label="search"
+                            name="search">
                     </div>
                 </form>
             </div>

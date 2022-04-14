@@ -35,9 +35,11 @@
 
         .search input {
             height: 60px;
-            padding-left: 55px;
+            /* padding-left: 55px; */
             font-size: 18px;
-            border: 2px solid rgba(0, 0, 0, 0.2);
+            border: 2px solid rgb(193, 193, 193);
+            border-radius: 0px 20px 20px 0px;
+            border-left: 0px;
         }
 
         .search i.bx {
@@ -46,6 +48,13 @@
             top: 15px;
             left: 2%;
             color: rgba(0, 0, 0, 0.5);
+        }
+
+        form .btn-search {
+            border: 2px solid rgb(193, 193, 193);
+            border-right: 0px;
+            border-radius: 20px 0px 0px 20px;
+            background: #fff;
         }
 
         /* STYLING TABLE */
@@ -165,11 +174,11 @@
             <div class="alumni-table">
                 <!-- SEARCH BAR -->
                 <div class="search py-3">
-                    <form action="" class="position-relative">
-                        <i class='bx bx-search position-absolute'></i>
+                    <form action="" class="position-relative d-flex justify-content-center">
                         <div class="input-group mb-3">
-                            <input type="search" class="form-control rounded-20 shadow"
-                                placeholder="Search Rekomendasi Alumni...">
+                            <button class="input-group-text btn-search"><i class='bx bx-search'></i></button>
+                            <input type="text" class="form-control" placeholder="Search Pelamar..." aria-label="search"
+                                name="search">
                         </div>
                     </form>
                 </div>

@@ -31,23 +31,6 @@
             border-bottom-right-radius: 15px;
         }
 
-        /* STYLING SEARCH */
-
-        .search input {
-            height: 60px;
-            padding-left: 55px;
-            font-size: 18px;
-            border: 2px solid rgba(0, 0, 0, 0.2);
-        }
-
-        .search i.bx {
-            z-index: 10;
-            font-size: 30px;
-            top: 15px;
-            left: 2%;
-            color: rgba(0, 0, 0, 0.5);
-        }
-
         /* STYLING TABLE */
 
         .data-table {
@@ -143,10 +126,11 @@
             <div class="alumni-table">
                 <!-- SEARCH BAR -->
                 <div class="search py-3">
-                    <form action="" class="position-relative">
-                        <i class='bx bx-search position-absolute'></i>
+                    <form action="" class="position-relative d-flex justify-content-center">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control rounded-20 shadow" placeholder="Search Pelamar...">
+                            <button class="input-group-text btn-search"><i class='bx bx-search'></i></button>
+                            <input type="text" class="form-control" placeholder="Search Pelamar..." aria-label="search"
+                                name="search">
                         </div>
                     </form>
                 </div>

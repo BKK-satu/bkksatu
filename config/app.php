@@ -161,7 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Yajra\DataTables\DataTablesServiceProvider::class,
+        // Yajra\DataTables\DataTablesServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -176,6 +176,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // DOMPDF
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -230,8 +232,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
-
+        // 'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        // DOMPDF
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];
