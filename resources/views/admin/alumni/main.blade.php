@@ -30,7 +30,12 @@
     <div class="main-page">
         <!-- SIDEBAR -->
         @include('layouts.sidebar-admin')
-        <img src="/assets/img/wave2.svg" class="position-absolute waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="position-absolute waves"
+            preserveAspectRatio="none">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,288L60,282.7C120,277,240,267,360,234.7C480,203,600,149,720,149.3C840,149,960,203,1080,213.3C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
 
         <div class="content-outer-wrapper mx-auto">
             <div class="py-3 content-wrapper">
@@ -44,8 +49,8 @@
                     <!-- GRAFIX BATANG -->
                     <div class="alumni-graph">
                         <div class="row mb-3">
-                            <div class="bg-white graph-item col">
-                                <div class="item rounded-20 p-3 shadow-custom-2">
+                            <div class="graph-item col">
+                                <div class="bg-white item rounded-20 p-3 shadow-custom-2">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <p class="mb-0">Alumni</p>
                                         <a href="/ad/al/daftar" class="btn btn-primary rounded-20">Lihat Data</a>
@@ -53,20 +58,20 @@
                                     <p class="text-center">12.043</p>
                                 </div>
                             </div>
-                            <div class="bg-white graph-item col">
-                                <div class="item rounded-20 p-3 shadow-custom-2">
+                            <div class="graph-item col">
+                                <div class="bg-white item rounded-20 p-3 shadow-custom-2 my-2">
                                     <p>Berkerja</p>
                                     <p class="text-center">5.403</p>
                                 </div>
                             </div>
-                            <div class="bg-white graph-item col">
-                                <div class="item rounded-20 p-3 shadow-custom-2">
+                            <div class="graph-item col">
+                                <div class="bg-white item rounded-20 p-3 shadow-custom-2 my-2">
                                     <p>Kuliah</p>
                                     <p class="text-center">9.342</p>
                                 </div>
                             </div>
-                            <div class="bg-white graph-item col">
-                                <div class="item rounded-20 p-3 shadow-custom-2">
+                            <div class="graph-item col">
+                                <div class="bg-white item rounded-20 p-3 shadow-custom-2 my-2">
                                     <p>Wirausaha</p>
                                     <p class="text-center">1.239</p>
                                 </div>
@@ -74,8 +79,8 @@
                         </div>
                         <div class="mb-3">
                             <div class="pe-3">
-                                <div class="bg-white rounded-20 p-3 shadow-custom-2">
-                                    <div class="d-flex align-items-center mb-3">
+                                <div class="rounded-20 p-3 shadow-custom-2">
+                                    <div class="bg-white d-flex align-items-center mb-3 my-2">
                                         <h2 class="fw-700 me-2 mb-0">Grafik karir alumni</h2>
                                         <a href="/ad/al/penelusuran" class="btn btn-primary rounded-20">Lihat Penelusuran
                                             Alumni</a>

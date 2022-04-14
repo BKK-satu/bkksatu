@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 {{-- @section('titlepage', 'Pelamar {{ $id_loker }} | Mitra') --}}
-@section('titlepage', 'Pelamar LOK00001 | Mitra')
+@section('titlepage', 'Pelamar ' . $loker_id . ' | Mitra')
 
 @section('css')
     <link rel="stylesheet" href="/assets/css/style.css">
@@ -30,9 +30,11 @@
 
         .search input {
             height: 60px;
-            padding-left: 55px;
+            /* padding-left: 55px; */
             font-size: 18px;
-            border: 2px solid rgba(0, 0, 0, 0.2);
+            border: 2px solid rgb(193, 193, 193);
+            border-radius: 0px 20px 20px 0px;
+            border-left: 0px;
         }
 
         .search i.bx {
@@ -41,6 +43,13 @@
             top: 15px;
             left: 2%;
             color: rgba(0, 0, 0, 0.5);
+        }
+
+        form .btn-search {
+            border: 2px solid rgb(193, 193, 193);
+            border-right: 0px;
+            border-radius: 20px 0px 0px 20px;
+            background: #fff;
         }
 
         /* STYLING TABLE */
@@ -100,16 +109,24 @@
             </div>
             <div class="title-page text-white my-5">
                 <h1 class="fw-light">Pelamar</h1>
-                <h1 class="fw-bold">LOK00023</h1>
+                <h1 class="fw-bold">{{ $loker_id }}</h1>
             </div>
+
+            @if (session('error'))
+                <div class="alert alert-danger alert-dismissible fade show rounded-15" role="alert">
+                    <i class='bx bx-info-circle align-middle' style="font-size: 28px;"></i> {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
 
             <div class="alumni-table">
                 <!-- SEARCH BAR -->
                 <div class="search py-3">
-                    <form action="" class="position-relative">
-                        <i class='bx bx-search position-absolute'></i>
+                    <form action="" class="position-relative d-flex justify-content-center">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control rounded-20 shadow" placeholder="Search Pelamar...">
+                            <button class="input-group-text btn-search"><i class='bx bx-search'></i></button>
+                            <input type="text" class="form-control" placeholder="Search Pelamar..." aria-label="search"
+                                name="search" value="{{ $searchData }}">
                         </div>
                     </form>
                 </div>
@@ -123,9 +140,8 @@
                             <li><a class="dropdown-item" href="#">20</a></li>
                             <li><a class="dropdown-item" href="#">30</a></li>
                         </ul>
-                        <button class="btn btn-primary rounded-15 px-4">
-                            <p class="d-inline align-middle fw-bold">Print</p>
-                        </button>
+                        <a class="btn btn-primary rounded-15 px-4 fw-bold"
+                            href="/mt/lk/pelamar/print/{{ $loker_id }}">Print</a>
                     </div>
                     <!-- ISI DATATABLE -->
                     <div class="content mb-2 overflow-auto">
@@ -147,7 +163,8 @@
                                 @endphp
                                 @foreach ($pelamar as $key => $data)
                                     <tr>
-                                        <th scope="row">{{ $no++ }}</th>
+                                        <th scope="row">
+                                            {{ ($pelamar->currentpage() - 1) * $pelamar->perpage() + $key + 1 }}</th>
                                         <td>{{ $data->id }}</td>
                                         <td><a href="#"
                                                 class="text-link-black text-decoration-none">{{ $data->alumni_daftar->alumni->nama }}</a>
@@ -164,19 +181,9 @@
                         </table>
                     </div>
                     <!-- PAGINASI -->
-                    <nav class="d-flex justify-content-end">
-                        <ul class="pagination rounded-20">
-                            <li class="page-item"><a class="page-link" href="#"><i
-                                        class='bx bx-chevron-left align-middle'></i></a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i
-                                        class='bx bx-chevron-right align-middle'></i></a></li>
-                        </ul>
-                    </nav>
+                    <div class="d-flex justify-content-end">
+                        {{ $pelamar->links('vendor.pagination.bootstrap-4') }}
+                    </div>
                 </div>
             </div>
         </div>

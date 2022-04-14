@@ -81,6 +81,7 @@ Route::prefix('mt')->group(function () {
         Route::post('/hapus/{id}', 'mitra\LokerController@hapus')->name('loker.delete');
 
         Route::get('/pelamar/{id}', 'mitra\LokerController@pelamar')->name('pelamar');
+        Route::get('/pelamar/print/{id}', 'mitra\LokerController@generatePelamar');
 
         Route::get('/rekomend/{id}', 'mitra\LokerController@rekomend')->name('rekomend');
         Route::post('/rekomend/post', 'mitra\LokerController@rekomendAdd');

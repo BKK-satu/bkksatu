@@ -51,9 +51,14 @@
 }
 
 @media only screen and (max-width: 768px) {
+    /* MAIN WRAPPER */
     .content-wrapper {
-        margin-left: 90px;
+        margin-left: 0px!important;
+        margin-right: 0px!important;
     }
+    /* .content-wrapper {
+        margin-left: 90px;
+    } */
     .navbar-wrapper {
         width: 70px;
         height: 100%;
@@ -71,7 +76,7 @@
     }
 }
 
-@media only screen and (max-width: 375) {
+@media only screen and (max-width: 375px) {
     .content-wrapper {
         margin-left: 80px;
     }

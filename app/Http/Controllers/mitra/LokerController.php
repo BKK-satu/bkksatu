@@ -17,6 +17,7 @@ use App\Models\Seleksi_pelamar;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use PDF;
 
 class LokerController extends Controller
 {
@@ -503,21 +504,56 @@ class LokerController extends Controller
     *
     * @return void
     */
-    public function pelamar($id)
+    public function pelamar(Request $request, $id)
     {
-        // $loker = Loker::where([['mitra_id', 'MRA00002'],['id', $id]])->first();
-        // if ($loker == null) {
-        //     return redirect()->back()->with('error',' Data tidak data diakses!');
-        // }
+        $search = $request->search;
+        if ($search) {
+            $pelamar = Pelamar::where([
+                ['lowongankerja_id', $id],
+                ['id','like',"%".$search."%"]
+            ])->orWhere([
+                ['lowongankerja_id', $id],
+                ['tanggal_submit','like',"%".$search."%"]
+            ])->paginate(2);
+            // ->whereIn('nama', Pelamar::all->lists('nama')->toArray())
+            $searchData = $request->search;
+        }else{
+            $pelamar = Pelamar::where('lowongankerja_id', $id)->paginate(2);
+            $searchData = '';
+        }
 
-        $pelamar = Pelamar::where('lowongankerja_id', $id)->get();
+        $loker = Loker::where([['mitra_id', 'MRA00002'],['id', $id]])->first();
+        if ($loker == null) {
+            return redirect()->back()->with('error',' Data tidak data diakses!');
+        }
 
         $data = [
             'title' => 'loker',
             'pelamar' => $pelamar,
+            'loker_id' => $id,
+            'searchData' => $searchData,
         ];
 
         return view('mitra.loker.pelamar', $data);
+    }
+
+    /**
+    * Generating pdf pelamar
+    *
+    *
+    * @return void
+    */
+    public function generatePelamar($id)
+    {
+        $pelamar = Pelamar::where('lowongankerja_id', $id)->get();
+
+        $data = [
+            'pelamar' => $pelamar,
+            'loker_id' => $id,
+        ];
+
+        $pdf = PDF::loadView('mitra.loker.generate-pelamar', $data);
+        return $pdf->download('daftar-pelamar.pdf');
     }
 
     /**
